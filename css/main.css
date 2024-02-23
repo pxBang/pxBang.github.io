@@ -1201,7 +1201,7 @@ pre code {
 }
 .sidebar-inner {
   color: #999;
-  padding: 18px 10px;
+  padding: 10px 10px;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -2448,7 +2448,7 @@ header.header {
   vertical-align: middle;
 }
 .links-of-author a::before {
-  background: #25f7d4;
+  background: #88fffb;
   display: inline-block;
   margin-right: 3px;
   transform: translateY(-2px);
