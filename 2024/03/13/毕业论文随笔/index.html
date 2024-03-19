@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.1.1">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha256-wiz7ZSCn/btzhjKDQBms9Hx4sSeUYsDrTLg7roPstac=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.19.1","exturl":false,"sidebar":{"position":"left","display":"always","padding":10,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="第五章节 集成与实验 这一章节，目前遇到的问题就是，不知道怎么加入内容。其实就是仿照sgn的论文结构去一步步填充就好了。 根据这个思路，sgn的论文第五章结构是  引言 应急浮标系统集成 单项试验 半实物仿真试验 现场试验 本章小节  其中第1、6点为介绍和总结，不是重点。对于第2、3、4、5点分别介绍 应急浮标系统集成 该点对于我的论文来讲，就是对均衡系统进行集成。那么我的均衡系统怎么进行集成呢">
+<meta property="og:type" content="article">
+<meta property="og:title" content="毕业论文随笔">
+<meta property="og:url" content="http://example.com/2024/03/13/%E6%AF%95%E4%B8%9A%E8%AE%BA%E6%96%87%E9%9A%8F%E7%AC%94/index.html">
+<meta property="og:site_name" content="pxBang的个人博客">
+<meta property="og:description" content="第五章节 集成与实验 这一章节，目前遇到的问题就是，不知道怎么加入内容。其实就是仿照sgn的论文结构去一步步填充就好了。 根据这个思路，sgn的论文第五章结构是  引言 应急浮标系统集成 单项试验 半实物仿真试验 现场试验 本章小节  其中第1、6点为介绍和总结，不是重点。对于第2、3、4、5点分别介绍 应急浮标系统集成 该点对于我的论文来讲，就是对均衡系统进行集成。那么我的均衡系统怎么进行集成呢">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-03-13T06:40:32.000Z">
+<meta property="article:modified_time" content="2024-03-18T09:47:27.440Z">
+<meta property="article:author" content="pxBang">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/2024/03/13/%E6%AF%95%E4%B8%9A%E8%AE%BA%E6%96%87%E9%9A%8F%E7%AC%94/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2024/03/13/%E6%AF%95%E4%B8%9A%E8%AE%BA%E6%96%87%E9%9A%8F%E7%AC%94/","path":"2024/03/13/毕业论文随笔/","title":"毕业论文随笔"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>毕业论文随笔 | pxBang的个人博客</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">pxBang的个人博客</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%BA%94%E7%AB%A0%E8%8A%82-%E9%9B%86%E6%88%90%E4%B8%8E%E5%AE%9E%E9%AA%8C"><span class="nav-number">1.</span> <span class="nav-text">第五章节 集成与实验</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BA%94%E6%80%A5%E6%B5%AE%E6%A0%87%E7%B3%BB%E7%BB%9F%E9%9B%86%E6%88%90"><span class="nav-number">1.1.</span> <span class="nav-text">应急浮标系统集成</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8D%95%E9%A1%B9%E5%AE%9E%E9%AA%8C"><span class="nav-number">1.2.</span> <span class="nav-text">单项实验</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8D%8A%E5%AE%9E%E7%89%A9%E4%BB%BF%E7%9C%9F%E5%AE%9E%E9%AA%8C"><span class="nav-number">1.3.</span> <span class="nav-text">半实物仿真实验</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%8E%B0%E5%9C%BA%E5%AE%9E%E9%AA%8C"><span class="nav-number">1.4.</span> <span class="nav-text">现场实验</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B0%8F%E7%BB%93"><span class="nav-number">1.5.</span> <span class="nav-text">小结</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E5%85%AD%E7%AB%A0%E8%8A%82-%E7%BB%93%E8%AE%BA%E4%B8%8E%E5%B1%95%E6%9C%9B"><span class="nav-number">2.</span> <span class="nav-text">第六章节 结论与展望</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%AC%E6%96%87%E4%B8%BB%E8%A6%81%E5%86%85%E5%AE%B9%E5%8F%8A%E7%BB%93%E8%AE%BA"><span class="nav-number">2.1.</span> <span class="nav-text">本文主要内容及结论</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%8E%E7%BB%AD%E6%80%9D%E8%B7%AF"><span class="nav-number">3.</span> <span class="nav-text">后续思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%87%B4%E8%B0%A2"><span class="nav-number">4.</span> <span class="nav-text">致谢</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE"><span class="nav-number">5.</span> <span class="nav-text">参考文献</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%BA%E6%96%87%E7%A0%94%E7%A9%B6%E5%AF%B9%E8%B1%A1%E6%8A%80%E6%9C%AF%E9%9A%BE%E7%82%B9%E8%AE%BA%E6%96%87%E4%B8%BB%E8%A6%81%E5%86%85%E5%AE%B9%E5%8F%8A%E7%BB%93%E6%9E%84%E5%AE%89%E6%8E%92"><span class="nav-number">6.</span> <span class="nav-text">论文研究对象、技术难点、论文主要内容及结构安排</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="pxBang"
+      src="https://raw.githubusercontent.com/pxBang/ImageHostingService/main/202402232302599.jpg">
+  <p class="site-author-name" itemprop="name">pxBang</p>
+  <div class="site-description" itemprop="description">真的勇士,敢于直面惨淡的warning、敢于正视淋漓的error。</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">12</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/pxBang" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;pxBang" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/03/13/%E6%AF%95%E4%B8%9A%E8%AE%BA%E6%96%87%E9%9A%8F%E7%AC%94/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://raw.githubusercontent.com/pxBang/ImageHostingService/main/202402232302599.jpg">
+      <meta itemprop="name" content="pxBang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="pxBang的个人博客">
+      <meta itemprop="description" content="真的勇士,敢于直面惨淡的warning、敢于正视淋漓的error。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="毕业论文随笔 | pxBang的个人博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          毕业论文随笔
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-03-13 14:40:32" itemprop="dateCreated datePublished" datetime="2024-03-13T14:40:32+08:00">2024-03-13</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-03-18 17:47:27" itemprop="dateModified" datetime="2024-03-18T17:47:27+08:00">2024-03-18</time>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>1.8k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>6 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h2 id="第五章节-集成与实验">第五章节 集成与实验</h2>
+<p>这一章节，目前遇到的问题就是，不知道怎么加入内容。其实就是仿照sgn的论文结构去一步步填充就好了。</p>
+<p>根据这个思路，sgn的论文第五章结构是</p>
+<ol type="1">
+<li>引言</li>
+<li>应急浮标系统集成</li>
+<li>单项试验</li>
+<li>半实物仿真试验</li>
+<li>现场试验</li>
+<li>本章小节</li>
+</ol>
+<p>其中第1、6点为介绍和总结，不是重点。对于第2、3、4、5点分别介绍</p>
+<h3 id="应急浮标系统集成">应急浮标系统集成</h3>
+<p>该点对于我的论文来讲，就是对均衡系统进行集成。那么我的均衡系统怎么进行集成呢？有哪些工作内容是关于均衡系统集成的呢？说实话，我有点无法想到。但是，我又必须要写，所以这是一个难点，待解决的难点。</p>
+<p>更新：仔细想想，这一点其实是讲均衡系统装到控制柜内，因此给出安装等信息便可以。</p>
+<p>花了两小时写了4页。。真难写</p>
+<h3 id="单项实验">单项实验</h3>
+<p>该点对于我的论文来讲，其实是针对均衡系统单独进行实验，而非整个实验，换句话说，是对均衡系统是否能正常工作进行一个完整性检测，检测其各项基本功能是否正常，是否具备均衡的条件。这个内容我是有的，所以这点不是难点。</p>
+<p>该点似乎也不是那么好些啊</p>
+<h3 id="半实物仿真实验">半实物仿真实验</h3>
+<p>这点对于我的论文来说，也是半实物仿真实验。这块内容我是有的，所以这不是难点。</p>
+<p>这点我看sgn的论文中对于半实物仿真各个部分都进行了介绍。所以开始吧</p>
+<h3 id="现场实验">现场实验</h3>
+<p>这点对于我的论文来说，也是现场实验。这块内容，我感觉有一点，有感觉不多。所以这点也是难点。</p>
+<h3 id="小结">小结</h3>
+<p>因此以上4点，有两点是难点，需要进行解决。希望我能解决这两点问题，把其他两点也顺利完成。</p>
+<h2 id="第六章节-结论与展望">第六章节 结论与展望</h2>
+<p>这一章节其实并不难，因为这一章节，其实是对全文的一个总结和对存在问题的表达以及对未来的展望。这一章节是比较水的，最重要的，可以找到类似的东西进行书写。</p>
+<p>这一章节属于大胆的去写，因为结构都大差不差，论文内容、创新点、存在的问题及未来的展望。所以这一章节不需要害怕，随便写，谁都能写出来！</p>
+<p>这一章节结构</p>
+<ol type="1">
+<li>本文主要内容及结论</li>
+<li>本文的主要创新点</li>
+<li>研究的局限性与未来展望</li>
+</ol>
+<h3 id="本文主要内容及结论">本文主要内容及结论</h3>
+<p>这一点，直接针对文章内容进行归纳，在最后进行结论的表示就可以。可以试试让gpt来总结。</p>
+<h2 id="后续思路">后续思路</h2>
+<p>我觉得第二章《水下航行器的基础理论》、第三章《行进间均衡控制技术》要大改。第一章《绪论》也要做相应修改。因为我自己对这三章十分不满意，一定要改到我满意为止。</p>
+<p>至于具体到哪些方面不满意，等到该的时候再说。</p>
+<p>回到第六章，因为第二、第三章节内容还没有完全确定。因此在第六章节，总结与展望时，只写第四、第五章的总结。注意到第六章的结构如下所示：</p>
+<ol type="1">
+<li>本文主要内容及结论</li>
+<li>本文的主要创新点</li>
+<li>研究的局限性与未来展望</li>
+</ol>
+<p>第2、3点根本和第二、第三章节内容无关，因此可以放心大胆的写（有一点点关系，创新点这里，不过也还好，反正创新点总是往大的写，所以创新点和文章的内容切割了）。而第1点只写第四、第五章内容，不写第二、三章内容。</p>
+<p>所以大胆的写。第六章节写完之后，还要写致谢，并参考文献补充完成。所以任务还多。还没有到大改的时机。</p>
+<h2 id="致谢">致谢</h2>
+<p>致谢这一章节其实比较好弄，我将sgn的致谢修改相应的关键词，为了降低查重，再用gpt进行降重。按理说这一章节写起来非常快，可能1小时就写完了</p>
+<h2 id="参考文献">参考文献</h2>
+<p>参考文献的补充其实比较麻烦，原因在于，我需要将文献下载下来，并放入到zotero文献库中，然后在word中其实操作起来很快，点两下就可以了。所以参考文献的麻烦并不在于word中，而在于</p>
+<ol type="1">
+<li>文献的查找</li>
+<li>文献链接到zotero文献库中</li>
+</ol>
+<p>文献数量比较多，或许有100个左右，那么按照一个文献操作需要3min来算，100个就需要300min，也就是5个小时。所以我说这里其实不难，但是很繁琐。</p>
+<p>后期通过优化，或许一个文献要不到3min，需要1min，那么时间也会相应下降，但是不管怎么下降，2-3小时起步。所以这里是比较繁琐的</p>
+<p>参考文献确实难搞，有点不想开始。但是必须得开始。</p>
+<p>怎么开始？现在根本问题是什么？是我不知道参考文献从哪里找，或者说我用了哪些参考文献，其实可以参考我之前的聊天记录，有记录参考了哪些文献，现在讲这些文献找出来，并找到在文章中对应的位置，因此，现在难就难在这两点，第一找原文献，第二找在论文中引用的位置。</p>
+<p>根据sgn论文，其实参考文献只需要在《课题研究背景》、《国内外研究现状》这两小节引用便可。甚至一个词就是两三个引用。而且引用主要集中在第三章的相关内容，也就是第三章的内容，是国内外研究现状的主要突出点。
+所以国内外现状也应该主要从这方面来展开，并给出相关文献。因此用gpt来找文献的方法是正确的。</p>
+<h2
+id="论文研究对象技术难点论文主要内容及结构安排">论文研究对象、技术难点、论文主要内容及结构安排</h2>
+<p>我看sgn论文中这一节，其实只给出了一张图，对其各部分进行介绍。我在想dbl的结构图，我这边真的有吗？没有的话怎么办？</p>
+<p>技术难点这一节，还可以，，比较好水，用gpt，并且在promot中加入我指向型的口令，可以满足效果</p>
+<p>论文主要内容及结构安排，主要内容就是一结构图，以及每一章节的小结。每一章节的小节，可以由我自己写完之后，由gpt润色，可以满足要求。关于小节，为了防止每一章节中的本章小节与此章节的小节合集内容重复，可以使用gpt降重，这个方法也不错。结构图，我在想用什么软件实现？用drawio吧，应该可以</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>请我一杯咖啡吧！</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="https://raw.githubusercontent.com/pxBang/ImageHostingService/main/202402232321704.JPG" alt="pxBang 微信">
+        <span>微信</span>
+      </div>
+
+  </div>
+</div>
+
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2024/03/06/pandoc%E6%A0%87%E8%AE%B0%E8%AF%AD%E8%A8%80%E8%BD%AC%E6%8D%A2%E5%B7%A5%E5%85%B7/" rel="prev" title="pandoc标记语言转换工具">
+                  <i class="fa fa-angle-left"></i> pandoc标记语言转换工具
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2024/03/14/%E5%90%90%E6%A7%BDgpt%E9%98%85%E8%AF%BB%E8%AE%BA%E6%96%87/" rel="next" title="吐槽gpt阅读论文">
+                  吐槽gpt阅读论文 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments gitalk-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">pxBang</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">19k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">1:02</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
+
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"pxBang","repo":"pxBang.github.io","client_id":"71c2acdbfd8649b45b27","client_secret":"652c5c065f75e1ca0bd7b533339fdc77bb2c4d91","admin_user":"pxBang","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":null,"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.min.js","integrity":"sha256-MVK9MGD/XJaGyIghSVrONSnoXoGh3IFxLw0zfvzpxR4="},"path_md5":"ec5a7499267517ebe1d857bca60e5807"}</script>
+<script src="/js/third-party/comments/gitalk.js"></script>
+
+</body>
+</html>
