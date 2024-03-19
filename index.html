@@ -217,7 +217,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2024-03-19 19:59:57 / 修改时间：20:46:55" itemprop="dateCreated datePublished" datetime="2024-03-19T19:59:57+08:00">2024-03-19</time>
+      <time title="创建时间：2024-03-19 19:59:57 / 修改时间：20:53:29" itemprop="dateCreated datePublished" datetime="2024-03-19T19:59:57+08:00">2024-03-19</time>
     </span>
 
   
@@ -227,7 +227,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>492</span>
+      <span>500</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -245,96 +245,15 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="起因">起因</h2>
-<p>创建了gmail邮箱，希望添加到mac自带的邮件app中。发现无法接收gmail邮件，于是在网上找攻略，不断寻找后，有人说代理可能会影响mac自带邮件app中gmail邮件接收。于是自己进行问题的定位</p>
-<h2 id="问题">问题</h2>
-<p>虽然有人说代理影响邮件app的gmail接收，但如何测试呢？发现邮件有连接诊断功能，见下图</p>
-<figure>
-<img
-src="https://raw.githubusercontent.com/pxBang/ImageHostingService/main/202403192007275.png"
-alt="连接诊断" />
-<figcaption aria-hidden="true">连接诊断</figcaption>
-</figure>
-<p>该功能可测试各邮件服务器的收发功能，于是开始测试</p>
-<h2 id="必要知识">必要知识</h2>
-<p>有必要理解<a
-target="_blank" rel="noopener" href="https://chat.openai.com/share/440c44e3-8e5d-4a76-84b5-f08dea0d30e0">IMAP和SMTP</a>（该链接需要翻墙）</p>
-<h2 id="测试">测试</h2>
-<h3 id="shadowrocket软件开启配置模式">shadowrocket软件开启配置模式</h3>
-<figure>
-<img
-src="https://raw.githubusercontent.com/pxBang/ImageHostingService/main/202403192011899.png"
-alt="开启shadowrocket配置模式" />
-<figcaption aria-hidden="true">开启shadowrocket配置模式</figcaption>
-</figure>
-<p>在连接了很久之后，依然连接失败。</p>
-<figure>
-<img
-src="https://raw.githubusercontent.com/pxBang/ImageHostingService/main/202403191948715.png"
-alt="连接了很久" />
-<figcaption aria-hidden="true">连接了很久</figcaption>
-</figure>
-<figure>
-<img
-src="https://raw.githubusercontent.com/pxBang/ImageHostingService/main/202403191948633.png"
-alt="连接失败" />
-<figcaption aria-hidden="true">连接失败</figcaption>
-</figure>
-<p>于是查看在当前配置规则下，<code>smtp.gmail.com</code>与<code>imap.gmail.com</code>两个服务器的代理情况，</p>
-<figure>
-<img
-src="https://raw.githubusercontent.com/pxBang/ImageHostingService/main/202403191950570.png"
-alt="smtp.gmail.com规则测试" />
-<figcaption aria-hidden="true">smtp.gmail.com规则测试</figcaption>
-</figure>
-<figure>
-<img
-src="https://raw.githubusercontent.com/pxBang/ImageHostingService/main/202403191950457.png"
-alt="imap.gmail.com规则测试" />
-<figcaption aria-hidden="true">imap.gmail.com规则测试</figcaption>
-</figure>
-<p>检查发现这两个域名均为代理模式，所以猜测</p>
-<blockquote>
-<p>代理导致IMAP服务器连接失败</p>
-</blockquote>
-<h3 id="关闭shadowrocket">关闭shadowrocket</h3>
-<p>关闭shadowrocket，即关闭代理后，再次进行服务器诊断</p>
-<figure>
-<img
-src="https://raw.githubusercontent.com/pxBang/ImageHostingService/main/202403192022414.png"
-alt="关闭shadowrocket模式" />
-<figcaption aria-hidden="true">关闭shadowrocket模式</figcaption>
-</figure>
-<figure>
-<img
-src="https://raw.githubusercontent.com/pxBang/ImageHostingService/main/202403191955296.png"
-alt="再次服务器连接诊断" />
-<figcaption aria-hidden="true">再次服务器连接诊断</figcaption>
-</figure>
-<p>发现连接成功！所以确定</p>
-<blockquote>
-<p>代理导致IMAP服务器连接失败</p>
-</blockquote>
-<h2 id="解决问题">解决问题</h2>
-<blockquote>
-<p>我的需求是在开启配置模式下，依然能够连接<code>IMAP</code>服务器</p>
-</blockquote>
-<blockquote>
-<p>解决办法是编辑模块文件，更改<code>imap.gmail.com</code>为直连规则。</p>
-</blockquote>
-<p>更改配置规则的办法不再赘述，这里给出规则</p>
-<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DOMAIN-SUFFIX,imap.gmail.com,DIRECT</span><br></pre></td></tr></table></figure>
-<h2 id="效果测试">效果测试</h2>
-<figure>
-<img
-src="https://raw.githubusercontent.com/pxBang/ImageHostingService/main/202403192041581.png"
-alt="🎉问题得到解决！" />
-<figcaption aria-hidden="true">🎉问题得到解决！</figcaption>
-</figure>
-<h2 id="小结">小结</h2>
-<p><code>mac</code>的<code>邮件</code>添加的<code>gmail</code>账户的<code>imap</code>服务器走代理模式，反而无法连接。我认为这一定是个bug，应该是mac邮件app和gmail在中国大陆的适配性还不够好。</p>
-<p>是的，我觉得就是bug。但别人也不做中国大陆的生意，在他们看来不是bug🤢</p>
-
+          <p>代理的灵活使用</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2024/03/19/mac%E9%82%AE%E4%BB%B6app%E6%97%A0%E6%B3%95%E6%8E%A5%E6%94%B6Gmail%E9%82%AE%E4%BB%B6%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -390,7 +309,7 @@ alt="🎉问题得到解决！" />
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2024-03-19 15:43:06 / 修改时间：17:18:46" itemprop="dateCreated datePublished" datetime="2024-03-19T15:43:06+08:00">2024-03-19</time>
+      <time title="创建时间：2024-03-19 15:43:06 / 修改时间：20:51:32" itemprop="dateCreated datePublished" datetime="2024-03-19T15:43:06+08:00">2024-03-19</time>
     </span>
 
   
@@ -400,7 +319,7 @@ alt="🎉问题得到解决！" />
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>815</span>
+      <span>816</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -419,45 +338,15 @@ alt="🎉问题得到解决！" />
     
     <div class="post-body" itemprop="articleBody">
           <h2 id="起因">起因</h2>
-<p>我只有qq邮箱和一个教育邮箱，教育邮箱我一定不会用来绑定各种生活中的app，所以在绑定邮箱时，只会绑定qq邮箱。但是国外软件居然要求国外邮箱，否则国外软件会认为你这个账户危险（对，说的就是twitter），总而言之，给我造成了一定的麻烦。原因就是国外软件绑定国内邮箱。</p>
-<p>我之前的google账户绑定的是qq邮箱。其实并没有造成使用上的影响，但是我自己对于账户、邮箱的概念混淆。google账户绑定qq邮箱，那google账户和qq邮箱有什么关系？每次登陆github看到上面@qq.com的账户名，我感觉吃了💩一样难受。github是国外软件，为什么要绑定qq邮箱？</p>
-<p>在使用国外软件，如google账户、github账户、微软账户、twitter账户，telegram账户等等等等，明明用的是国外软件，绑定的却是qq邮箱，虽然符合绑定要求，但是我自己很难受，有一种概念混淆的感觉。我思考原因，可能是<strong>国外软件和国内软件政策上的不同</strong>，但是用的qq邮箱绑定，我潜意识里没有分门别类，仍将国外国内混淆一谈，导致认知混淆，为了改变自己的这种认知混淆，</p>
-<h2 id="决定">决定</h2>
-<p>我决定定一条邮箱与账户原则 &gt;
-国外软件绑定google邮箱，国内软件绑定qq邮箱，教育邮箱用来薅羊毛（教育邮箱毕业了就会自动注销，因此是暂时的邮箱，无需考虑维护）</p>
-<h2 id="后果">后果</h2>
-<p>这样做必定会造成一系列问题</p>
-<ol type="1">
-<li>google账户记录的账户的密码丢失</li>
-<li>一些国外账户绑定qq邮箱，为了满足邮箱与账户原则，我需要更改账户的绑定邮箱</li>
-</ol>
-<p>针对以上两个问题，解决办法是</p>
-<ol type="1">
-<li>查看google账户的密码管理器，发现这些密码丢了就丢了，用到的时候再找回来就好了</li>
-<li>花时间更改绑定邮箱</li>
-</ol>
-<p>目前想到的问题有以上两个，可能有未考虑全面的地方。日后更新补充</p>
-<h2 id="google邮箱">google邮箱</h2>
-<p>google邮箱用户名一定要好记，容易联想，因此使用<code>pxbang</code>，<code>pxbang</code>被占用，因此加上我的出生月日<code>0727</code>，</p>
-<p>google邮箱为：<code>pxbang0727@gmail.com</code></p>
-<h2 id="展望">展望</h2>
-<p>其实账户的绑定源除了邮箱，还有手机号这种方式，由于目前我不可能拥有国外手机号，所以注册国外软件账户时，即使它要求绑定手机号，我也只能绑定+86的手机号。手机号没有条件满足国外软件绑定国外手机号，国内软件绑定国内手机号。</p>
-<p>所以遇到必须绑定国外手机号的时候，只能去购买临时手机号。</p>
-<h2 id="国外账户国内账户统计">国外账户、国内账户统计</h2>
-<h3 id="国外账户">国外账户</h3>
-<ul>
-<li>github账户</li>
-<li>google账户</li>
-<li>twitter账户</li>
-<li>美区apple账户</li>
-</ul>
-<h3 id="国内账户">国内账户</h3>
-<ul>
-<li>微软账户（微软可以在中国发展）</li>
-<li>国区apple账户（apple也可以在中国发展）</li>
-<li>所有战狼账户</li>
-</ul>
-
+<p>我只有qq邮箱
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2024/03/19/%E4%B8%AA%E4%BA%BA%E9%82%AE%E7%AE%B1%E7%B1%BB%E5%9E%8B%E5%8F%8A%E7%94%A8%E6%B3%95/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -511,9 +400,15 @@ alt="🎉问题得到解决！" />
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2024-03-18 17:35:03 / 修改时间：21:50:14" itemprop="dateCreated datePublished" datetime="2024-03-18T17:35:03+08:00">2024-03-18</time>
+      <time title="创建时间：2024-03-18 17:35:03" itemprop="dateCreated datePublished" datetime="2024-03-18T17:35:03+08:00">2024-03-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-03-19 20:52:21" itemprop="dateModified" datetime="2024-03-19T20:52:21+08:00">2024-03-19</time>
     </span>
 
   
@@ -541,773 +436,15 @@ alt="🎉问题得到解决！" />
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="参考文献原文合并文学术文">参考文献原文、合并文、学术文</h2>
-<h3 id="原文1">原文1</h3>
-<p>以下是关于水下航行器当前研究现状的总结，基于最近的研究成果：</p>
-<ol type="1">
-<li><p>自主水下航行器（AUVs）对于科学和军事应用具有重大潜力，导致了如GOATS项目这样的倡议，以发展适应性机器人技术，用于沿海环境中的水雷对抗措施和快速环境评估。这项工作已导致对商用现成AUV技术的评估，以应对恐怖分子活动中的水雷对抗操作。<a
-target="_blank" rel="noopener" href="https://consensus.app/papers/vehicles-operations-bovio/23b6fe22a57d5718ad915dd69521a7f2/?utm_source=chatgpt">(Bovio,
-Cecchi, &amp; Baralli, 2004)</a>。</p></li>
-<li><p>在中国，AUV已成为研究热点，因为它们在海洋科学研究、资源调查和安全保障中的应用。在国家的支持下，中国在深海AUV技术上取得了重要突破，对于大规模深海资源调查起到了不可替代的作用。<a
-target="_blank" rel="noopener" href="https://consensus.app/papers/research-status-vehicles-china-li/36a318048a215bb49d9ab8d60f77c062/?utm_source=chatgpt">(Li,
-Liu, Xu, Zhao, &amp; Wang, 2018)</a>。</p></li>
-<li><p>AUV的燃料电池动力系统开发旨在提高其续航能力，超越锂离子电池的能力。虽然商业实施尚未实现，但这一领域的进展可能显著提高AUV的操作能力。<a
-target="_blank" rel="noopener" href="https://consensus.app/papers/state-technology-fuel-cell-power-systems-autonomous-méndez/9c7cdd391a46565d8a448758465ad04d/?utm_source=chatgpt">(Méndez,
-Leo, &amp; Herreros, 2014)</a>。</p></li>
-<li><p>美国国家海洋和大气管理局的海洋探索办公室认为AUVs对其研究和操作程序至关重要，AUVs在大型测量车辆到小型手动部署系统中都有作用。这突显了AUV在海洋探索中的日益重要性和多样化应用。<a
-target="_blank" rel="noopener" href="https://consensus.app/papers/vehicles-ocean-exploration-manley/50ce57ddb7245b6983a7354906f6e8b6/?utm_source=chatgpt">(Manley,
-2003)</a>。</p></li>
-<li><p>AUV技术的最新进展集中在定位和导航、最优路径规划、控制方法以及开发传感器技术等多个方面，以增强定位、导航和映射能力。这强调了旨在提高AUV功能和操作效果的多方面研究努力。<a
-target="_blank" rel="noopener" href="https://consensus.app/papers/advancements-field-vehicle-sahoo/ed01935968ba53089422142135f3905e/?utm_source=chatgpt">(Sahoo,
-Dwivedy, &amp; Robi, 2019)</a>。</p></li>
-</ol>
-<p>总结而言，水下车辆的研究现状表明，这是一个充满活力的领域，科学、军事和商业应用方面取得了重大技术进步。预计，尤其是在续航增强和传感器技术等领域的持续发展，将进一步扩大AUV的能力和应用。</p>
-<p>喜欢我们的GPT吗？在<a
-target="_blank" rel="noopener" href="https://consensus.app/?utm_source=chatgpt">consensus.app</a>免费试用我们全面的AI驱动搜索引擎和学术功能。</p>
-<h3 id="合并文1">合并文1</h3>
-<p>自主水下航行器（AUVs）对于科学和军事应用具有重大潜力，导致了如GOATS项目这样的倡议，以发展适应性机器人技术，用于沿海环境中的水雷对抗措施和快速环境评估。这项工作已导致对商用现成AUV技术的评估，以应对恐怖分子活动中的水雷对抗操作。在中国，AUV已成为研究热点，因为它们在海洋科学研究、资源调查和安全保障中的应用。在国家的支持下，中国在深海AUV技术上取得了重要突破，对于大规模深海资源调查起到了不可替代的作用。
-AUV的燃料电池动力系统开发旨在提高其续航能力，超越锂离子电池的能力。虽然商业实施尚未实现，但这一领域的进展可能显著提高AUV的操作能力。美国国家海洋和大气管理局的海洋探索办公室认为AUVs对其研究和操作程序至关重要，AUVs在大型测量航行器到小型手动部署系统中都有作用。这突显了AUV在海洋探索中的日益重要性和多样化应用。AUV技术的最新进展集中在定位和导航、最优路径规划、控制方法以及开发传感器技术等多个方面，以增强定位、导航和映射能力。这强调了旨在提高AUV功能和操作效果的多方面研究努力。总结而言，水下航行器的研究现状表明，这是一个充满活力的领域，科学、军事和商业应用方面取得了重大技术进步。预计，尤其是在续航增强和传感器技术等领域的持续发展，将进一步扩大AUV的能力和应用。</p>
-<h3 id="原文2">原文2</h3>
-<p>以下是一些关于自主水下航行器（AUV）的研究，这些研究超出了之前提到的文献：</p>
-<ol type="1">
-<li><p>Josué González-García et al., (2020)
-探讨了AUV在协作任务中的定位、导航和通信挑战，以及如何克服依赖无线电通信和全球定位系统的限制。研究强调了声学系统的局限性并提出了替代方案。<a
-target="_blank" rel="noopener" href="https://consensus.app/papers/underwater-vehicles-localization-navigation-gonzálezgarcía/06db17698b2a51e49b4bc8b21dca34a1/?utm_source=chatgpt">链接</a></p></li>
-<li><p>Zhikun Wang et al., (2019)
-提出了一种新型高机动性圆盘形AUV设计，该设计通过动态分析来设计推进系统，并通过多种运动实验证明了其高机动性。<a
-target="_blank" rel="noopener" href="https://consensus.app/papers/development-autonomous-underwater-helicopter-high-wang/b980430bb4195aef8ec94e845c217a6e/?utm_source=chatgpt">链接</a></p></li>
-<li><p>M. Brito et al., (2019)
-讨论了自适应任务规划（AMP）在商业和定制AUV中转换的阻碍因素，基于25位专家的视角提出了改善建议。<a
-target="_blank" rel="noopener" href="https://consensus.app/papers/adaptive-autonomous-underwater-vehicles-assessment-brito/68e69e6733a4538b80b223bc6299f147/?utm_source=chatgpt">链接</a></p></li>
-<li><p>Y. Pétillot et al., (2019)
-回顾了无人水下车辆（UUVs），包括遥控水下车辆（ROVs）和AUVs的技术进步和商业障碍，并提出了这些系统的未来展望。<a
-target="_blank" rel="noopener" href="https://consensus.app/papers/underwater-robots-from-remotely-operated-vehicles-pétillot/648fcf9603bd5ee09efe6660881e2655/?utm_source=chatgpt">链接</a></p></li>
-<li><p>H. Uchihori, (2021)
-探索了AUV控制的未来，从历史到最新的控制算法及其应用。<a
-target="_blank" rel="noopener" href="https://consensus.app/papers/vehicle-control-uchihori/0d07e3b32511527f9fb72152c7eff57e/?utm_source=chatgpt">链接</a></p></li>
-</ol>
-<p>这些文献覆盖了AUV的设计、控制、协作任务和未来发展方向等多个方面，展示了AUV研究领域的最新进展和挑战。</p>
-<h3 id="合并文2">合并文2</h3>
-<p>Josué González-García (2020)
-探讨了AUV在协作任务中的定位、导航和通信挑战，以及如何克服依赖无线电通信和全球定位系统的限制。研究强调了声学系统的局限性并提出了替代方案。Zhikun
-Wang
-(2019)提出了一种新型高机动性圆盘形AUV设计，该设计通过动态分析来设计推进系统，并通过多种运动实验证明了其高机动性。M.
-Brito(2019)
-讨论了自适应任务规划（AMP）在商业和定制AUV中转换的阻碍因素，基于25位专家的视角提出了改善建议。Y.
-Pétillot(2019)
-回顾了无人水下车辆（UUVs），包括遥控水下车辆（ROVs）和AUVs的技术进步和商业障碍，并提出了这些系统的未来展望。H.
-Uchihori(2021) 探索了AUV控制的未来，从历史到最新的控制算法及其应用。</p>
-<h3 id="学术文3">学术文3</h3>
-<p>在Josué
-González-García于2020年的研究中，他详细探讨了自主水下航行器（AUVs）在执行协作任务时遇到的定位、导航及通信方面的挑战，并深入讨论了如何克服依赖无线电通信和全球定位系统（GPS）所带来的限制。该研究特别强调了声学通信系统在复杂海洋环境中的局限性，并提出了针对这些限制的替代解决方案。Zhikun
-Wang在2019年提出了一种创新的高机动性圆盘形AUV设计，该设计利用动态分析优化了推进系统，并通过一系列实地运动试验，证明了其卓越的机动性能。同年，M.
-Brito就自适应任务规划（AMP）在商业化和定制化AUV转换过程中遇到的障碍进行了讨论，并基于25位领域专家的见解，提出了具体的改善建议。Y.
-Pétillot在2019年回顾了无人水下车辆（Unmanned Underwater
-Vehicles，UUVs），包括遥控水下车辆（Remotely Operated
-Vehicles，ROVs）和AUVs的技术进步及面临的商业挑战，并对这些系统的未来发展方向提出了预见。H.
-Uchihori于2021年探索了AUV控制技术的未来发展趋势，从早期历史发展到最新控制算法及其应用，展现了该领域的前沿进展和潜在应用前景。</p>
-<h3 id="原文4">原文4</h3>
-<p>自主水下航行器（AUV）需要精确的浮力和配重控制以有效地进行操作。这些控制对于几个原因至关重要：</p>
-<p>浮力控制：</p>
-<ol type="1">
-<li>任务适应性：AUV需要为各种任务（如水下视频勘测）进行主动浮力控制，在这些任务中，维持特定深度或浮力能力是至关重要的。使用压载水箱和压缩空气实现的主动控制使得AUV能够适应不同的任务场景<a
-target="_blank" rel="noopener" href="https://consensus.app/papers/buoyancy-control-autonomous-underwater-vehicle-love/52dd924198765bd6853a144d703806d5/?utm_source=chatgpt">(Love,
-Toal, &amp; Flanagan, 2003)</a>。</li>
-<li>能源效率和范围：通过改变浮力与翼片相结合，可以将AUV的垂直运动转换为水平运动，提高推进效率，减少能耗，并增加操作范围和持续时间<a
-target="_blank" rel="noopener" href="https://consensus.app/papers/design-development-pumpdriven-variable-buoyancy-engine-tiwari/8579e37098b05e85b0b31579c50421a2/?utm_source=chatgpt">(Tiwari
-&amp; Sharma, 2019)</a>。</li>
-</ol>
-<p>配重控制：</p>
-<ol type="1">
-<li>前后稳定性：尤其是较大的AUV，在执行任务期间必须维持前后配重，以抵消来自电池替换、传感器更换和水温变化的拖曳诱导能源损耗<a
-target="_blank" rel="noopener" href="https://consensus.app/papers/buoyancy-control-system-large-tangirala/b95a53949dbf5893b89c34a0d9f1bc36/?utm_source=chatgpt">(Tangirala
-&amp; Dzielski, 2007)</a>。</li>
-<li>控制和机动性：配重控制对于AUV进行有效导航和机动至关重要，尤其是在深水作业或执行需要高精度的任务时。它有助于调整车辆的姿态，以获得最佳的传感器定位，并减少导航所需的控制力<a
-target="_blank" rel="noopener" href="https://consensus.app/papers/trim-tank-control-system-autonomous-underwater-vehicle-kamil/65a1d56a467a55de9086ec35bd414381/?utm_source=chatgpt">(Kamil
-et al., 2018)</a>。</li>
-</ol>
-<p>总之，浮力和配重控制系统是AUV操作效率、机动性和任务适应性的基础，使它们能够执行广泛的水下任务，同时减少能源消耗并增加自主性。</p>
-<p>喜欢我们的GPT吗？尝试我们的全AI驱动搜索引擎和学术功能免费版在 <a
-target="_blank" rel="noopener" href="https://consensus.app/?utm_source=chatgpt">consensus.app</a>。</p>
-<h3 id="合并文4">合并文4</h3>
-<p>自主水下航行器（AUV）需要精确的浮力和配重控制以有效地进行操作。这些控制对于几个原因至关重要：</p>
-<p>浮力控制：</p>
-<ol type="1">
-<li>任务适应性：AUV需要为各种任务（如水下视频勘测）进行主动浮力控制，在这些任务中，维持特定深度或浮力能力是至关重要的。使用压载水箱和压缩空气实现的主动控制使得AUV能够适应不同的任务场景</li>
-<li>能源效率和范围：通过改变浮力与翼片相结合，可以将AUV的垂直运动转换为水平运动，提高推进效率，减少能耗，并增加操作范围和持续时间</li>
-</ol>
-<p>配重控制：</p>
-<ol type="1">
-<li>前后稳定性：尤其是较大的AUV，在执行任务期间必须维持前后配重，以抵消来自电池替换、传感器更换和水温变化的拖曳诱导能源损耗</li>
-<li>控制和机动性：配重控制对于AUV进行有效导航和机动至关重要，尤其是在深水作业或执行需要高精度的任务时。它有助于调整车辆的姿态，以获得最佳的传感器定位，并减少导航所需的控制力</li>
-</ol>
-<p>总之，浮力和配重控制系统是AUV操作效率、机动性和任务适应性的基础，使它们能够执行广泛的水下任务，同时减少能源消耗并增加自主性。</p>
-<h3 id="学术文4">学术文4</h3>
-<p>自主水下航行器（Autonomous Underwater
-Vehicles，简称AUVs）之有效运作依赖于精确控制其浮力与配重，此控制机制对于增强其性能在多个维度中扮演着关键角色。首先，浮力控制对于AUV在执行多样化任务，如水下视频勘查等，中的任务适应性至关重要。通过采用压载水箱及压缩空气实施的主动浮力调整，AUV得以根据不同的环境要求与任务需求进行适应。此外，结合浮力调整与翼片使用，AUV能够将其垂直运动转化为水平前进，从而提升推进效率，降低能源消耗，并因而扩展其操作范围与续航时间。在配重控制方面，维持AUV在执行任务期间的前后稳定性显得尤为重要，尤其是对于体积较大的AUV，这有助于抵消由电池更换、传感器调整或水温变化等因素引起的拖曳效应，进而减少能源损耗。准确的配重控制对于AUV的有效导航与机动同样关键，特别是在深水作业或执行精确度要求高的任务时。通过优化AUV的姿态，可以改善传感器的定位精度，降低导航与机动过程中所需的控制力。总之，浮力与配重控制不仅是提升AUV操作效率、机动性和任务适应性的基础，也是其能够高效执行广泛水下任务的前提，同时还有助于优化能源利用，增强其自主操作能力。</p>
-<h3 id="原文5">原文5</h3>
-<p>浮力调节控制是自然和工程系统中的一个基本原理，使物体能够调整其相对于周围流体的密度以实现中性浮力、上升或下降。这一概念在从海洋生物学到航空航天工程等各种应用中都至关重要，并且伴随着众多研究类别具有丰富的发展历史。</p>
-<p>历史发展</p>
-<ol type="1">
-<li><p>自然系统：浮力调节的概念可以追溯到自然界，其中如鱼类、头足类动物和水生哺乳动物等生物调整其浮力以维持深度、节省能量或逃避捕食者。例如，鱼类使用鱼鳔来调节它们的浮力，这一原理已为人类所理解，已有数百年的历史。</p></li>
-<li><p>工程应用：浮力调节在工程学中的应用可追溯至潜艇和气球的发明。在17世纪早期，Cornelis
-Drebbel建造了第一艘可导航的潜艇，它通过允许水进入船体内的罐中以下潜，并排出水来上浮来调节浮力。后来，气球和飞艇的发展利用了通过控制提升气体的体积或温度来实现浮力的原理。</p></li>
-<li><p>现代进展：20世纪在浮力控制技术方面取得了重大进展，特别是在水下探索和航空领域。现代潜艇的发展，具有复杂的压载系统，遥控操作车辆（ROVs）和用于深海探索的自主水下车辆（AUVs）是值得注意的例子。同样，航空航天工业也探索了用于高空气球和飞艇的浮力控制，无论是民用还是军事应用。</p></li>
-</ol>
-<p>研究类别</p>
-<ol type="1">
-<li><p>生物浮力控制：这一类别的研究集中于理解生物是如何调节其浮力的。研究旨在揭示气体在鱼鳔中交换的机制，海洋哺乳动物脂肪密度的调整，以及各种体液和结构的浮力效应。</p></li>
-<li><p>水下车辆：这一领域的研究集中于开发潜艇、ROVs和AUVs的先进浮力控制系统。这包括对压载系统、可变浮力材料的研究，以及浮力控制与车辆动态的集成，以改善机动性和稳定性。</p></li>
-<li><p>航空应用：这一领域探索气球、飞艇和潜在的浮力航天器的浮力控制使用。重点是材料科学，为轻质高强度布料，升力气体的温度和压力控制系统，以及浮力控制与推进和导航系统的集成。</p></li>
-<li><p>环境监测：在大气和海洋环境中部署传感器阵列和监测平台对浮力控制至关重要。研究涉及开发可调节浮力以跟随海流或在特定大气层停留较长时间的漂流器和浮标。</p></li>
-<li><p>材料科学：材料科学的进步是浮力调节的关键，专注于开发可以响应环境线索或外部控制而改变密度的智能材料。这包括具有从医疗设备到环境感应等应用的聚合物、凝胶和复合材料。</p></li>
-</ol>
-<p>浮力调节控制的探索继续是一个跨学科领域，汲取生物学、物理学、工程学和材料科学的知识，以应对从深海探索到我们大气层边缘的一系列挑战。</p>
-<h3 id="合并文5">合并文5</h3>
-<p>浮力调节控制是自然和工程系统中的一个基本原理，使物体能够调整其相对于周围流体的密度以实现中性浮力、上升或下降。这一概念在从海洋生物学到航空航天工程等各种应用中都至关重要，并且伴随着众多研究类别具有丰富的发展历史。</p>
-<p>历史发展</p>
-<ol type="1">
-<li><p>自然系统：浮力调节的概念可以追溯到自然界，其中如鱼类、头足类动物和水生哺乳动物等生物调整其浮力以维持深度、节省能量或逃避捕食者。例如，鱼类使用鱼鳔来调节它们的浮力，这一原理已为人类所理解，已有数百年的历史。</p></li>
-<li><p>工程应用：浮力调节在工程学中的应用可追溯至潜艇和气球的发明。在17世纪早期，Cornelis
-Drebbel建造了第一艘可导航的潜艇，它通过允许水进入船体内的罐中以下潜，并排出水来上浮来调节浮力。后来，气球和飞艇的发展利用了通过控制提升气体的体积或温度来实现浮力的原理。</p></li>
-<li><p>现代进展：20世纪在浮力控制技术方面取得了重大进展，特别是在水下探索和航空领域。现代潜艇的发展，具有复杂的压载系统，遥控操作车辆（ROVs）和用于深海探索的自主水下车辆（AUVs）是值得注意的例子。同样，航空航天工业也探索了用于高空气球和飞艇的浮力控制，无论是民用还是军事应用。</p></li>
-</ol>
-<p>研究类别</p>
-<ol type="1">
-<li><p>生物浮力控制：这一类别的研究集中于理解生物是如何调节其浮力的。研究旨在揭示气体在鱼鳔中交换的机制，海洋哺乳动物脂肪密度的调整，以及各种体液和结构的浮力效应。</p></li>
-<li><p>水下车辆：这一领域的研究集中于开发潜艇、ROVs和AUVs的先进浮力控制系统。这包括对压载系统、可变浮力材料的研究，以及浮力控制与车辆动态的集成，以改善机动性和稳定性。</p></li>
-<li><p>航空应用：这一领域探索气球、飞艇和潜在的浮力航天器的浮力控制使用。重点是材料科学，为轻质高强度布料，升力气体的温度和压力控制系统，以及浮力控制与推进和导航系统的集成。</p></li>
-<li><p>环境监测：在大气和海洋环境中部署传感器阵列和监测平台对浮力控制至关重要。研究涉及开发可调节浮力以跟随海流或在特定大气层停留较长时间的漂流器和浮标。</p></li>
-<li><p>材料科学：材料科学的进步是浮力调节的关键，专注于开发可以响应环境线索或外部控制而改变密度的智能材料。这包括具有从医疗设备到环境感应等应用的聚合物、凝胶和复合材料。</p></li>
-</ol>
-<p>浮力调节控制的探索继续是一个跨学科领域，汲取生物学、物理学、工程学和材料科学的知识，以应对从深海探索到我们大气层边缘的一系列挑战。</p>
-<h3 id="原文6">原文6</h3>
-<p>当前主流的水下载具浮力控制技术可以广泛地分为几个类别，每个类别利用不同的机制来实现浮力调整。这些技术对于在水下环境中精确控制深度和稳定性至关重要，对于遥控水下载具（ROVs）、自主水下载具（AUVs）和载人潜水器的操作起着关键作用。以下是主要类别：</p>
-<ol type="1">
-<li>压载系统：
-<ul>
-<li>可变压载系统：这涉及到增加或移除压载箱中的重量（通常是水）来调整载具的整体密度相对于周围水的变化。增加水会增加密度，使载具下沉，而移除水会减少密度，让它上升。</li>
-<li>固定压载系统：固定压载是附着在载具上的不可调重量，用以达到所需的浮力和稳定性特性。它们在设计阶段被精心计算。</li>
-</ul></li>
-<li>浮力材料：
-<ul>
-<li>泡沫浮力模块：这些由高强度、低密度材料制成，如叙事性泡沫，它由嵌入在树脂基质中的微球组成。这些模块提供浮力，并根据载具的操作深度和要求进行配置。</li>
-<li>可调浮力泡沫：在某些应用中，通过机械压缩泡沫改变其体积和浮力特性，可以调整泡沫提供的浮力。</li>
-</ul></li>
-<li>浮力引擎/调整机制：
-<ul>
-<li>气囊系统：类似于鱼的游泳膀胱，这些系统使用一个可充气的气囊，可以填充或排空以调整浮力。用空气或其他气体填充气囊会增加浮力，而放气则减少浮力。</li>
-<li>泵控系统：这些系统使用泵将水或其他流体移入或移出箱体或气囊，以动态调整浮力。</li>
-</ul></li>
-<li>动态浮力控制：
-<ul>
-<li>流体动力控制表面：这些控制表面（如鳍片或翼）提供动态升力或下压力，允许载具在不改变其整体浮力的情况下升降。</li>
-<li>推进力控制：一些载具依靠其推进系统来维持或改变深度，使用螺旋桨或喷射器的推力。</li>
-</ul></li>
-<li>混合系统：
-<ul>
-<li>这些系统结合了上述类别的特点，以实现更精确或多功能的浮力控制。例如，一个载具可能同时使用泡沫进行基本浮力控制和可变压载系统进行细微调整。</li>
-</ul></li>
-</ol>
-<p>每种技术都有其自身的优势，并根据水下载具的特定需求进行选择，包括其操作深度、任务要求和尺寸限制。材料科学、电子学和流体动力学的进步持续推动这些技术的发展，为水下探索和作业提供了更大的控制和效率。</p>
-<h3 id="合并文6">合并文6</h3>
-<p>当前主流的水下载具浮力控制技术可以广泛地分为几个类别，每个类别利用不同的机制来实现浮力调整。这些技术对于在水下环境中精确控制深度和稳定性至关重要，对于遥控水下载具（ROVs）、自主水下载具（AUVs）和载人潜水器的操作起着关键作用。以下是主要类别：</p>
-<ol type="1">
-<li>压载系统：
-<ul>
-<li>可变压载系统：这涉及到增加或移除压载箱中的重量（通常是水）来调整载具的整体密度相对于周围水的变化。增加水会增加密度，使载具下沉，而移除水会减少密度，让它上升。</li>
-<li>固定压载系统：固定压载是附着在载具上的不可调重量，用以达到所需的浮力和稳定性特性。它们在设计阶段被精心计算。</li>
-</ul></li>
-<li>浮力材料：
-<ul>
-<li>泡沫浮力模块：这些由高强度、低密度材料制成，如叙事性泡沫，它由嵌入在树脂基质中的微球组成。这些模块提供浮力，并根据载具的操作深度和要求进行配置。</li>
-<li>可调浮力泡沫：在某些应用中，通过机械压缩泡沫改变其体积和浮力特性，可以调整泡沫提供的浮力。</li>
-</ul></li>
-<li>浮力引擎/调整机制：
-<ul>
-<li>气囊系统：类似于鱼的游泳膀胱，这些系统使用一个可充气的气囊，可以填充或排空以调整浮力。用空气或其他气体填充气囊会增加浮力，而放气则减少浮力。</li>
-<li>泵控系统：这些系统使用泵将水或其他流体移入或移出箱体或气囊，以动态调整浮力。</li>
-</ul></li>
-<li>动态浮力控制：
-<ul>
-<li>流体动力控制表面：这些控制表面（如鳍片或翼）提供动态升力或下压力，允许载具在不改变其整体浮力的情况下升降。</li>
-<li>推进力控制：一些载具依靠其推进系统来维持或改变深度，使用螺旋桨或喷射器的推力。</li>
-</ul></li>
-<li>混合系统：
-<ul>
-<li>这些系统结合了上述类别的特点，以实现更精确或多功能的浮力控制。例如，一个载具可能同时使用泡沫进行基本浮力控制和可变压载系统进行细微调整。</li>
-</ul></li>
-</ol>
-<p>每种技术都有其自身的优势，并根据水下载具的特定需求进行选择，包括其操作深度、任务要求和尺寸限制。材料科学、电子学和流体动力学的进步持续推动这些技术的发展，为水下探索和作业提供了更大的控制和效率。</p>
-<h3 id="学术文6">学术文6</h3>
-<p>水下载具的浮力控制技术是实现精确深度调节和稳定性管理的核心，对于遥控水下载具（ROVs）、自主水下载具（AUVs）以及载人潜水器等在水下环境中的操作至关重要。这些技术按照不同的机制分为几大类别，每一种都针对特定的操作需求和环境条件设计，以确保最佳性能。</p>
-<ol type="1">
-<li><p>压载系统：压载系统分为可变压载和固定压载两种类型。可变压载系统通过调整压载箱内重量的增减——通常通过加入或排出水——来改变载具的总密度，从而实现上浮或下沉。固定压载系统则利用在设计阶段精确计算并固定于载具上的重量，以达成预设的浮力和稳定性目标。</p></li>
-<li><p>浮力材料：包括泡沫浮力模块和可调浮力泡沫。泡沫浮力模块通常由高强度、低密度材料（如叙事性泡沫）构成，能根据深度和任务需求提供稳定浮力。可调浮力泡沫则允许通过机械压缩调整其体积和浮力，以适应不同的操作条件。</p></li>
-<li><p>浮力引擎/调整机制：气囊系统和泵控系统是两种主要的浮力调整机制。气囊系统借鉴鱼类游泳膀胱的原理，通过充气或排气调整浮力。泵控系统则利用泵动作将水或其他流体输送进出特定容器或气囊，以动态调节浮力。</p></li>
-<li><p>动态浮力控制：利用流体动力学原理，如通过控制表面（如翼片或鳍片）生成动态升力或下压力，或依赖推进系统产生的力来调整深度，而不改变载具的总浮力。</p></li>
-<li><p>混合系统：结合以上几种技术的系统，以提供更加精确或多功能的浮力控制。例如，一个载具可能利用泡沫浮力模块提供基础浮力，同时采用可变压载系统进行精细调节，以适应复杂多变的水下环境。</p></li>
-</ol>
-<p>每一种浮力控制技术都有其独特优势，并会根据水下载具的具体需求、操作深度、任务要求和设计限制来选用。随着材料科学、电子技术和流体动力学领域的持续进展，这些浮力控制技术正不断发展，为水下探索与作业提供了更高的操作灵活性和效率。</p>
-<h2 id="参考文献合集1">参考文献合集1</h2>
-<p>For each of the seven research areas regarding Autonomous Underwater
-Vehicles (AUVs), here are three relevant papers:</p>
-<h3 id="mechanical-design">1. Mechanical Design</h3>
-<ol type="1">
-<li><a
-target="_blank" rel="noopener" href="https://consensus.app/papers/design-construction-underwater-vehicle-alam/c9fd25d412045e04b18ce5b8c910e7f8/?utm_source=chatgpt">Design
-and construction of an autonomous underwater vehicle</a> by Khairul
-Alam, T. Ray, S. Anavatti (2014).</li>
-<li><a
-target="_blank" rel="noopener" href="https://consensus.app/papers/design-considerations-engineering-underwater-vehicles-shah/b838bd7cbe6b54edb9bbc5b5861f46b3/?utm_source=chatgpt">Design
-considerations for engineering Autonomous Underwater Vehicles</a> by
-Vikrant Shah (2007).</li>
-<li><a
-target="_blank" rel="noopener" href="https://consensus.app/papers/design-behaviorbased-modular-decisionmaking-control-he/320cb04ac0e95daeb004ca4e6946eb51/?utm_source=chatgpt">Design
-of Behavior-Based Modular Decision-Making Control System for Autonomous
-Underwater Vehicle</a> by B. He, Bingsen Li, K. Yao, Jing Luo, Ke Yang
-(2009).</li>
-</ol>
-<h3 id="navigation-and-localization">2. Navigation and Localization</h3>
-<ol type="1">
-<li><a
-target="_blank" rel="noopener" href="https://consensus.app/papers/underwater-vehicle-navigation-leonard/99eb7274a326551d9b620ef592841f14/?utm_source=chatgpt">Autonomous
-Underwater Vehicle Navigation</a> by J. Leonard, A. Bahr (2016).</li>
-<li><a
-target="_blank" rel="noopener" href="https://consensus.app/papers/navigating-underwater-vehicles-bingham/16887c0700f35275a5d65367a4c5ab68/?utm_source=chatgpt">Navigating
-Autonomous Underwater Vehicles</a> by B. Bingham, F. Olin (2009).</li>
-<li><a
-target="_blank" rel="noopener" href="https://consensus.app/papers/navigation-technologies-autonomous-underwater-vehicles-stutters/982bfe755bb1585db995a1cf1700fb84/?utm_source=chatgpt">Navigation
-Technologies for Autonomous Underwater Vehicles</a> by L. Stutters,
-Honghai Liu, C. Tiltman, David J. Brown (2008).</li>
-</ol>
-<h3 id="communication-technology">3. Communication Technology</h3>
-<ol type="1">
-<li><a
-target="_blank" rel="noopener" href="https://consensus.app/papers/communications-vehicles-freitag/f90ee2e0252854cfb621b5be0d001b75/?utm_source=chatgpt">Acoustic
-communications and autonomous underwater vehicles</a> by L. Freitag, M.
-Grund, J. Preisig, M. Stojanovic (2004).</li>
-<li><a
-target="_blank" rel="noopener" href="https://consensus.app/papers/challenges-opportunities-communications-autonomous-wübben/2c79e90872115496999739e05ca805f6/?utm_source=chatgpt">Challenges
-and Opportunities in Communications for Autonomous Underwater
-Vehicles</a> by D. Wübben, A. Könsgen, A. Udugama, A. Dekorsy, Anna
-Förster (2019).</li>
-<li><a
-target="_blank" rel="noopener" href="https://consensus.app/papers/underwater-vehicles-localization-navigation-gonzálezgarcía/06db17698b2a51e49b4bc8b21dca34a1/?utm_source=chatgpt">Autonomous
-Underwater Vehicles: Localization, Navigation, and Communication for
-Collaborative Missions</a> by Josué González-García, A. Gómez-Espinosa,
-E. Cuan-Urquizo, L. García-Valdovinos, T. Salgado-Jiménez, Jesús Arturo
-Escobedo Cabello (2020).</li>
-</ol>
-<h3 id="power-and-energy-management">4. Power and Energy Management</h3>
-<ol type="1">
-<li><a
-target="_blank" rel="noopener" href="https://consensus.app/papers/energy-storage-autonomous-underwater-vehicles-tsukioka/9be570f717f95729b9be7f70055b633d/?utm_source=chatgpt">Energy
-Storage for Autonomous Underwater Vehicles</a> by S. Tsukioka, T.
-Hyakudome, H. Yoshida, S. Ishibashi, T. Aoki, T. Sawa, I. Yamamoto, A.
-Ishikawa (2006).</li>
-<li><a
-target="_blank" rel="noopener" href="https://consensus.app/papers/power-systems-vehicles-bradley/e09c044c53ec5ee4bda5884a71654438/?utm_source=chatgpt">Power
-systems for autonomous underwater vehicles</a> by A. Bradley, M. Feezor,
-Hanumant Singh, F. Y. Sorrell (2001).</li>
-<li><a
-target="_blank" rel="noopener" href="https://consensus.app/papers/feasibility-study-energy-scavenging-system-underwater-townsend/07cf5c81e8ba5377ba778e49e0f68e1e/?utm_source=chatgpt">Feasibility
-study of a new energy scavenging system for an autonomous underwater
-vehicle</a> by N. Townsend, R. Shenoi (2015).</li>
-</ol>
-<h3 id="autonomous-decision-making">5. Autonomous Decision Making</h3>
-<ol type="1">
-<li><a
-target="_blank" rel="noopener" href="https://consensus.app/papers/advancements-field-vehicle-sahoo/ed01935968ba53089422142135f3905e/?utm_source=chatgpt">Advancements
-in the field of autonomous underwater vehicle</a> by A. Sahoo, S. K.
-Dwivedy, P. Robi (2019).</li>
-<li><a
-target="_blank" rel="noopener" href="https://consensus.app/papers/survey-path-planning-autonomy-vehicles-zeng/0a7bb250e6ae51078ffce2c36dd75928/?utm_source=chatgpt">A
-survey on path planning for persistent autonomy of autonomous underwater
-vehicles</a> by Zheng Zeng, L. Lian, K. Sammut, F. He, Youhong Tang, A.
-Lammas (2015).</li>
-<li><a
-target="_blank" rel="noopener" href="https://consensus.app/papers/autonomy-unmanned-vehicles-huntsberger/fef6c40e6ad55a35b0f36a49c0fda984/?utm_source=chatgpt">Intelligent
-autonomy for unmanned surface and underwater vehicles</a> by T.
-Huntsberger, G. Woodward (2011).</li>
-</ol>
-<p>I can provide more detailed information or find additional papers on
-specific aspects of AUV research if needed.</p>
-<h2 id="参考文献合集2">参考文献合集2</h2>
-<p>Here are the articles related to buoyancy control in the specified
-areas:</p>
-<h3 id="biological-buoyancy-control">Biological Buoyancy Control</h3>
-<ol type="1">
-<li>Gleiss, A., Potvin, J., &amp; Goldbogen, J. (2017). Physical
-trade-offs shape the evolution of buoyancy control in sharks.
-Proceedings of the Royal Society B: Biological Sciences. <a
-target="_blank" rel="noopener" href="https://consensus.app/papers/tradeoffs-shape-evolution-buoyancy-control-sharks-gleiss/6d1ccf15fba55dbe90cfd0974d489293/?utm_source=chatgpt">Link</a></li>
-<li>Collie, R. J., Martin, A. J., Malmberg, L., Hall, J., &amp; Ginns,
-P. (2015). Academic buoyancy, student's achievement, and the linking
-role of control: A cross-lagged analysis of high school students. The
-British Journal of Educational Psychology. <a
-target="_blank" rel="noopener" href="https://consensus.app/papers/academic-buoyancy-students-linking-role-control-collie/3f41ca919af15f7d88e420e364ee96ba/?utm_source=chatgpt">Link</a></li>
-<li>Pelster, B. (2009). Buoyancy Control in Aquatic Vertebrates. <a
-target="_blank" rel="noopener" href="https://consensus.app/papers/buoyancy-control-aquatic-vertebrates-pelster/93f6be72815b598caac3c5f9748012a7/?utm_source=chatgpt">Link</a></li>
-<li>Sundby, S., &amp; Kristiansen, T. (2015). The Principles of Buoyancy
-in Marine Fish Eggs and Their Vertical Distributions across the World
-Oceans. PLoS ONE. <a
-target="_blank" rel="noopener" href="https://consensus.app/papers/principles-buoyancy-marine-fish-eggs-their-vertical-sundby/591d239266115b348e2bd75c50afb09f/?utm_source=chatgpt">Link</a></li>
-</ol>
-<h3 id="underwater-vehicles-buoyancy-control">Underwater Vehicles
-Buoyancy Control</h3>
-<ol type="1">
-<li>Love, T., Toal, D., &amp; Flanagan, C. (2003). Buoyancy Control for
-an Autonomous Underwater Vehicle. IFAC Proceedings Volumes. <a
-target="_blank" rel="noopener" href="https://consensus.app/papers/buoyancy-control-autonomous-underwater-vehicle-love/52dd924198765bd6853a144d703806d5/?utm_source=chatgpt">Link</a></li>
-<li>Elkolali, M., Al-Tawil, A., &amp; Alcocer, A. (2022). Design and
-Testing of a Miniature Variable Buoyancy System for Underwater Vehicles.
-IEEE Access. <a
-target="_blank" rel="noopener" href="https://consensus.app/papers/design-testing-miniature-variable-buoyancy-system-elkolali/c641c89a6831584b8be24ec455a66de7/?utm_source=chatgpt">Link</a></li>
-<li>Woods, S. A., Bauer, R. J., &amp; Seto, M. L. (2012). Automated
-Ballast Tank Control System for Autonomous Underwater Vehicles. IEEE
-Journal of Oceanic Engineering. <a
-target="_blank" rel="noopener" href="https://consensus.app/papers/automated-ballast-tank-control-system-autonomous-woods/fed7413415ec5491bc3dc720d24296dc/?utm_source=chatgpt">Link</a></li>
-<li>Worall, M., Jamieson, A., Holford, A., Neilson, R., Player, M.,
-&amp; Bagley, P. (2007). A variable buoyancy system for deep ocean
-vehicles. OCEANS 2007 - Europe. <a
-target="_blank" rel="noopener" href="https://consensus.app/papers/buoyancy-system-ocean-vehicles-worall/30771936dc5a5dd8bca203d23525b8e2/?utm_source=chatgpt">Link</a></li>
-</ol>
-<h3 id="aviation-applications-buoyancy-control">Aviation Applications
-Buoyancy Control</h3>
-<ol type="1">
-<li>Barton, S. (2011). Airship Buoyancy Control Using Inflatable Vacuum
-Chambers. Journal of Aircraft. <a
-target="_blank" rel="noopener" href="https://consensus.app/papers/airship-buoyancy-control-using-inflatable-vacuum-barton/439fc54be7c35507bbc91c6a90f44fdc/?utm_source=chatgpt">Link</a></li>
-<li>ell-Mills, N. (2016). Buoyancy Explains How Planes Fly. Journal of
-Aeronautics and Aerospace Engineering. <a
-target="_blank" rel="noopener" href="https://consensus.app/papers/buoyancy-explains-planes-ellmills/f12f352bbcfa58e697d7d6897c7cf6e4/?utm_source=chatgpt">Link</a></li>
-<li>Sun, X., Xu, K., Meng, H., &amp; Zheng, Y. (2018). Buoyancy effects
-on supercritical-pressure conjugate heat transfer of aviation kerosene
-in horizontal tubes. The Journal of Supercritical Fluids. <a
-target="_blank" rel="noopener" href="https://consensus.app/papers/buoyancy-effects-supercriticalpressure-conjugate-heat-sun/259534d842705bdb9982bc86d13a228f/?utm_source=chatgpt">Link</a></li>
-</ol>
-<h3 id="environmental-monitoring-buoyancy-control">Environmental
-Monitoring Buoyancy Control</h3>
-<ol type="1">
-<li>Baoren, L. (2008). Experiment on Buoyancy Regulation Device. Machine
-Tool &amp; Hydraulics. <a
-target="_blank" rel="noopener" href="https://consensus.app/papers/buoyancy-regulation-device-baoren/e5666ac7dc5c57d0aa6992facf12a238/?utm_source=chatgpt">Link</a></li>
-<li>Trasviña-Moreno, C., Marín, R. B., Marco, Á., Casas, R., &amp;
-Castro, A. T. (2017). Unmanned Aerial Vehicle Based Wireless Sensor
-Network for Marine-Coastal Environment Monitoring. Sensors (Basel,
-Switzerland). <a
-target="_blank" rel="noopener" href="https://consensus.app/papers/unmanned-aerial-vehicle-based-wireless-sensor-network-trasviñamoreno/23f281d754da55578cee192dfc6f81d0/?utm_source=chatgpt">Link</a></li>
-<li>Holman, R., Stanley, J., &amp; Özkan-Haller, T. (2003). Applying
-Video Sensor Networks to Nearshore Environment Monitoring. IEEE
-Pervasive Comput. <a
-target="_blank" rel="noopener" href="https://consensus.app/papers/applying-video-sensor-networks-nearshore-environment-holman/9961c3bda1495de49a071f4227c93df1/?utm_source=chatgpt">Link</a></li>
-</ol>
-<h3 id="materials-science-buoyancy-control">Materials Science Buoyancy
-Control</h3>
-<p>Here are four articles on buoyancy regulation and control in
-materials science:</p>
-<ol type="1">
-<li><p>Zhou, H., Fu, J., Liu, C., Zeng, Z., Yu, C., Yao, B., &amp; Lian,
-L. (2020). Dynamic modeling and endurance enhancement analysis of
-deep-sea gliders with a hybrid buoyancy regulating system. Ocean
-Engineering. <a
-target="_blank" rel="noopener" href="https://consensus.app/papers/dynamic-modeling-endurance-enhancement-analysis-deepsea-zhou/86ee5a179075505eb11a6dd260f70420/?utm_source=chatgpt">Link</a></p></li>
-<li><p>Bai, Y., Zhang, Q., Zhang, A., Li, S., Chen, J., Du, L., Wang,
-C., &amp; Tian, Q. (2019). Design and Experiment of Deep-sea
-Energy-storage Buoyancy Regulating System. OCEANS 2019 - Marseille. <a
-target="_blank" rel="noopener" href="https://consensus.app/papers/design-experiment-deepsea-energystorage-buoyancy-bai/b92af79e590453ae81ecd0f3872706e0/?utm_source=chatgpt">Link</a></p></li>
-<li><p>Yu, S., Li, X., Guo, X., Li, Z., &amp; Zou, M. (2019). Curing and
-Characteristics of
-N,N,N′,N′-Tetraepoxypropyl-4,4′-Diaminodiphenylmethane Epoxy Resin-Based
-Buoyancy Material. Polymers. <a
-target="_blank" rel="noopener" href="https://consensus.app/papers/curing-characteristics-yu/5357d15c14d05ac2968f2e42457a2fd0/?utm_source=chatgpt">Link</a></p></li>
-<li><p>Chen, J., Xin, Y., Huang, W., Li, J., &amp; Cai, D. (2021).
-Development and Sea Trials of a Deep-sea Energy Storage Buoyancy
-Regulating System. OCEANS 2021: San Diego – Porto. <a
-target="_blank" rel="noopener" href="https://consensus.app/papers/development-trials-deepsea-energy-storage-buoyancy-chen/1dc9776bd6cd551f8722465b152a67c6/?utm_source=chatgpt">Link</a></p></li>
-</ol>
-<h2 id="参考文献合集3">参考文献合集3</h2>
-<p>Here are articles related to the ballast system for buoyancy control
-of underwater vehicles:</p>
-<ol type="1">
-<li><a
-target="_blank" rel="noopener" href="https://consensus.app/papers/automated-ballast-tank-control-system-autonomous-woods/fed7413415ec5491bc3dc720d24296dc/?utm_source=chatgpt">Automated
-Ballast Tank Control System for Autonomous Underwater Vehicles</a> -
-Shawn A. Woods et al., 2012</li>
-<li><a
-target="_blank" rel="noopener" href="https://consensus.app/papers/buoyancy-control-autonomous-underwater-vehicle-love/52dd924198765bd6853a144d703806d5/?utm_source=chatgpt">Buoyancy
-Control for an Autonomous Underwater Vehicle</a> - T. Love et al.,
-2003</li>
-<li><a
-target="_blank" rel="noopener" href="https://consensus.app/papers/novel-buoyancy-control-device-using-reversible-fuel-cells-yazji/0e36318f6c1a58cca1cee84ee04e44e4/?utm_source=chatgpt">A
-Novel Buoyancy Control Device Using Reversible PEM Fuel Cells</a> - J.
-Yazji et al., 2019</li>
-<li><a
-target="_blank" rel="noopener" href="https://consensus.app/papers/dynamic-buoyancy-control-using-ballast-tank-wasserman/5ec1e3e13bbd5a5dbfff229e10d701c1/?utm_source=chatgpt">Dynamic
-buoyancy control of an ROV using a variable ballast tank</a> - K. S.
-Wasserman et al., 2003</li>
-<li><a
-target="_blank" rel="noopener" href="https://consensus.app/papers/ballast-system-automated-deepsea-ascents-golz/2160e942057f54bb8220bc75afe609ef/?utm_source=chatgpt">A
-Ballast System for Automated Deep-Sea Ascents</a> - M. Golz et al.,
-2016</li>
-</ol>
-<p>Next, I will search for articles related to buoyancy materials.</p>
-<p>Here are articles related to buoyancy materials for underwater
-vehicles:</p>
-<ol type="1">
-<li><a
-target="_blank" rel="noopener" href="https://consensus.app/papers/design-testing-miniature-variable-buoyancy-system-elkolali/c641c89a6831584b8be24ec455a66de7/?utm_source=chatgpt">Design
-and Testing of a Miniature Variable Buoyancy System for Underwater
-Vehicles</a> - Moustafa Elkolali et al., 2022</li>
-<li><a
-target="_blank" rel="noopener" href="https://consensus.app/papers/buoyancy-system-ocean-vehicles-worall/30771936dc5a5dd8bca203d23525b8e2/?utm_source=chatgpt">A
-variable buoyancy system for deep ocean vehicles</a> - M. Worall et al.,
-2007</li>
-<li><a
-target="_blank" rel="noopener" href="https://consensus.app/papers/buoyancy-control-autonomous-underwater-vehicle-love/52dd924198765bd6853a144d703806d5/?utm_source=chatgpt">Buoyancy
-Control for an Autonomous Underwater Vehicle</a> - T. Love et al.,
-2003</li>
-<li><a
-target="_blank" rel="noopener" href="https://consensus.app/papers/research-negativebuoyancy-autorotatingrotor-vehicles-song/7857602b2df657b58139bdafbe484da4/?utm_source=chatgpt">Research
-on negative-buoyancy autorotating-rotor autonomous underwater
-vehicles</a> - Lijun Song et al., 2020</li>
-<li><a
-target="_blank" rel="noopener" href="https://consensus.app/papers/research-progress-hollow-microsphere-composite-buoyant-qia/eb2c5b4e349d55d8a74451c71114b122/?utm_source=chatgpt">Research
-Progress of Hollow Microsphere Composite Buoyant Material for Deep-sea
-Application</a> - Sun Qia, 2013</li>
-</ol>
-<p>Next, I will search for articles related to the buoyancy
-engine/adjustment mechanism.</p>
-<p>Here are articles related to the buoyancy engine/adjustment mechanism
-for underwater vehicles:</p>
-<ol type="1">
-<li><a
-target="_blank" rel="noopener" href="https://consensus.app/papers/buoyancy-engine-developed-gliders-asakawa/1251c640763d59ad807a98b7798f6ec7/?utm_source=chatgpt">Buoyancy
-engine developed for underwater gliders</a> - K. Asakawa et al.,
-2016</li>
-<li><a
-target="_blank" rel="noopener" href="https://consensus.app/papers/design-modeling-buoyancy-adjustment-actuator-cao/d7a1f14371815e98864c65b2df50fc49/?utm_source=chatgpt">Design
-and modeling of an electro-hydraulic buoyancy adjustment actuator</a> -
-Xunuo Cao et al., 2023</li>
-<li><a
-target="_blank" rel="noopener" href="https://consensus.app/papers/buoyancy-control-autonomous-underwater-vehicle-love/52dd924198765bd6853a144d703806d5/?utm_source=chatgpt">Buoyancy
-Control for an Autonomous Underwater Vehicle</a> - T. Love et al.,
-2003</li>
-<li><a
-target="_blank" rel="noopener" href="https://consensus.app/papers/design-testing-miniature-variable-buoyancy-system-elkolali/c641c89a6831584b8be24ec455a66de7/?utm_source=chatgpt">Design
-and Testing of a Miniature Variable Buoyancy System for Underwater
-Vehicles</a> - Moustafa Elkolali et al., 2022</li>
-<li><a
-target="_blank" rel="noopener" href="https://consensus.app/papers/experiments-dynamic-buoyancy-adjusting-device-assist-sakagami/a3a779a11937561d876a55c2a3f75b31/?utm_source=chatgpt">Preliminary
-Experiments of Dynamic Buoyancy Adjusting Device with an Assist
-Spring</a> - N. Sakagami et al., 2013</li>
-</ol>
-<p>Next, I will search for articles related to dynamic buoyancy
-control.</p>
-<p>Here are articles related to dynamic buoyancy control for underwater
-vehicles:</p>
-<ol type="1">
-<li><a
-target="_blank" rel="noopener" href="https://consensus.app/papers/design-dynamic-control-underwater-vehicle-lun/ac77f41559a850b180a598a37dd64d45/?utm_source=chatgpt">Design
-of Dynamic Control on Underwater Vehicle</a> - Guande Lun et al.,
-2011</li>
-<li><a
-target="_blank" rel="noopener" href="https://consensus.app/papers/buoyancy-control-autonomous-underwater-vehicle-love/52dd924198765bd6853a144d703806d5/?utm_source=chatgpt">Buoyancy
-Control for an Autonomous Underwater Vehicle</a> - T. Love et al.,
-2003</li>
-<li><a
-target="_blank" rel="noopener" href="https://consensus.app/papers/dynamic-modelling-control-compact-autonomous-underwater-sahoo/6e0df43614a951d8a9d35c87a1aac97f/?utm_source=chatgpt">Dynamic
-Modelling and Control of a Compact Autonomous Underwater Vehicle</a> -
-A. Sahoo et al., 2019</li>
-<li><a
-target="_blank" rel="noopener" href="https://consensus.app/papers/dynamic-modeling-passively-draining-structures-stewart/773031d2455c5134a145f9c1fd747ea6/?utm_source=chatgpt">Dynamic
-Modeling of Passively Draining Structures for Aerial–Aquatic Unmanned
-Vehicles</a> - W. Stewart et al., 2020</li>
-<li><a
-target="_blank" rel="noopener" href="https://consensus.app/papers/dynamic-modeling-control-highspeed-vehicles-hongwei/6eb5a34d766a5a85a91f61e687d748bc/?utm_source=chatgpt">Dynamic
-modeling and control of underwater high-speed vehicles</a> - Mo
-Hong-wei, 2008</li>
-</ol>
-<p>Next, I will search for articles related to the hybrid system for
-buoyancy control in underwater vehicles.</p>
-<p>Here are articles related to hybrid systems for buoyancy control in
-underwater vehicles:</p>
-<ol type="1">
-<li><a
-target="_blank" rel="noopener" href="https://consensus.app/papers/design-fabrication-characterization-multimodal-lu/2e24a0bf4fdf54ecb0e99414b112dbc2/?utm_source=chatgpt">Design,
-fabrication, and characterization of a multimodal hybrid aerial
-underwater vehicle</a> - Di Lu et al., 2020</li>
-<li><a
-target="_blank" rel="noopener" href="https://consensus.app/papers/design-variable-buoyancy-system-hybrid-crawlerflyer-li/e792101bce835ae29cff1eacaecca33b/?utm_source=chatgpt">Design
-of a Variable Buoyancy System for the Hybrid Crawler-Flyer Underwater
-Vehicle</a> - Yonglong Li et al., 2019</li>
-<li><a
-target="_blank" rel="noopener" href="https://consensus.app/papers/modeling-control-aerialunderwater-vehicles-using-ravell/13b6f3b0954854cd81706e87fef045d9/?utm_source=chatgpt">Modeling
-and control of unmanned aerial/underwater vehicles using hybrid
-control</a> - Diego Alberto Mercado Ravell et al., 2018</li>
-<li><a
-target="_blank" rel="noopener" href="https://consensus.app/papers/research-design-hybrid-energy-buoyancy-vehicle-wang/e3a63db68e56506c9e52457e76fe44db/?utm_source=chatgpt">Research
-and design of a new hybrid energy positive buoyancy autonomous
-vehicle</a> - Zhiguang Wang et al., 2021</li>
-<li><a
-target="_blank" rel="noopener" href="https://consensus.app/papers/experimental-investigations-design-hybrid-depth-ranganathan/5e848060ce45589d82f5da7ae1ca7d03/?utm_source=chatgpt">Theoretical
-and Experimental Investigations on the Design of a Hybrid Depth
-Controller for a Standalone Variable Buoyancy System—vBuoy</a> - T.
-Ranganathan et al., 2020</li>
-</ol>
-<p>These articles cover a range of topics from design and fabrication to
-control systems for hybrid underwater vehicles, showcasing advancements
-in multimodal operation and buoyancy control.</p>
-<h2 id="参考文献合集4">参考文献合集4</h2>
-<p>Here are three relevant documents for each section of each point
-related to various control strategies:</p>
-<h3 id="linear-control-strategy">1. Linear control strategy</h3>
-<ul>
-<li>Linear Quadratic Regulator (LQR)
-<ul>
-<li><a
-target="_blank" rel="noopener" href="https://consensus.app/papers/humanlevel-control-reinforcement-learning-mnih/99b553e2467e50c49517e20f36e999eb/?utm_source=chatgpt">Human-level
-control through deep reinforcement learning (Mnih et al., 2015)</a></li>
-<li><a
-target="_blank" rel="noopener" href="https://consensus.app/papers/algorithms-reinforcement-learning-szepesvari/c62eb61c9a915e22883e1c9b3b9122e7/?utm_source=chatgpt">Algorithms
-for Reinforcement Learning (Szepesvari, 2010)</a></li>
-<li><a
-target="_blank" rel="noopener" href="https://consensus.app/papers/reinforcement-learning-control-barto/e16d5f62183d5d4eaf0683aae0bc5295/?utm_source=chatgpt">Reinforcement
-learning control (Barto, 1994)</a></li>
-</ul></li>
-<li>Pole configuration
-<ul>
-<li><a
-target="_blank" rel="noopener" href="https://consensus.app/papers/reinforcement-learning-planning-control-dean/e3f97248b1815504a2c301977dc1f986/?utm_source=chatgpt">Reinforcement
-Learning for Planning and Control (Dean et al., 1993)</a></li>
-<li><a
-target="_blank" rel="noopener" href="https://consensus.app/papers/reinforcement-learning-buffer/697d57506bca5f55bca1469e08fa1a70/?utm_source=chatgpt">Reinforcement
-Learning (Buffer et al., 2020)</a></li>
-<li><a
-target="_blank" rel="noopener" href="https://consensus.app/papers/reinforcement-learning-active-inference-friston/4e2abe79e3235deb8b3c2b775f6f0104/?utm_source=chatgpt">Reinforcement
-Learning or Active Inference? (Friston et al., 2009)</a></li>
-</ul></li>
-</ul>
-<h3 id="nonlinear-control-strategy">2. Nonlinear control strategy</h3>
-<ul>
-<li>Feedback linearization
-<ul>
-<li><a
-target="_blank" rel="noopener" href="https://consensus.app/papers/reinforcement-learning-control-sheppard/0cc5477fa6145c0384acb10831a5dd97/?utm_source=chatgpt">Reinforcement
-Learning for Control (Sheppard et al., 2021)</a></li>
-<li><a
-target="_blank" rel="noopener" href="https://consensus.app/papers/approach-reinforcement-learning-control-systems-waltz/b3c15c2452495dc3ba4a383d6dcb4621/?utm_source=chatgpt">A
-heuristic approach to reinforcement learning for control systems (Waltz
-&amp; Fu, 1965)</a></li>
-<li><a
-target="_blank" rel="noopener" href="https://consensus.app/papers/comparing-deep-reinforcement-learning-evolutionary-zhang/302074ddeff55ddcab0accde6cc24b98/?utm_source=chatgpt">Comparing
-Deep Reinforcement Learning and Evolutionary Methods in Continuous
-Control (Zhang &amp; Zaiane, 2017)</a></li>
-</ul></li>
-<li>Sliding Mode Control (SMC)
-<ul>
-<li><a
-target="_blank" rel="noopener" href="https://consensus.app/papers/technique-reinforcement-learning-control-armstrong/bdf29dd4e5ea58b8ba05c59ec8484c1e/?utm_source=chatgpt">A
-new technique for reinforcement learning for control (Armstrong &amp;
-Li, 1998)</a></li>
-<li><a
-target="_blank" rel="noopener" href="https://consensus.app/papers/convergence-results-singlestep-onpolicy-singh/c9aaafccdb2f567b934522a974b65497/?utm_source=chatgpt">Convergence
-Results for Single-Step On-Policy Reinforcement-Learning Algorithms
-(Singh et al., 2000)</a></li>
-<li><a
-target="_blank" rel="noopener" href="https://consensus.app/papers/development-control-strategies-artificial-neural-hsuing/94a2fcc00283572d89f5495e0cf4ddb1/?utm_source=chatgpt">Development
-of Control Strategies via Artificial Neural Networks and Reinforcement
-Learning (Hsuing &amp; Himmelblau, 1991)</a></li>
-</ul></li>
-<li>Nonlinear Dynamic Inverse (NDI)
-<ul>
-<li><a
-target="_blank" rel="noopener" href="https://consensus.app/papers/reinforcement-learning-feedback-control-hua/5298b48b32c653d4a4c586503a869c30/?utm_source=chatgpt">Reinforcement
-Learning and Feedback Control (Hua, 2021)</a></li>
-<li><a
-target="_blank" rel="noopener" href="https://consensus.app/papers/introduction-challenge-reinforcement-learning-sutton/1e817330611b592e8b2c717d4e19703c/?utm_source=chatgpt">Introduction:
-The challenge of reinforcement learning (Sutton, 1992)</a></li>
-<li><a
-target="_blank" rel="noopener" href="https://consensus.app/papers/reinforcement-learning-wörgötter/8317afcd7d425468be8b96f4d5e7404d/?utm_source=chatgpt">Reinforcement
-learning (Wörgötter &amp; Porr, 2019)</a></li>
-</ul></li>
-</ul>
-<h3 id="adaptive-control-strategy">3. Adaptive control strategy</h3>
-<ul>
-<li>Model Reference Adaptive Control (MRAC)
-<ul>
-<li><a
-target="_blank" rel="noopener" href="https://consensus.app/papers/reinforcement-learning-barto/b4730048e0105ba797d0a30f806fc346/?utm_source=chatgpt">Reinforcement
-learning (Barto, 1998)</a></li>
-<li><a
-target="_blank" rel="noopener" href="https://consensus.app/papers/reinforcement-learning-elevator-control-yuan/b34f7681a67a588cb4854f3643d56d17/?utm_source=chatgpt">Reinforcement
-Learning for Elevator Control (Yuan et al., 2008)</a></li>
-<li><a
-target="_blank" rel="noopener" href="https://consensus.app/papers/review-reinforcement-learning-introduction-nian/3d06caff14785325895e9fb3bf08b792/?utm_source=chatgpt">A
-review On reinforcement learning: Introduction and applications in
-industrial process control (Nian et al., 2020)</a></li>
-</ul></li>
-<li>Adaptive Dynamic Programming (ADP)
-<ul>
-<li><a
-target="_blank" rel="noopener" href="https://consensus.app/papers/survey-reinforcement-learning-domains-otterlo/d1371441989d52108da99f9691e1f33b/?utm_source=chatgpt">A
-survey of reinforcement learning in relational domains (Otterlo,
-2005)</a></li>
-<li><a
-target="_blank" rel="noopener" href="https://consensus.app/papers/reinforcement-learning-dynamic-programming-barto/077cbcbbef005e43a12407c09f0e0a6b/?utm_source=chatgpt">Reinforcement
-Learning and Dynamic Programming (Barto, 1995)</a></li>
-<li><a
-target="_blank" rel="noopener" href="https://consensus.app/papers/reinforcement-learning-planning-control-dean/e3f97248b1815504a2c301977dc1f986/?utm_source=chatgpt">Reinforcement
-Learning for Planning and Control (Dean et al., 1993)</a></li>
-</ul></li>
-</ul>
-<h3 id="robust-control-strategy">4. Robust control strategy</h3>
-<ul>
-<li>H∞ control
-<ul>
-<li><a
-target="_blank" rel="noopener" href="https://consensus.app/papers/humanlevel-control-reinforcement-learning-mnih/99b553e2467e50c49517e20f36e999eb/?utm_source=chatgpt">Human-level
-control through deep reinforcement learning (Mnih et al., 2015)</a></li>
-<li><a
-target="_blank" rel="noopener" href="https://consensus.app/papers/reinforcement-learning-buffer/697d57506bca5f55bca1469e08fa1a70/?utm_source=chatgpt">Reinforcement
-Learning (Buffer et al., 2020)</a></li>
-<li><a
-target="_blank" rel="noopener" href="https://consensus.app/papers/reinforcement-learning-control-barto/e16d5f62183d5d4eaf0683aae0bc5295/?utm_source=chatgpt">Reinforcement
-learning control (Barto, 1994)</a></li>
-</ul></li>
-<li>Differential game control
-<ul>
-<li><a
-target="_blank" rel="noopener" href="https://consensus.app/papers/approach-reinforcement-learning-control-systems-waltz/b3c15c2452495dc3ba4a383d6dcb4621/?utm_source=chatgpt">A
-heuristic approach to reinforcement learning for control systems (Waltz
-&amp; Fu, 1965)</a></li>
-<li><a
-target="_blank" rel="noopener" href="https://consensus.app/papers/comparing-deep-reinforcement-learning-evolutionary-zhang/302074ddeff55ddcab0accde6cc24b98/?utm_source=chatgpt">Comparing
-Deep Reinforcement Learning and Evolutionary Methods in Continuous
-Control (Zhang &amp; Zaiane, 2017)</a></li>
-<li><a
-target="_blank" rel="noopener" href="https://consensus.app/papers/technique-reinforcement-learning-control-armstrong/bdf29dd4e5ea58b8ba05c59ec8484c1e/?utm_source=chatgpt">A
-new technique for reinforcement learning for control (Armstrong &amp;
-Li, 1998)</a></li>
-</ul></li>
-</ul>
-<h3 id="optimized-control-strategy-and-intelligent-control-strategy">5.
-Optimized control strategy and intelligent control strategy</h3>
-<ul>
-<li>Model Predictive Control (MPC)
-<ul>
-<li><a
-target="_blank" rel="noopener" href="https://consensus.app/papers/reinforcement-learning-feedback-control-hua/5298b48b32c653d4a4c586503a869c30/?utm_source=chatgpt">Reinforcement
-Learning and Feedback Control (Hua, 2021)</a></li>
-<li><a
-target="_blank" rel="noopener" href="https://consensus.app/papers/introduction-challenge-reinforcement-learning-sutton/1e817330611b592e8b2c717d4e19703c/?utm_source=chatgpt">Introduction:
-The challenge of reinforcement learning (Sutton, 1992)</a></li>
-<li><a
-target="_blank" rel="noopener" href="https://consensus.app/papers/reinforcement-learning-wörgötter/8317afcd7d425468be8b96f4d5e7404d/?utm_source=chatgpt">Reinforcement
-learning (Wörgötter &amp; Porr, 2019)</a></li>
-</ul></li>
-<li>Dynamic Programming (DP)
-<ul>
-<li><a
-target="_blank" rel="noopener" href="https://consensus.app/papers/reinforcement-learning-barto/b4730048e0105ba797d0a30f806fc346/?utm_source=chatgpt">Reinforcement
-learning (Barto, 1998)</a></li>
-<li><a
-target="_blank" rel="noopener" href="https://consensus.app/papers/reinforcement-learning-elevator-control-yuan/b34f7681a67a588cb4854f3643d56d17/?utm_source=chatgpt">Reinforcement
-Learning for Elevator Control (Yuan et al., 2008)</a></li>
-<li><a
-target="_blank" rel="noopener" href="https://consensus.app/papers/review-reinforcement-learning-introduction-nian/3d06caff14785325895e9fb3bf08b792/?utm_source=chatgpt">A
-review On reinforcement learning: Introduction and applications in
-industrial process control (Nian et al., 2020)</a></li>
-</ul></li>
-<li>Neural network control
-<ul>
-<li><a
-target="_blank" rel="noopener" href="https://consensus.app/papers/control-strategy-learning-through-neural-network-zeng/e2edc6e6c23a56e490bc46fa5e27a75d/?utm_source=chatgpt">A
-Control Strategy By Learning Through A Neural Network (Zeng &amp;
-Vasseur, 1992)</a></li>
-<li><a
-target="_blank" rel="noopener" href="https://consensus.app/papers/application-network-controller-process-min/04024992b3ca527ba44c15238bf027df/?utm_source=chatgpt">Application
-of a neural network controller to a process (Min &amp; Qing,
-1996)</a></li>
-<li><a
-target="_blank" rel="noopener" href="https://consensus.app/papers/neural-network-control-biped-robots-sun/0ddd231729045afea63431691e8a1445/?utm_source=chatgpt">Adaptive
-Neural Network Control of Biped Robots (Sun et al., 2017)</a></li>
-</ul></li>
-<li>Fuzzy control
-<ul>
-<li><a
-target="_blank" rel="noopener" href="https://consensus.app/papers/fuzzy-control-strategy-link-robot-kubica/197208cced6a5c36aace6673981a2d04/?utm_source=chatgpt">A
-fuzzy control strategy for a flexible single link robot (Kubica &amp;
-Wang, 1993)</a></li>
-<li><a
-target="_blank" rel="noopener" href="https://consensus.app/papers/survey-fuzzy-control-sugeno/7075da7163f55b16866bfd7476affa78/?utm_source=chatgpt">An
-introductory survey of fuzzy control (Sugeno, 1985)</a></li>
-<li><a
-target="_blank" rel="noopener" href="https://consensus.app/papers/building-comfort-control-fuzzy-reasoning-dounis/b93a4d1ff2145583903fb2dfa2693367/?utm_source=chatgpt">Building
-visual comfort control with fuzzy reasoning (Dounis et al.,
-1993)</a></li>
-</ul></li>
-<li>Reinforcement learning
-<ul>
-<li><a
-target="_blank" rel="noopener" href="https://consensus.app/papers/humanlevel-control-reinforcement-learning-mnih/99b553e2467e50c49517e20f36e999eb/?utm_source=chatgpt">Human-level
-control through deep reinforcement learning (Mnih et al., 2015)</a></li>
-<li><a
-target="_blank" rel="noopener" href="https://consensus.app/papers/algorithms-reinforcement-learning-szepesvari/c62eb61c9a915e22883e1c9b3b9122e7/?utm_source=chatgpt">Algorithms
-for Reinforcement Learning (Szepesvari, 2010)</a></li>
-<li><a
-target="_blank" rel="noopener" href="https://consensus.app/papers/reinforcement-learning-control-barto/e16d5f62183d5d4eaf0683aae0bc5295/?utm_source=chatgpt">Reinforcement
-learning control (Barto, 1994)</a></li>
-</ul></li>
-</ul>
-<h2 id="promot1">promot1</h2>
-<blockquote>
-<p>该promot用于搜查现代控制策略相关文献</p>
-</blockquote>
-<p>Please introduce the origin and history of the technology for each
-point, with each paragraph introducing about 100 words.</p>
-<ol type="1">
-<li>Linear control strategy
-<ul>
-<li>Linear Quadratic Regulator (LQR)</li>
-<li>Pole configuration</li>
-</ul></li>
-<li>Nonlinear control strategy
-<ul>
-<li>Feedback linearization</li>
-<li>Sliding Mode Control (SMC)</li>
-<li>Nonlinear Dynamic Inverse (NDI)</li>
-</ul></li>
-<li>Adaptive control strategy:
-<ul>
-<li>Model Reference Adaptive Control (MRAC)</li>
-<li>Adaptive Dynamic Programming (ADP)</li>
-</ul></li>
-<li>Robust control strategy:
-<ul>
-<li>H∞ control</li>
-<li>Differential game control</li>
-</ul></li>
-<li>Optimized control strategy and intelligent control strategy:
-<ul>
-<li>Model Predictive Control (MPC)</li>
-<li>Dynamic Programming (DP)</li>
-<li>Neural network control</li>
-<li>Fuzzy control</li>
-<li>Reinforcement learning</li>
-</ul></li>
-</ol>
-<h2 id="仿照改良文">仿照改良文</h2>
-<h3 id="原1">原1</h3>
-<p>本文的研究对象是一种搭载于大型水下遥控并联机器人（下面简称水下并联机器人）的应急浮标系统。该系统可确保水下并联机器人在作业过程中因故障导致正常通信或供电出现问题时，具备自主构建应急通信及供电通道的能力。由于该水下并联机器人的造价高昂且装备试验过程中存在任务复杂要求高、试验环境复杂、危险性高等问题，因此设计一种能保障机器人安全的应急浮标系统能大幅提高水下并联机器人的安全。
-本文的水下并联机器人具备超大尺度、系统复杂、技术指标要求高、远程遥控及纯电驱动等特点，其结构外形也与传统TLP平台较为相似，其结构示意如图1-10所示。该水下并联机器人上面布置大量试验设备，通过下达远程控制指令遥控操作四角的绞车收放锚链使水下并联机器人完成上浮或下潜动作。水下并联机器人远程控制指令及供电是通过与水面母船相连的光电复合缆实现的，因此若该光电复合缆损坏，或水面水下正常供电通信设备故障，将导致水下并联机器人失电，不能正常遥控。为了确保水下并联机器人故障情况下能够安全上浮至水面，专门配置了应急浮标系统。水下并联机器人故障情况下，通过应急浮标系统释放浮标及应急缆重新建立供电通道，恢复水下并联机器人应急回收系统，如压载水舱吹除阀件、绞车系统的刹车机构等供电及控制。</p>
-<h3 id="改良文1">改良文1</h3>
-<p>本文的研究对象是一种搭载于大型自主水下航行器（下面简称水下航行器）的行进间均衡控制系统。该系统可确保水下航行器在作业过程中因故障导致正常通信或供电出现问题时，具备自主构建应急通信及供电通道的能力。由于该水下并联机器人的造价高昂且装备试验过程中存在任务复杂要求高、试验环境复杂、危险性高等问题，因此设计一种能保障机器人安全的应急浮标系统能大幅提高水下并联机器人的安全。
-本文的水下并联机器人具备超大尺度、系统复杂、技术指标要求高、远程遥控及纯电驱动等特点，其结构外形也与传统TLP平台较为相似，其结构示意如图1-10所示。该水下并联机器人上面布置大量试验设备，通过下达远程控制指令遥控操作四角的绞车收放锚链使水下并联机器人完成上浮或下潜动作。水下并联机器人远程控制指令及供电是通过与水面母船相连的光电复合缆实现的，因此若该光电复合缆损坏，或水面水下正常供电通信设备故障，将导致水下并联机器人失电，不能正常遥控。为了确保水下并联机器人故障情况下能够安全上浮至水面，专门配置了应急浮标系统。水下并联机器人故障情况下，通过应急浮标系统释放浮标及应急缆重新建立供电通道，恢复水下并联机器人应急回收系统，如压载水舱吹除阀件、绞车系统的刹车机构等供电及控制。</p>
-<h3 id="学术文1">学术文1</h3>
-<p>本文的研究对象是一种搭载于大型自主水下航行器的行进间均衡控制系统，行进间均衡控制系统对于水下航行器的稳态与动态性能维持至关重要，它通过精细调整航行器的浮力与重心分布，实现在多变深度条件下的姿态稳定性与水平、垂直方向的平衡。此系统的高级控制机制不仅管理俯仰、横滚与偏航姿态，进而促进沿预设航线与深度的精确导航，也显著提升了航行器对复杂水下环境变动及外部扰动的响应能力与操作灵活性。此外，行进间均衡控制系统通过优化航行姿态与减少不必要的动态调整，有效降低阻力与能耗，从而延长作业续航力。在执行自动对接、样本采集、设备安装等高难度水下任务时，系统所提供的高度稳定性与控制精度更是关键。该系统不仅对水下航行器在稳定性、导航精度、操作性、能源利用效率以及复杂任务执行能力方面的提升起到了决定性作用，同时也为水下作业与研究领域带来了深远的影响。</p>
-
+          <p>非本人勿进
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2024/03/18/%E6%96%87%E6%9C%AC%E5%A4%84%E7%90%86%E5%AD%98%E6%A1%A3-%E6%AF%95%E4%B8%9A%E8%AE%BA%E6%96%87/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1361,9 +498,15 @@ point, with each paragraph introducing about 100 words.</p>
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2024-03-14 18:12:50 / 修改时间：18:24:06" itemprop="dateCreated datePublished" datetime="2024-03-14T18:12:50+08:00">2024-03-14</time>
+      <time title="创建时间：2024-03-14 18:12:50" itemprop="dateCreated datePublished" datetime="2024-03-14T18:12:50+08:00">2024-03-14</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-03-19 20:52:01" itemprop="dateModified" datetime="2024-03-19T20:52:01+08:00">2024-03-19</time>
     </span>
 
   
@@ -1373,7 +516,7 @@ point, with each paragraph introducing about 100 words.</p>
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>418</span>
+      <span>423</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -1391,20 +534,15 @@ point, with each paragraph introducing about 100 words.</p>
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="背景">背景</h2>
-<p>正在写毕业论文ing，在网上看到很多帖子说gpt写论文很厉害，巴拉巴拉的。所以我就想用gpt来对我的论文进行总结、查找相关文献写文献综述等。</p>
-<p>我目前就需要这两个功能，是真的难用！我感觉用处是真的小，出来的内容牛头不对马嘴，我真的服了。我还花了钱，一个月20美金，也就是140人民币。但是用处真的不大。</p>
-<h2 id="论文内容总结">论文内容总结</h2>
-<p>就这样一个简单的功能，我想应该很简单吧，但是难用的一匹，因为我的论文长度很长，所以总结只能一部分一部分总结。我感觉很难用，但又不知道什么原因。真服了。</p>
-<h2 id="查找相关文献">查找相关文献</h2>
-<p>真的，对中文文献真的太不友好了，查找起来全是不符合要求的文章。我也是醉了，这是因为我的论文方向太冷门了吗？</p>
-<p>我真服了。好垃圾啊。</p>
-<h2 id="小结">小结</h2>
-<p>我目前用下来是真的不好用，今天下午花了2、3个小时搞一个总结，总是不符合要求，我感觉真的不好用。因为付出往往和回报不成正比。我真的服。</p>
-<p>我觉网上吹的都是买的广告，并不是真的，因为我用起来是真的难用。</p>
-<p>踩坑了，家人们。谁懂啊！😭</p>
-<p>对于这个问题的解决办法，我认为就是不让gpt阅读长篇文献，因为gpt对于长篇文献有数字限制，对于短篇文献，gpt的阅读能力还是不错的。</p>
-
+          <p>有待更新
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2024/03/14/%E5%90%90%E6%A7%BDgpt%E9%98%85%E8%AF%BB%E8%AE%BA%E6%96%87/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1466,7 +604,7 @@ point, with each paragraph introducing about 100 words.</p>
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-03-18 17:47:27" itemprop="dateModified" datetime="2024-03-18T17:47:27+08:00">2024-03-18</time>
+      <time title="修改时间：2024-03-19 20:50:28" itemprop="dateModified" datetime="2024-03-19T20:50:28+08:00">2024-03-19</time>
     </span>
 
   
@@ -1494,74 +632,15 @@ point, with each paragraph introducing about 100 words.</p>
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="第五章节-集成与实验">第五章节 集成与实验</h2>
-<p>这一章节，目前遇到的问题就是，不知道怎么加入内容。其实就是仿照sgn的论文结构去一步步填充就好了。</p>
-<p>根据这个思路，sgn的论文第五章结构是</p>
-<ol type="1">
-<li>引言</li>
-<li>应急浮标系统集成</li>
-<li>单项试验</li>
-<li>半实物仿真试验</li>
-<li>现场试验</li>
-<li>本章小节</li>
-</ol>
-<p>其中第1、6点为介绍和总结，不是重点。对于第2、3、4、5点分别介绍</p>
-<h3 id="应急浮标系统集成">应急浮标系统集成</h3>
-<p>该点对于我的论文来讲，就是对均衡系统进行集成。那么我的均衡系统怎么进行集成呢？有哪些工作内容是关于均衡系统集成的呢？说实话，我有点无法想到。但是，我又必须要写，所以这是一个难点，待解决的难点。</p>
-<p>更新：仔细想想，这一点其实是讲均衡系统装到控制柜内，因此给出安装等信息便可以。</p>
-<p>花了两小时写了4页。。真难写</p>
-<h3 id="单项实验">单项实验</h3>
-<p>该点对于我的论文来讲，其实是针对均衡系统单独进行实验，而非整个实验，换句话说，是对均衡系统是否能正常工作进行一个完整性检测，检测其各项基本功能是否正常，是否具备均衡的条件。这个内容我是有的，所以这点不是难点。</p>
-<p>该点似乎也不是那么好些啊</p>
-<h3 id="半实物仿真实验">半实物仿真实验</h3>
-<p>这点对于我的论文来说，也是半实物仿真实验。这块内容我是有的，所以这不是难点。</p>
-<p>这点我看sgn的论文中对于半实物仿真各个部分都进行了介绍。所以开始吧</p>
-<h3 id="现场实验">现场实验</h3>
-<p>这点对于我的论文来说，也是现场实验。这块内容，我感觉有一点，有感觉不多。所以这点也是难点。</p>
-<h3 id="小结">小结</h3>
-<p>因此以上4点，有两点是难点，需要进行解决。希望我能解决这两点问题，把其他两点也顺利完成。</p>
-<h2 id="第六章节-结论与展望">第六章节 结论与展望</h2>
-<p>这一章节其实并不难，因为这一章节，其实是对全文的一个总结和对存在问题的表达以及对未来的展望。这一章节是比较水的，最重要的，可以找到类似的东西进行书写。</p>
-<p>这一章节属于大胆的去写，因为结构都大差不差，论文内容、创新点、存在的问题及未来的展望。所以这一章节不需要害怕，随便写，谁都能写出来！</p>
-<p>这一章节结构</p>
-<ol type="1">
-<li>本文主要内容及结论</li>
-<li>本文的主要创新点</li>
-<li>研究的局限性与未来展望</li>
-</ol>
-<h3 id="本文主要内容及结论">本文主要内容及结论</h3>
-<p>这一点，直接针对文章内容进行归纳，在最后进行结论的表示就可以。可以试试让gpt来总结。</p>
-<h2 id="后续思路">后续思路</h2>
-<p>我觉得第二章《水下航行器的基础理论》、第三章《行进间均衡控制技术》要大改。第一章《绪论》也要做相应修改。因为我自己对这三章十分不满意，一定要改到我满意为止。</p>
-<p>至于具体到哪些方面不满意，等到该的时候再说。</p>
-<p>回到第六章，因为第二、第三章节内容还没有完全确定。因此在第六章节，总结与展望时，只写第四、第五章的总结。注意到第六章的结构如下所示：</p>
-<ol type="1">
-<li>本文主要内容及结论</li>
-<li>本文的主要创新点</li>
-<li>研究的局限性与未来展望</li>
-</ol>
-<p>第2、3点根本和第二、第三章节内容无关，因此可以放心大胆的写（有一点点关系，创新点这里，不过也还好，反正创新点总是往大的写，所以创新点和文章的内容切割了）。而第1点只写第四、第五章内容，不写第二、三章内容。</p>
-<p>所以大胆的写。第六章节写完之后，还要写致谢，并参考文献补充完成。所以任务还多。还没有到大改的时机。</p>
-<h2 id="致谢">致谢</h2>
-<p>致谢这一章节其实比较好弄，我将sgn的致谢修改相应的关键词，为了降低查重，再用gpt进行降重。按理说这一章节写起来非常快，可能1小时就写完了</p>
-<h2 id="参考文献">参考文献</h2>
-<p>参考文献的补充其实比较麻烦，原因在于，我需要将文献下载下来，并放入到zotero文献库中，然后在word中其实操作起来很快，点两下就可以了。所以参考文献的麻烦并不在于word中，而在于</p>
-<ol type="1">
-<li>文献的查找</li>
-<li>文献链接到zotero文献库中</li>
-</ol>
-<p>文献数量比较多，或许有100个左右，那么按照一个文献操作需要3min来算，100个就需要300min，也就是5个小时。所以我说这里其实不难，但是很繁琐。</p>
-<p>后期通过优化，或许一个文献要不到3min，需要1min，那么时间也会相应下降，但是不管怎么下降，2-3小时起步。所以这里是比较繁琐的</p>
-<p>参考文献确实难搞，有点不想开始。但是必须得开始。</p>
-<p>怎么开始？现在根本问题是什么？是我不知道参考文献从哪里找，或者说我用了哪些参考文献，其实可以参考我之前的聊天记录，有记录参考了哪些文献，现在讲这些文献找出来，并找到在文章中对应的位置，因此，现在难就难在这两点，第一找原文献，第二找在论文中引用的位置。</p>
-<p>根据sgn论文，其实参考文献只需要在《课题研究背景》、《国内外研究现状》这两小节引用便可。甚至一个词就是两三个引用。而且引用主要集中在第三章的相关内容，也就是第三章的内容，是国内外研究现状的主要突出点。
-所以国内外现状也应该主要从这方面来展开，并给出相关文献。因此用gpt来找文献的方法是正确的。</p>
-<h2
-id="论文研究对象技术难点论文主要内容及结构安排">论文研究对象、技术难点、论文主要内容及结构安排</h2>
-<p>我看sgn论文中这一节，其实只给出了一张图，对其各部分进行介绍。我在想dbl的结构图，我这边真的有吗？没有的话怎么办？</p>
-<p>技术难点这一节，还可以，，比较好水，用gpt，并且在promot中加入我指向型的口令，可以满足效果</p>
-<p>论文主要内容及结构安排，主要内容就是一结构图，以及每一章节的小结。每一章节的小节，可以由我自己写完之后，由gpt润色，可以满足要求。关于小节，为了防止每一章节中的本章小节与此章节的小节合集内容重复，可以使用gpt降重，这个方法也不错。结构图，我在想用什么软件实现？用drawio吧，应该可以</p>
-
+          <p>非本人勿进
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2024/03/13/%E6%AF%95%E4%B8%9A%E8%AE%BA%E6%96%87%E9%9A%8F%E7%AC%94/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
