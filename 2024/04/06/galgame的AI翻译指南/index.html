@@ -19,28 +19,27 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.19.1","exturl":false,"sidebar":{"position":"left","display":"always","padding":10,"offset":12},"copycode":{"enable":true,"style":"flat"},"fold":{"enable":true,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="正式提交一次blog。内容呢？思来想去，不如就以搭建项目过程中遇到的git问题及解法为内容吧！">
+    <meta name="description" content="前言 本文是面向galgame的翻译过程的详细指南，并没有对任一工具的源码编写贡献，谦让不辞。 本文的目标是  面向galgame翻译的过程，选择合适工具，完成galgame的翻译工作  因此，本文是一篇详细的工具使用教程，属于科普向文章。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="上层目录的git无法跟踪子目录中clone 下的项目">
-<meta property="og:url" content="http://example.com/2024/02/21/%E4%B8%8A%E5%B1%82%E7%9B%AE%E5%BD%95%E7%9A%84git%E6%97%A0%E6%B3%95%E8%B7%9F%E8%B8%AA%E5%AD%90%E7%9B%AE%E5%BD%95%E4%B8%ADclone-%E4%B8%8B%E7%9A%84%E9%A1%B9%E7%9B%AE/index.html">
+<meta property="og:title" content="galgame的AI翻译指南">
+<meta property="og:url" content="http://example.com/2024/04/06/galgame%E7%9A%84AI%E7%BF%BB%E8%AF%91%E6%8C%87%E5%8D%97/index.html">
 <meta property="og:site_name" content="pxBang的个人博客">
-<meta property="og:description" content="正式提交一次blog。内容呢？思来想去，不如就以搭建项目过程中遇到的git问题及解法为内容吧！">
+<meta property="og:description" content="前言 本文是面向galgame的翻译过程的详细指南，并没有对任一工具的源码编写贡献，谦让不辞。 本文的目标是  面向galgame翻译的过程，选择合适工具，完成galgame的翻译工作  因此，本文是一篇详细的工具使用教程，属于科普向文章。">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-02-20T20:19:22.000Z">
-<meta property="article:modified_time" content="2024-03-13T06:39:19.187Z">
+<meta property="article:published_time" content="2024-04-06T15:16:02.000Z">
+<meta property="article:modified_time" content="2024-04-06T18:28:22.970Z">
 <meta property="article:author" content="pxBang">
-<meta property="article:tag" content="git">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="http://example.com/2024/02/21/%E4%B8%8A%E5%B1%82%E7%9B%AE%E5%BD%95%E7%9A%84git%E6%97%A0%E6%B3%95%E8%B7%9F%E8%B8%AA%E5%AD%90%E7%9B%AE%E5%BD%95%E4%B8%ADclone-%E4%B8%8B%E7%9A%84%E9%A1%B9%E7%9B%AE/">
+<link rel="canonical" href="http://example.com/2024/04/06/galgame%E7%9A%84AI%E7%BF%BB%E8%AF%91%E6%8C%87%E5%8D%97/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2024/02/21/%E4%B8%8A%E5%B1%82%E7%9B%AE%E5%BD%95%E7%9A%84git%E6%97%A0%E6%B3%95%E8%B7%9F%E8%B8%AA%E5%AD%90%E7%9B%AE%E5%BD%95%E4%B8%ADclone-%E4%B8%8B%E7%9A%84%E9%A1%B9%E7%9B%AE/","path":"2024/02/21/上层目录的git无法跟踪子目录中clone-下的项目/","title":"上层目录的git无法跟踪子目录中clone 下的项目"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2024/04/06/galgame%E7%9A%84AI%E7%BF%BB%E8%AF%91%E6%8C%87%E5%8D%97/","path":"2024/04/06/galgame的AI翻译指南/","title":"galgame的AI翻译指南"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>上层目录的git无法跟踪子目录中clone 下的项目 | pxBang的个人博客</title>
+<title>galgame的AI翻译指南 | pxBang的个人博客</title>
   
 
 
@@ -139,7 +138,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%AE%E5%BD%95%E6%A0%91%E5%BD%A2%E5%9B%BE"><span class="nav-number">1.</span> <span class="nav-text">2.目录树形图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E6%B3%95"><span class="nav-number">2.</span> <span class="nav-text">3.解法</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#galgame%E7%BF%BB%E8%AF%91%E8%BF%87%E7%A8%8B"><span class="nav-number">2.</span> <span class="nav-text">galgame翻译过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%8C%85"><span class="nav-number">3.</span> <span class="nav-text">解包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%8E%E6%96%87%E6%9C%AC%E6%96%87%E4%BB%B6%E6%8F%90%E5%8F%96"><span class="nav-number">4.</span> <span class="nav-text">从文本文件提取</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ai%E7%BF%BB%E8%AF%91"><span class="nav-number">5.</span> <span class="nav-text">AI翻译</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B"><span class="nav-number">5.1.</span> <span class="nav-text">大语言模型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#gpt"><span class="nav-number">5.1.1.</span> <span class="nav-text">GPT</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#sakura-13b-galgame"><span class="nav-number">5.1.2.</span> <span class="nav-text">Sakura-13B-Galgame</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#llm%E8%87%AA%E5%8A%A8%E5%8C%96%E7%BF%BB%E8%AF%91%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">5.2.</span> <span class="nav-text">LLM自动化翻译解决方案</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#galtransl"><span class="nav-number">5.2.1.</span> <span class="nav-text">GalTransl</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ainiee"><span class="nav-number">5.2.2.</span> <span class="nav-text">AiNiee</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B3%A8%E5%9B%9E%E5%88%B0%E6%96%87%E6%9C%AC%E6%96%87%E4%BB%B6"><span class="nav-number">6.</span> <span class="nav-text">注回到文本文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B0%81%E5%8C%85"><span class="nav-number">7.</span> <span class="nav-text">封包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9D%A2%E5%90%91galgame%E7%BF%BB%E8%AF%91%E8%BF%87%E7%A8%8B"><span class="nav-number">8.</span> <span class="nav-text">面向galgame翻译过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">9.</span> <span class="nav-text">总结</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -192,7 +191,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/02/21/%E4%B8%8A%E5%B1%82%E7%9B%AE%E5%BD%95%E7%9A%84git%E6%97%A0%E6%B3%95%E8%B7%9F%E8%B8%AA%E5%AD%90%E7%9B%AE%E5%BD%95%E4%B8%ADclone-%E4%B8%8B%E7%9A%84%E9%A1%B9%E7%9B%AE/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/04/06/galgame%E7%9A%84AI%E7%BF%BB%E8%AF%91%E6%8C%87%E5%8D%97/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://raw.githubusercontent.com/pxBang/ImageHostingService/main/202402232302599.jpg">
@@ -205,12 +204,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="上层目录的git无法跟踪子目录中clone 下的项目 | pxBang的个人博客">
+      <meta itemprop="name" content="galgame的AI翻译指南 | pxBang的个人博客">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          上层目录的git无法跟踪子目录中clone 下的项目
+          galgame的AI翻译指南
         </h1>
 
         <div class="post-meta-container">
@@ -221,14 +220,14 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2024-02-21 04:19:22" itemprop="dateCreated datePublished" datetime="2024-02-21T04:19:22+08:00">2024-02-21</time>
+      <time title="创建时间：2024-04-06 23:16:02" itemprop="dateCreated datePublished" datetime="2024-04-06T23:16:02+08:00">2024-04-06</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-03-13 14:39:19" itemprop="dateModified" datetime="2024-03-13T14:39:19+08:00">2024-03-13</time>
+      <time title="修改时间：2024-04-07 02:28:22" itemprop="dateModified" datetime="2024-04-07T02:28:22+08:00">2024-04-07</time>
     </span>
 
   
@@ -245,14 +244,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>151</span>
+      <span>1.3k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
+      <span>4 分钟</span>
     </span>
 </div>
 
@@ -262,46 +261,141 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><p>正式提交一次blog。内容呢？思来想去，不如就以搭建项目过程中遇到的git问题及解法为内容吧！
-<span id="more"></span> ## 1.问题描述</p>
-<p>上层目录的git无法跟踪子目录中clone 下的项目</p>
-<h2 id="目录树形图">2.目录树形图</h2>
-<pre class="line-numbers language-text" data-language="text"><code class="language-text">.
-└── A
-    ├── B
-    │   └── .git
-    │       ├── branches
-    │       ├── hooks
-    │       ├── info
-    │       ├── objects
-    │       │   ├── info
-    │       │   └── pack
-    │       └── refs
-    │           ├── heads
-    │           └── tags
-    └── .git
-        ├── branches
-        ├── hooks
-        ├── info
-        ├── objects
-        │   ├── info
-        │   └── pack
-        └── refs
-            ├── heads
-            └── tags<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="解法">3.解法</h2>
+    <div class="post-body" itemprop="articleBody"><h2 id="前言">前言</h2>
+<p>本文是面向<code>galgame</code>的翻译过程的详细指南，并没有对任一工具的源码编写贡献，谦让不辞。</p>
+<p>本文的目标是</p>
+<blockquote>
+<p>面向galgame翻译的过程，选择合适工具，完成galgame的翻译工作</p>
+</blockquote>
+<p>因此，本文是一篇<strong>详细的工具使用教程</strong>，属于<strong>科普向文章</strong>。</p>
+<span id="more"></span>
+<h2 id="galgame翻译过程">galgame翻译过程</h2>
+<p>这里并不对galgame本身过多介绍，不属于本文内容，若要了解galgame，请自行寻找科普</p>
+<p>游戏本体获取，该步骤不属于本文内容，不会介绍</p>
+<p>galgame翻译过程主要分为以下几步：</p>
 <ol type="1">
-<li>想办法删B文件夹下的.git文件夹
+<li>解包
 <ul>
-<li>git rm -r path</li>
+<li>将游戏本体解包为图片、语音、文本等文件</li>
 </ul></li>
-<li>清空A文件夹git缓存中B文件夹，再手动添加B文件夹
+<li>从文本文件提取
 <ul>
-<li>git rm -r --cached path</li>
-<li>git add path</li>
+<li>将文本文件中需要翻译的对话内容提取出来，输出标记格式文本</li>
+</ul></li>
+<li>AI翻译
+<ul>
+<li>使用大语言模型进行日文到中文的翻译</li>
+</ul></li>
+<li>注回到文本文件
+<ul>
+<li>将翻译好的中文文本注入回文本文件</li>
+<li>该步为第3步的逆向工程</li>
+</ul></li>
+<li>封包
+<ul>
+<li>将文本文件连同图片、语音文件封包回游戏本体</li>
+<li>第2步的逆向工程</li>
 </ul></li>
 </ol>
-<p>解法1，2均可</p>
+<h2 id="解包">解包</h2>
+<p>解包目前使用<code>GARbro</code>工具，这里给出<a
+target="_blank" rel="noopener" href="https://github.com/morkt/GARbro">github 链接</a></p>
+<p>前人栽树😊</p>
+<h2 id="从文本文件提取">从文本文件提取</h2>
+<p>目前文本提取的推荐使用<code>Translator++</code>免费软件，支持rpg、ADV等类型游戏的文本提取功能，给出<a
+target="_blank" rel="noopener" href="https://dreamsavior.net/download/">官方网站下载链接</a></p>
+<p>前人栽树😊</p>
+<h2 id="ai翻译">AI翻译</h2>
+<p>AI翻译过程包括两部分</p>
+<ol type="1">
+<li>大语言模型（LLM）</li>
+<li>LLM自动化翻译解决方案</li>
+</ol>
+<h3 id="大语言模型">大语言模型</h3>
+<ol type="1">
+<li>GPT（云端调用）</li>
+<li>Sakura-13B-Galgame（本地部署）</li>
+<li>claude（云端调用，我没用过，不介绍）</li>
+<li>gemeni（云端调用，我没用过，不介绍）</li>
+<li>等等</li>
+</ol>
+<h4 id="gpt">GPT</h4>
+<p>GPT是我第一个使用的LLM模型，打开了我对于AI的兴趣之门。从可信度上来讲，目前它属于LLM第一梯队。</p>
+<p>要调用gpt语言模型来实现AI翻译，使用API
+KEY来调用其API接口，进而使用该语言模型。这里给出<a
+target="_blank" rel="noopener" href="https://openai.com/blog/openai-api">openai api官网</a></p>
+<p>如何获取openai api key不属于本文内容，请自行寻找。</p>
+<h4 id="sakura-13b-galgame">Sakura-13B-Galgame</h4>
+<p><code>Sakura-13B-Galgame</code>是开源的聚焦于轻小说翻译领域的大语言模型，它实现了大模型的本地部署，非常具有吸引力，这里给出<a
+target="_blank" rel="noopener" href="https://github.com/SakuraLLM/Sakura-13B-Galgame">github链接</a></p>
+<p>前人栽树😊</p>
+<h3 id="llm自动化翻译解决方案">LLM自动化翻译解决方案</h3>
+<p>LLM自动化翻译解决方案属于LLM应用层，主要功能为简化LLM的Promot，集成并简化了各种参数设置。</p>
+<ol type="1">
+<li>GalTransl</li>
+<li>AiNiee</li>
+</ol>
+<h4 id="galtransl">GalTransl</h4>
+<p><code>GalTransl</code>是大语言模型的自动化翻译解决方案，它是一个命令行工具</p>
+<p><code>GalTransl</code>是我在第一次尝试翻译galgame时使用的一款基于大型语言模型的自动翻译工具。它成功地解决了我在galgame翻译过程中遇到的关键问题，自那以后，我便开始学习有关galgame翻译的各种知识。可以说，
+<code>GalTransl</code>为我打开了galgame翻译之路的大门，是我这一旅程中至关重要的启航钥匙。</p>
+<p>给出<a target="_blank" rel="noopener" href="https://github.com/morkt/GARbro">github链接</a></p>
+<p>前人栽树😊</p>
+<h4 id="ainiee">AiNiee</h4>
+<p><code>AiNiee</code>同样是大语言模型的自动化翻译解决方案，相比于<code>GalTransl</code>，它对于其他软件的适配性更好，例如适配了<code>Translator++</code>的输出文件,且具有GUI界面,操作更直观。</p>
+<p>根据本人经验，<code>AiNiee</code>的自动化程度更高，更"傻瓜"。如果是第一次使用，推荐使用<code>AiNiee</code>（对不起cx233大佬😂，虽然<code>GalTransl</code>是我的启航钥匙，但是<code>AiNiee</code>确实更"傻瓜"）</p>
+<p>这里给出<a
+target="_blank" rel="noopener" href="https://github.com/NEKOparapa/AiNiee">github链接</a></p>
+<p>前人栽树😊</p>
+<h2 id="注回到文本文件">注回到文本文件</h2>
+<p>使用<code>Translator++</code>注回文本文件</p>
+<h2 id="封包">封包</h2>
+<p>使用<code>GARbro</code>封包</p>
+<p>或者采用免封包方法</p>
+<h2 id="面向galgame翻译过程">面向galgame翻译过程</h2>
+<p>面向galgame翻译过程，我将详细查看哪些教程完成对应翻译过程。</p>
+<p><code>Dir-A</code>大佬对galgame翻译流程有着深刻的见解，可以说他的教学视频带领我完整地走过了galgame翻译的旅程。通过学习<code>Dir-A</code>大佬的视频，我对galgame翻译的各个环节有了更深入的理解。</p>
+<p>这里给出<code>Dir-A</code>大佬的<a
+target="_blank" rel="noopener" href="https://space.bilibili.com/8144708?spm_id_from=333.337.0.0">b站教程</a>，该教程以下简称为<code>Dir-A教程</code>。</p>
+<p><code>AiNiee</code>的<a
+target="_blank" rel="noopener" href="https://github.com/morkt/GARbro">github链接</a>的readme有使用教程，以下简称<code>AiNiee教程</code></p>
+<p><code>Sakura-13B-Galgame</code>的<a
+target="_blank" rel="noopener" href="https://github.com/SakuraLLM/Sakura-13B-Galgame">github链接</a>的readme有使用教程，以下简称<code>Sakura教程</code></p>
+<ol type="1">
+<li>解包
+<ul>
+<li>Dir-A教程</li>
+</ul></li>
+<li>从文本文件提取
+<ul>
+<li>AiNiee教程</li>
+</ul></li>
+<li>AI翻译
+<ul>
+<li>Sakura教程</li>
+<li>AiNiee教程</li>
+</ul></li>
+<li>注回到文本文件
+<ul>
+<li>Dir-A教程</li>
+</ul></li>
+<li>封包
+<ul>
+<li>Dir-A教程</li>
+</ul></li>
+</ol>
+<h2 id="总结">总结</h2>
+<p>至此，便完成了<code>galgame</code>翻译过程的科普介绍，或许你仍会遇到各种各样的问题，你可以</p>
+<ol type="1">
+<li>灵活运用各种开源资源</li>
+<li>学习<code>galgame</code>翻译过程相关知识</li>
+<li>在一些优质群里询问大佬们的建议</li>
+<li>自己进行代码的编写。</li>
+</ol>
+<p>也许问题仍然无法解决，不用担心</p>
+<blockquote>
+<p>世上无难事，只要肯放弃</p>
+</blockquote>
 
     </div>
 
@@ -324,19 +418,16 @@
   </div>
 </div>
 
-          <div class="post-tags">
-              <a href="/tags/git/" rel="tag"># git</a>
-          </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
+                <a href="/2024/03/31/SimplyPiano-App%E7%BB%83%E7%90%B4%E6%9C%89%E6%84%9F/" rel="prev" title="SimplyPiano App练琴有感">
+                  <i class="fa fa-angle-left"></i> SimplyPiano App练琴有感
+                </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2024/02/21/%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B%E6%80%BB%E7%BB%93/" rel="next" title="搭建个人博客教程总结">
-                  搭建个人博客教程总结 <i class="fa fa-angle-right"></i>
-                </a>
             </div>
           </div>
     </footer>
@@ -448,7 +539,7 @@
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
 
-<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"pxBang","repo":"pxBang.github.io","client_id":"71c2acdbfd8649b45b27","client_secret":"652c5c065f75e1ca0bd7b533339fdc77bb2c4d91","admin_user":"pxBang","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":null,"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.min.js","integrity":"sha256-MVK9MGD/XJaGyIghSVrONSnoXoGh3IFxLw0zfvzpxR4="},"path_md5":"e86e433d521ec0fb5c9092cf216ef7d4"}</script>
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"pxBang","repo":"pxBang.github.io","client_id":"71c2acdbfd8649b45b27","client_secret":"652c5c065f75e1ca0bd7b533339fdc77bb2c4d91","admin_user":"pxBang","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":null,"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.min.js","integrity":"sha256-MVK9MGD/XJaGyIghSVrONSnoXoGh3IFxLw0zfvzpxR4="},"path_md5":"b2c61ae3a365915441c222164b88e877"}</script>
 <script src="/js/third-party/comments/gitalk.js"></script>
 
 </body>
