@@ -150,7 +150,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">16</span>
+          <span class="site-state-item-count">18</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -178,6 +178,312 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/04/13/galgame%E7%9A%84%E5%85%A8%E8%87%AA%E5%8A%A8%E5%85%8D%E8%B4%B9AI%E6%B1%89%E5%8C%96-Escude%E5%BC%95%E6%93%8E/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://raw.githubusercontent.com/pxBang/ImageHostingService/main/202402232302599.jpg">
+      <meta itemprop="name" content="pxBang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="pxBang的个人博客">
+      <meta itemprop="description" content="学而时习之，生活·学习·解决">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | pxBang的个人博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/04/13/galgame%E7%9A%84%E5%85%A8%E8%87%AA%E5%8A%A8%E5%85%8D%E8%B4%B9AI%E6%B1%89%E5%8C%96-Escude%E5%BC%95%E6%93%8E/" class="post-title-link" itemprop="url">galgame的全自动免费AI汉化-Escude引擎</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-04-13 23:31:52" itemprop="dateCreated datePublished" datetime="2024-04-13T23:31:52+08:00">2024-04-13</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-04-14 02:08:50" itemprop="dateModified" datetime="2024-04-14T02:08:50+08:00">2024-04-14</time>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>696</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>2 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="前言">前言</h2>
+<p>本篇内容是<code>galgame的全自动免费AI汉化</code>系列的第二部，<a
+target="_blank" rel="noopener" href="https://pxbang.github.io/2024/04/08/galgame的全自动免费AI汉化-YURIS引擎/">第一部为Yu-RIS引擎</a>，该篇文章的主要目的是针对<code>Escude</code>引擎的<code>galgame</code>全自动免费AI翻译过程的说明</p>
+<p>本文的目的 &gt; 适配<code>Escude</code>引擎 &gt; &gt;
+面向步骤，给出具体操作手段</p>
+<p>本文的关键词</p>
+<ol type="1">
+<li><code>Escude</code>引擎</li>
+<li>全自动</li>
+<li>免费</li>
+<li>galgame的AI汉化</li>
+<li>详细教程</li>
+</ol>
+<p>在观看本篇文章前，强烈建议先看一遍<a
+target="_blank" rel="noopener" href="https://pxbang.github.io/2024/04/06/面向galgame的AI汉化过程指南/">面向galgame的AI汉化过程指南</a>，对整个翻译过程有个印象</p>
+<p>翻译对象：<code>艶花サクラメント</code></p>
+<h2 id="解包">解包</h2>
+<p>在下载游戏本体并解压后，你的目录是这样的</p>
+<figure>
+<img data-src="https://raw.githubusercontent.com/pxBang/ImageHostingService/main/202404140053204.png"
+alt="根目录" />
+<figcaption aria-hidden="true">根目录</figcaption>
+</figure>
+<p>其中和exe文件同名的<code>adebana.bin</code>里包含了各种控制代码，用于控制游戏。<code>script.bin</code>里包含了游戏的对话文本，我们主要是对于这两个文件内容进行修改。</p>
+<p><code>Esude</code>引擎的<code>.bin</code>文件解包需要用<code>marcussacana</code>大佬的<a
+target="_blank" rel="noopener" href="https://github.com/marcussacana/EscudeEditor">EscudeEditor</a>进行解包，后面也需要用它来封包</p>
+<h2 id="提取文本文件">提取文本文件</h2>
+<h3 id="工具的使用">工具的使用</h3>
+<p>在解包后，你的目录结构是这样的</p>
+<p><code>script</code>文件夹</p>
+<figure>
+<img data-src="https://raw.githubusercontent.com/pxBang/ImageHostingService/main/202404140104948.png"
+alt="script" />
+<figcaption aria-hidden="true">script</figcaption>
+</figure>
+<p><code>adebana</code>文件夹 <img data-src="https://raw.githubusercontent.com/pxBang/ImageHostingService/main/202404140124001.png"
+alt="adebana" /></p>
+<p><code>adebana</code>文件夹中的文件已经是可编辑的文本文件，而<code>script</code>文件夹中的文件仍然是<code>.bin</code>文件，但是这些<code>.bin</code>文件并非文件夹*，而是文本文件，此时你仍然可以使用<code>EscudeEditor</code>查看这些<code>.bin</code>文件，然而该工具并不具备将<code>.bin文件</code>转为可编辑文本的能力</p>
+<p>采用<code>marcussacana</code>大佬的<a
+target="_blank" rel="noopener" href="https://github.com/marcussacana/SacanaWrapper">SacanaWrapper</a>工具，将<code>.bin文件</code>转为可编辑文本</p>
+<p>第一次使用<code>SacanaWrapper</code>工具需要先下载插件<code>EscudeEditor.dll</code>,其实就是之前的解包工具，只是这里<code>marcussacana</code>大佬将其作为插件的形式集成到<code>SacanaWrapper</code>里了</p>
+<p>将<code>.bin</code>文件拖到<code>StringTool.exe</code>上（即将<code>.bin</code>文件地址作为参数传给<code>StringTool.exe</code>）</p>
+<p>便会生成很多<code>.dump.txt</code>文件，这便是你所需要的可编辑的文本。</p>
+<h3 id="两个问题">两个问题</h3>
+<p>其实提取文本文件环节就结束了，但是此时有两个小问题</p>
+<ol type="1">
+<li>提取的<code>.dump.txt</code>和<code>.bin</code>文件在同一个文件夹下，且文件数量居多，后续需要将<code>.dump.txt</code>放到一个文件夹中进行文本处理，并将每个文件名的<code>.dump.txt</code>改为<code>.txt</code>,文件操作十分繁琐。<img data-src="https://raw.githubusercontent.com/pxBang/ImageHostingService/main/202404140146045.png"
+alt="提取文本文件后的目录" /></li>
+<li>第二个问题和本游戏有关系，属于游戏特性。我在提取可编辑文本出来后发现，内容中有许多的<code>&lt;r&gt;</code>符号，AI在翻译带有特殊符号的语句时，效果一定不如不带特殊符号。
+<img data-src="https://raw.githubusercontent.com/pxBang/ImageHostingService/main/202404140202059.png"
+alt="&lt; r &gt;符号" /></li>
+</ol>
+<p>为了提高效率，使用python实现自动化</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/04/11/%E4%B8%80%E5%91%A8galgame%E5%BC%95%E6%93%8E%E5%AD%A6%E4%B9%A0%E5%90%8E%E7%9A%84%E5%BD%93%E5%8A%A1%E4%B9%8B%E6%80%A5%E4%BA%8B%E5%8A%A1%E5%A4%84%E7%90%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://raw.githubusercontent.com/pxBang/ImageHostingService/main/202402232302599.jpg">
+      <meta itemprop="name" content="pxBang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="pxBang的个人博客">
+      <meta itemprop="description" content="学而时习之，生活·学习·解决">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | pxBang的个人博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/04/11/%E4%B8%80%E5%91%A8galgame%E5%BC%95%E6%93%8E%E5%AD%A6%E4%B9%A0%E5%90%8E%E7%9A%84%E5%BD%93%E5%8A%A1%E4%B9%8B%E6%80%A5%E4%BA%8B%E5%8A%A1%E5%A4%84%E7%90%86/" class="post-title-link" itemprop="url">一周galgame引擎学习后的当务之急事务处理</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-04-11 15:59:13" itemprop="dateCreated datePublished" datetime="2024-04-11T15:59:13+08:00">2024-04-11</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-04-13 23:30:04" itemprop="dateModified" datetime="2024-04-13T23:30:04+08:00">2024-04-13</time>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>793</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>3 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="背景">背景</h2>
+<p>花了一周时间学习了如何翻译galgame各种引擎的游戏。</p>
+<p>目前进度：</p>
+<ol type="1">
+<li>Yu-Ris
+<ul>
+<li>完成</li>
+</ul></li>
+<li>KikrKikr2
+<ul>
+<li>完成</li>
+</ul></li>
+<li>Esude
+<ul>
+<li>未完成</li>
+<li>最后一步，不知道如何让游戏读取中文。目前的解决方向是使用uif框架进行sjs替换，但还未完成</li>
+</ul></li>
+<li>VALKYRIA
+<ul>
+<li>未完成</li>
+<li>最后一步，不知道让游戏如何读取中文。目前的解决方向是用uif框架进行sjs替换，但还未完成</li>
+</ul></li>
+<li>KikrKikrz
+<ul>
+<li>未开始</li>
+<li>猜测使用dira佬的视频可以解决问题</li>
+</ul></li>
+</ol>
+<h2 id="当务之急">当务之急</h2>
+<p>回归正题，我的当务之急是什么？经过了一周的专注学习，对外界事物的联系过少，处于断连状态，因此有必要对<code>当务之急</code>进行梳理，方便我处理这一系列问题</p>
+<h2 id="论文">论文</h2>
+<p>论文的目前主要任务是：</p>
+<ol type="1">
+<li>在万方上进行查重</li>
+<li>在图书馆进行查重</li>
+</ol>
+<p>徐老师周日会批改我的论文，因此这两项任务需要在周日前完成</p>
+<h2 id="毕业">毕业</h2>
+<p>毕业需要处理的事情</p>
+<p>填写毕业生登记表</p>
+<p>4月16日截止，即下周二。最好在本周就根据模版，填写完成。</p>
+<blockquote>
+<p>查看模版后发现，这类登记表填过很多次，你能填。注意不要填错，可以用铅笔填一遍，确认无误后，用黑笔描一遍</p>
+</blockquote>
+<h2 id="工作">工作</h2>
+<p>解约函，前天到梧桐雨快递点了，今天我需要去拿</p>
+<p>解约函拿到后，我需要在学校进行解约，并询问群里理想的hr们，我后续处理的流程。</p>
+<p>目前是拿到解约函，在学校进行解约。</p>
+<h2 id="总结">总结</h2>
+<p>今天的任务</p>
+<ol type="1">
+<li>拿到解约函，咨询如何在学校解约-finish</li>
+<li>在万方上进行查重-百分之4.32-finish</li>
+</ol>
+<p>明日的任务</p>
+<ol type="1">
+<li>填写解约申请表，让老师审批通过，通过后，让理想立即发起三方</li>
+<li>在知网上进行查重-百分之5.6-finish</li>
+<li>填写毕业生登记表</li>
+</ol>
+<p>4月13日的任务</p>
+<ol type="1">
+<li>学生开始纸质，【学生】下载并打印协议书，去学校盖章，将盖完章的三方及就业推荐表邮寄给企业，同步快递单号，并告知个人收件地址，就业推荐表的主要作用是企业留存+后续落户办理使用
+，推荐表需要学院和学校的鲜章 并且是原件
+（必须贴上个人照片），【如果没有落户意向，不用邮寄推荐表至企业</li>
+</ol>
+<p>4月14日的任务</p>
+<ol type="1">
+<li>学生开始纸质，【学生】下载并打印协议书，去学校盖章，将盖完章的三方及就业推荐表邮寄给企业，同步快递单号，并告知个人收件地址，就业推荐表的主要作用是企业留存+后续落户办理使用
+，推荐表需要学院和学校的鲜章 并且是原件
+（必须贴上个人照片），【如果没有落户意向，不用邮寄推荐表至企业</li>
+<li>填写毕业生登记表，粘贴照片，交给qy</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -217,7 +523,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2024-04-08 00:02:20 / 修改时间：13:15:47" itemprop="dateCreated datePublished" datetime="2024-04-08T00:02:20+08:00">2024-04-08</time>
+      <time title="创建时间：2024-04-08 00:02:20 / 修改时间：18:48:53" itemprop="dateCreated datePublished" datetime="2024-04-08T00:02:20+08:00">2024-04-08</time>
     </span>
 
   
@@ -227,14 +533,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>2.1k</span>
+      <span>2.3k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>7 分钟</span>
+      <span>8 分钟</span>
     </span>
 </div>
 
@@ -977,199 +1283,6 @@ target="_blank" rel="noopener" href="https://pxbang.github.io/2024/04/06/面向g
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/03/13/%E6%AF%95%E4%B8%9A%E8%AE%BA%E6%96%87%E9%9A%8F%E7%AC%94/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://raw.githubusercontent.com/pxBang/ImageHostingService/main/202402232302599.jpg">
-      <meta itemprop="name" content="pxBang">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="pxBang的个人博客">
-      <meta itemprop="description" content="学而时习之，生活·学习·解决">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | pxBang的个人博客">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/03/13/%E6%AF%95%E4%B8%9A%E8%AE%BA%E6%96%87%E9%9A%8F%E7%AC%94/" class="post-title-link" itemprop="url">毕业论文随笔</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-03-13 14:40:32" itemprop="dateCreated datePublished" datetime="2024-03-13T14:40:32+08:00">2024-03-13</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-04-02 20:10:48" itemprop="dateModified" datetime="2024-04-02T20:10:48+08:00">2024-04-02</time>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>5.4k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>18 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          该文章被加密了, 请输入密码查看.
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2024/03/13/%E6%AF%95%E4%B8%9A%E8%AE%BA%E6%96%87%E9%9A%8F%E7%AC%94/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/03/06/pandoc%E6%A0%87%E8%AE%B0%E8%AF%AD%E8%A8%80%E8%BD%AC%E6%8D%A2%E5%B7%A5%E5%85%B7/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://raw.githubusercontent.com/pxBang/ImageHostingService/main/202402232302599.jpg">
-      <meta itemprop="name" content="pxBang">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="pxBang的个人博客">
-      <meta itemprop="description" content="学而时习之，生活·学习·解决">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | pxBang的个人博客">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/03/06/pandoc%E6%A0%87%E8%AE%B0%E8%AF%AD%E8%A8%80%E8%BD%AC%E6%8D%A2%E5%B7%A5%E5%85%B7/" class="post-title-link" itemprop="url">pandoc标记语言转换工具</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2024-03-06 18:22:13 / 修改时间：21:22:08" itemprop="dateCreated datePublished" datetime="2024-03-06T18:22:13+08:00">2024-03-06</time>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>280</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="起因">起因</h2>
-<p>在写<a
-target="_blank" rel="noopener" href="https://pxbang.github.io/2024/03/06/华科图书馆一方天地吐槽🤢/#more">《华科图书馆一方天地吐槽🤢》</a>这篇博客时，文章中需要用到数学公式，而markdown自然支持数学公式，使用<code>$ 公式内容 $</code>格式便可以书写公式，然而hexo架构-next主题中无法正常显示公式。查询<a
-target="_blank" rel="noopener" href="https://github.com/theme-next/hexo-theme-next/blob/master/docs/zh-CN/MATH.md">官方文档</a>，发现原先的渲染器不支持，需要更换渲染器为<code>pandoc</code>。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2024/03/06/pandoc%E6%A0%87%E8%AE%B0%E8%AF%AD%E8%A8%80%E8%BD%AC%E6%8D%A2%E5%B7%A5%E5%85%B7/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
     <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
@@ -1194,14 +1307,14 @@ target="_blank" rel="noopener" href="https://github.com/theme-next/hexo-theme-ne
       <i class="fa fa-chart-line"></i>
     </span>
       <span>站点总字数：</span>
-    <span title="站点总字数">45k</span>
+    <span title="站点总字数">47k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">2:30</span>
+    <span title="站点阅读时长">2:35</span>
   </span>
 </div>
 <div class="busuanzi-count">
