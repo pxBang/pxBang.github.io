@@ -223,7 +223,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-04-14 03:53:09" itemprop="dateModified" datetime="2024-04-14T03:53:09+08:00">2024-04-14</time>
+      <time title="修改时间：2024-04-14 03:56:36" itemprop="dateModified" datetime="2024-04-14T03:56:36+08:00">2024-04-14</time>
     </span>
 
   
@@ -264,144 +264,14 @@ target="_blank" rel="noopener" href="https://pxbang.github.io/2024/04/08/galgame
 <li>galgame的AI汉化</li>
 <li>详细教程</li>
 </ol>
-<p>在观看本篇文章前，强烈建议先看一遍<a
-target="_blank" rel="noopener" href="https://pxbang.github.io/2024/04/06/面向galgame的AI汉化过程指南/">面向galgame的AI汉化过程指南</a>，对整个翻译过程有个印象</p>
-<p>翻译对象：<code>艶花サクラメント</code></p>
-<h2 id="解包">解包</h2>
-<p>在下载游戏本体并解压后，你的目录是这样的</p>
-<figure>
-<img data-src="https://raw.githubusercontent.com/pxBang/ImageHostingService/main/202404140053204.png"
-alt="根目录" />
-<figcaption aria-hidden="true">根目录</figcaption>
-</figure>
-<p>其中和exe文件同名的<code>adebana.bin</code>里包含了各种控制代码，用于控制游戏。<code>script.bin</code>里包含了游戏的对话文本，我们主要是对于这两个文件内容进行修改。</p>
-<p><code>Esude</code>引擎的<code>.bin</code>文件解包需要用<code>marcussacana</code>大佬的<a
-target="_blank" rel="noopener" href="https://github.com/marcussacana/EscudeEditor">EscudeEditor</a>进行解包，后面也需要用它来封包</p>
-<h2 id="提取文本文件">提取文本文件</h2>
-<h3 id="工具的使用">工具的使用</h3>
-<p>在解包后，你的目录结构是这样的</p>
-<p><code>script</code>文件夹</p>
-<figure>
-<img data-src="https://raw.githubusercontent.com/pxBang/ImageHostingService/main/202404140104948.png"
-alt="script" />
-<figcaption aria-hidden="true">script</figcaption>
-</figure>
-<p><code>adebana</code>文件夹 <img data-src="https://raw.githubusercontent.com/pxBang/ImageHostingService/main/202404140124001.png"
-alt="adebana" /></p>
-<p><code>adebana</code>文件夹中的文件已经是可编辑的文本文件，而<code>script</code>文件夹中的文件仍然是<code>.bin</code>文件，但是这些<code>.bin</code>文件并非文件夹，而是文本文件，此时你仍然可以使用<code>EscudeEditor</code>查看这些<code>.bin</code>文件，然而该工具并不具备将<code>.bin文件</code>转为可编辑文本的能力</p>
-<p>采用<code>marcussacana</code>大佬的<a
-target="_blank" rel="noopener" href="https://github.com/marcussacana/SacanaWrapper">SacanaWrapper</a>工具，将<code>.bin文件</code>转为可编辑文本</p>
-<p>第一次使用<code>SacanaWrapper</code>工具需要先下载插件<code>EscudeEditor.dll</code>,其实就是之前的解包工具，只是这里<code>marcussacana</code>大佬将其作为插件的形式集成到<code>SacanaWrapper</code>里了</p>
-<p>将<code>.bin</code>文件拖到<code>StringTool.exe</code>上（即将<code>.bin</code>文件地址作为参数传给<code>StringTool.exe</code>）</p>
-<p>便会生成很多<code>.dump.txt</code>文件，这便是你所需要的可编辑的文本。</p>
-<h3 id="两个问题">两个问题</h3>
-<p>其实提取文本文件环节就结束了，但是此时有两个小问题</p>
-<ol type="1">
-<li>提取的<code>.dump.txt</code>和<code>.bin</code>文件在同一个文件夹下，且文件数量居多，后续需要将<code>.dump.txt</code>放到一个文件夹中进行文本处理，并将每个文件名的<code>.dump.txt</code>改为<code>.txt</code>,文件操作十分繁琐。<img data-src="https://raw.githubusercontent.com/pxBang/ImageHostingService/main/202404140146045.png"
-alt="提取文本文件后的目录" /></li>
-<li>第二个问题和本游戏有关系，属于游戏特性。我在提取可编辑文本出来后发现，内容中有许多的<code>&lt;r&gt;</code>符号，AI在翻译带有特殊符号的语句时，效果一定不如不带特殊符号。
-<img data-src="https://raw.githubusercontent.com/pxBang/ImageHostingService/main/202404140202059.png"
-alt="&lt; r &gt;符号" /></li>
-</ol>
-<p>为了解决以上两个问题，并提高效率，使用python实现自动化。给出我的github上<a
-target="_blank" rel="noopener" href="https://github.com/pxBang/Escude_Txt-Bin/tree/main">Escude_Txt-Bin仓库</a>，该自动化程序的功能和详细介绍在文件夹中的<a
-target="_blank" rel="noopener" href="https://github.com/pxBang/Escude_Txt-Bin/blob/main/Escude_Txt-Bin/bin2txt/readme.md">readme.md</a>中有写,此处不再赘述</p>
-<p>用户可以自己动手写写python自动化程序，这种小工具完全可以自己写</p>
-<h2 id="ai翻译">AI翻译</h2>
-<p>AI翻译仍然使用AiNiee+Sakura-13B-Galgame。</p>
-<h3 id="sakura-13b-galgame">Sakura-13B-Galgame</h3>
-<p><a
-target="_blank" rel="noopener" href="https://github.com/SakuraLLM/Sakura-13B-Galgame">github上的仓库</a></p>
-<p><a
-target="_blank" rel="noopener" href="https://github.com/SakuraLLM/Sakura-13B-Galgame/wiki">仓库wiki</a>上的使用说明讲的十分详细，请仔细阅读。</p>
-<h3 id="ainiee">AiNiee</h3>
-<p><code>AiNiee</code>的<a
-target="_blank" rel="noopener" href="https://github.com/NEKOparapa/AiNiee">github链接</a></p>
-<p>请仔细阅读<code>使用说明</code>，讲的十分详细。</p>
-<h2 id="文本注入">文本注入</h2>
-<p>该流程的目的是将<code>.txt</code>文件转为可用的<code>.bin</code>文件，是<code>提取文本文件</code>的逆向流程</p>
-<p>仍然使用<code>marcussacana</code>大佬的<a
-target="_blank" rel="noopener" href="https://github.com/marcussacana/SacanaWrapper">SacanaWrapper</a>工具</p>
-<h3 id="一个严重的问题">一个严重的问题</h3>
-<p>请仔细看<code>SacanaWrapper</code>工具的读取和写入时的编码</p>
-<table>
-<thead>
-<tr class="header">
-<th>bin-&gt;txt</th>
-<th>txt-&gt;bin</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>SJS读取</td>
-<td>UTF8读取</td>
-</tr>
-<tr class="even">
-<td>UTF8写入</td>
-<td>SJS写入</td>
-</tr>
-</tbody>
-</table>
-<p>细心的同学已经发现了：在txt-&gt;bin时，以UTF8读取，SJS写入，😦这可是大问题。要知道我们在AI翻译后，txt文件里的都是中文呀，要是以SJS写入，那不就乱码了！</p>
-<p>因此我们必须更改<code>SacanaWrapper</code>在<code>txt-&gt;bin</code>时，写入的编码格式。从<code>SJS</code>改为<code>GBK</code>。</p>
-<p>到此，你就发现了问题，并找到了解决问题的方法。此时，你又郁闷了（其实是我当时的写照😭），你怎么改呢？<code>SacanaWrapper</code>是别人的程序，你并不会改。</p>
-<p>于是郁闷的你（还是我的写照）只好去<a
-target="_blank" rel="noopener" href="https://github.com/marcussacana/SacanaWrapper">SacanaWrapper</a>仓库去看看，碰碰运气。</p>
-<p>运气不错！！！</p>
-<p>你找到了一个和你的问题非常类似的问题，<a
-target="_blank" rel="noopener" href="https://github.com/marcussacana/SacanaWrapper/issues/21">good
-luck</a>，讨论中作者<code>marcussacana</code>给出了解决办法，可以修改<code>EscudeEditor</code>插件代码中编码格式从<code>SJS</code>到<code>GBK</code></p>
-<p>很好，接下来只需要用<code>visual studio</code>打开项目，更改对应编码格式设置代码，重新生成<code>.dll</code>文件即可</p>
-<p>同学可以自己去试试，到这一步并不是很难了！</p>
-<p>此处给出我已经生成的<code>.dll</code>文件，注意是<code>GBK</code>编码格式.<a
-target="_blank" rel="noopener" href="https://github.com/pxBang/Escude_Txt-Bin/tree/main/Plugins_GBK">插件链接</a></p>
-<p>使用方法就是将<code>GBK</code>的<code>dll</code>替代<code>SJS</code>的<code>dll</code>。警告，一定要保留原<code>SJS</code>的<code>dll</code>，因为以后还会用到</p>
-<p>好了，到此文本注入已经完成了。但是由于文件数量太多，此时有四个小问题</p>
-<ol type="1">
-<li><code>txt</code>文件要和原始<code>bin</code>文件放在一起，文件太多了，后续要操作文件很繁琐。
-<img data-src="https://raw.githubusercontent.com/pxBang/ImageHostingService/main/202404140323380.png"
-alt="文件目录" /></li>
-<li><code>SacanaWrapper</code>不能用<code>_translated.txt</code>的后缀（问<code>marcussacana</code>去吧，你会不会写代码），必须是<code>.dump.txt</code>，我真的😓</li>
-<li>用<code>AiNiee</code>翻译得到的<code>_translated.txt</code>，首行空行丢失了，末尾又多加了一行空行（<code>NEKOparapa</code>你会不会写代码，这是bug啊，这是bug！😂）</li>
-<li><code>GBK</code>编码范围里没有<code>♪</code>符号</li>
-</ol>
-<p>为了高效率的解决以上四个问题，仍然使用python程序实现自动化，给出<a
-target="_blank" rel="noopener" href="https://github.com/pxBang/Escude_Txt-Bin/tree/main/Escude_Txt-Bin/txt2bin">github链接</a></p>
-<p>同学也可以自己写写，自己写的才是理解最深的。而且基本上都是文件处理层面的问题</p>
-<h2 id="封包">封包</h2>
-<p>此时你已经获得了宝贵的<code>GBK</code>编码的<code>.bin</code>文本文件
-<img data-src="https://raw.githubusercontent.com/pxBang/ImageHostingService/main/202404140338614.png"
-alt="GBK编码的.bin文本文件" /></p>
-<p>使用<a
-target="_blank" rel="noopener" href="https://github.com/marcussacana/EscudeEditor">EscudeEditor</a>将其封包回去就可以了</p>
-<h2 id="引擎识别中文">引擎识别中文</h2>
-<p>到了这一步，你可能觉得已经汉化成功啦！</p>
-<p>NONONO！too yong too simple！</p>
-<p>要知道你的exe可是日本人发布出来的,这个<code>exe</code>只能读取<code>SJS</code>编码的文本，你现在给它<code>GBK</code>编码的文本，它<del>吃不进去啊</del>读取不了呀，会乱码</p>
-<p>因此我们必须狠狠的教育小日本，让他们感受中国的强大</p>
-<p>明天问问群里的人，愿不愿意分享知识</p>
-<h2 id="打包为汉化补丁">打包为汉化补丁</h2>
-<p>此时你已经完成了游戏内文本的汉化，已经可以畅快的玩耍了😊</p>
-<p>你站在各位巨人肩膀上完成了游戏的汉化，或许也会想贡献自己的一份力量，将自己的劳动成果分享出去</p>
-<figure>
-<img data-src="https://raw.githubusercontent.com/pxBang/ImageHostingService/main/202404140349692.png"
-alt="补丁文件" />
-<figcaption aria-hidden="true">补丁文件</figcaption>
-</figure>
-<p>将图片中的4个文件压缩为<code>.zip</code>，发布在<a
-target="_blank" rel="noopener" href="https://2dfan.com/">2dfan</a>等等网站</p>
-<h2 id="可维护性">可维护性</h2>
-<p>或许某天你在玩打了该补丁的游戏时发现，某处出现了异常中断或者异常显示，此时你一定希望接着之前的工作成果进行维护。</p>
-<figure>
-<img data-src="https://raw.githubusercontent.com/pxBang/ImageHostingService/main/202404140350000.png"
-alt="可维护性所需文件" />
-<figcaption aria-hidden="true">可维护性所需文件</figcaption>
-</figure>
-<p>一个游戏本体文件，不能更改，一个是翻译完成的文本。</p>
-<p>方便日后维护</p>
-<h2 id="总结">总结</h2>
-<p>明日再总结！！！</p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2024/04/13/galgame%E7%9A%84%E5%85%A8%E8%87%AA%E5%8A%A8%E5%85%8D%E8%B4%B9AI%E6%B1%89%E5%8C%96-Escude%E5%BC%95%E6%93%8E/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 

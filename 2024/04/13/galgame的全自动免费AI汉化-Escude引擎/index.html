@@ -19,12 +19,12 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.19.1","exturl":false,"sidebar":{"position":"left","display":"always","padding":10,"offset":12},"copycode":{"enable":true,"style":"flat"},"fold":{"enable":true,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="前言 本篇内容是galgame的全自动免费AI汉化系列的第二部，第一部为Yu-RIS引擎，该篇文章的主要目的是针对Escude引擎的galgame全自动免费AI翻译过程的说明 本文的目的 &gt; 适配Escude引擎 &gt; &gt; 面向步骤，给出具体操作手段 本文的关键词  Escude引擎 全自动 免费 galgame的AI汉化 详细教程  在观看本篇文章前，强烈建议先看一遍面向galg">
+    <meta name="description" content="前言 本篇内容是galgame的全自动免费AI汉化系列的第二部，第一部为Yu-RIS引擎，该篇文章的主要目的是针对Escude引擎的galgame全自动免费AI翻译过程的说明 本文的目的 &gt; 适配Escude引擎 &gt; &gt; 面向步骤，给出具体操作手段 本文的关键词  Escude引擎 全自动 免费 galgame的AI汉化 详细教程">
 <meta property="og:type" content="article">
 <meta property="og:title" content="galgame的全自动免费AI汉化-Escude引擎">
 <meta property="og:url" content="http://example.com/2024/04/13/galgame%E7%9A%84%E5%85%A8%E8%87%AA%E5%8A%A8%E5%85%8D%E8%B4%B9AI%E6%B1%89%E5%8C%96-Escude%E5%BC%95%E6%93%8E/index.html">
 <meta property="og:site_name" content="pxBang的个人博客">
-<meta property="og:description" content="前言 本篇内容是galgame的全自动免费AI汉化系列的第二部，第一部为Yu-RIS引擎，该篇文章的主要目的是针对Escude引擎的galgame全自动免费AI翻译过程的说明 本文的目的 &gt; 适配Escude引擎 &gt; &gt; 面向步骤，给出具体操作手段 本文的关键词  Escude引擎 全自动 免费 galgame的AI汉化 详细教程  在观看本篇文章前，强烈建议先看一遍面向galg">
+<meta property="og:description" content="前言 本篇内容是galgame的全自动免费AI汉化系列的第二部，第一部为Yu-RIS引擎，该篇文章的主要目的是针对Escude引擎的galgame全自动免费AI翻译过程的说明 本文的目的 &gt; 适配Escude引擎 &gt; &gt; 面向步骤，给出具体操作手段 本文的关键词  Escude引擎 全自动 免费 galgame的AI汉化 详细教程">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://raw.githubusercontent.com/pxBang/ImageHostingService/main/202404140053204.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/pxBang/ImageHostingService/main/202404140104948.png">
@@ -36,7 +36,7 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/pxBang/ImageHostingService/main/202404140349692.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/pxBang/ImageHostingService/main/202404140350000.png">
 <meta property="article:published_time" content="2024-04-13T15:31:52.000Z">
-<meta property="article:modified_time" content="2024-04-13T19:53:09.947Z">
+<meta property="article:modified_time" content="2024-04-13T19:56:36.333Z">
 <meta property="article:author" content="pxBang">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://raw.githubusercontent.com/pxBang/ImageHostingService/main/202404140053204.png">
@@ -237,7 +237,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-04-14 03:53:09" itemprop="dateModified" datetime="2024-04-14T03:53:09+08:00">2024-04-14</time>
+      <time title="修改时间：2024-04-14 03:56:36" itemprop="dateModified" datetime="2024-04-14T03:56:36+08:00">2024-04-14</time>
     </span>
 
   
@@ -284,6 +284,7 @@ target="_blank" rel="noopener" href="https://pxbang.github.io/2024/04/08/galgame
 <li>galgame的AI汉化</li>
 <li>详细教程</li>
 </ol>
+<span id="more"></span>
 <p>在观看本篇文章前，强烈建议先看一遍<a
 target="_blank" rel="noopener" href="https://pxbang.github.io/2024/04/06/面向galgame的AI汉化过程指南/">面向galgame的AI汉化过程指南</a>，对整个翻译过程有个印象</p>
 <p>翻译对象：<code>艶花サクラメント</code></p>
@@ -324,7 +325,7 @@ alt="提取文本文件后的目录" /></li>
 alt="&lt; r &gt;符号" /></li>
 </ol>
 <p>为了解决以上两个问题，并提高效率，使用python实现自动化。给出我的github上<a
-target="_blank" rel="noopener" href="https://github.com/pxBang/Escude_Txt-Bin/tree/main">Escude_Txt-Bin仓库</a>，该自动化程序的功能和详细介绍在文件夹中的<a
+target="_blank" rel="noopener" href="https://github.com/pxBang/Escude_Txt-Bin/tree/main/Escude_Txt-Bin/bin2txt">bin2txt.py</a>，该自动化程序的功能和详细介绍在文件夹中的<a
 target="_blank" rel="noopener" href="https://github.com/pxBang/Escude_Txt-Bin/blob/main/Escude_Txt-Bin/bin2txt/readme.md">readme.md</a>中有写,此处不再赘述</p>
 <p>用户可以自己动手写写python自动化程序，这种小工具完全可以自己写</p>
 <h2 id="ai翻译">AI翻译</h2>
