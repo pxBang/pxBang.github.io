@@ -150,7 +150,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">18</span>
+          <span class="site-state-item-count">19</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -178,6 +178,120 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/04/18/%E8%A7%A3%E5%86%B3galgame%E8%AF%BB%E5%8F%96%E4%B8%AD%E6%96%87-UIF-%E8%AF%8D%E5%85%B8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://raw.githubusercontent.com/pxBang/ImageHostingService/main/202402232302599.jpg">
+      <meta itemprop="name" content="pxBang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="pxBang的个人博客">
+      <meta itemprop="description" content="学而时习之，生活·学习·解决">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | pxBang的个人博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/04/18/%E8%A7%A3%E5%86%B3galgame%E8%AF%BB%E5%8F%96%E4%B8%AD%E6%96%87-UIF-%E8%AF%8D%E5%85%B8/" class="post-title-link" itemprop="url">解决galgame读取中文-UIF+词典</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2024-04-18 01:09:57 / 修改时间：02:16:33" itemprop="dateCreated datePublished" datetime="2024-04-18T01:09:57+08:00">2024-04-18</time>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>1k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>3 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="前言">前言</h2>
+<p>galgame汉化的最后一步是让galgame读取中文，传统方式是将翻译后的中文文本以GBK方式保存，注入封包后，修改字体脚本，修改exe编码，使得exe以GBK方式读取以GBK编码保存的文本。</p>
+<p>这种方法从流程上看十分简单直观：我翻译得到了中文文本，自然用GBK编码保存，再修改游戏脚本、exe文件，使得exe以GBK方式读取文本。</p>
+<h2 id="问题及解决办法">问题及解决办法</h2>
+<p>这个方法有个致命的问题：修改游戏脚本的字体代码、修改exe编码的解法不通用，通用性差十分致命！这往往导致一个游戏一种修改exe、脚本代码的方法，在你花费大量时间、大量精力得到解往往是个<code>特解</code>，无法复用。10个游戏有10个特解，你总是在找特解的路上，十分辛苦，而且这种特解很少有人分享解法，你无法借鉴，一个人死磕的后果往往是时间花了，也不会得出特解。即使幸运，有人分享了解法，往往是解法步骤不清晰或者不全面，无法解决你的问题。</p>
+<p>因此<code>通解</code>的寻找就显得尤为重要，这一个通解耗费的时间和一个特解想相同，但一个通解可以解十个问题，价值十分巨大！</p>
+<p>在阅读<code>cx2333</code>大佬的<code>GalTransl</code>项目时，注意到了<code>UniversalInjectorFramework</code>(<code>UIF</code>)框架,该框架可以用来修改现有Windows应用程序的行为，替换游戏文本。这里给出<a
+target="_blank" rel="noopener" href="https://github.com/AtomCrafty/UniversalInjectorFramework">UIF的github链接</a></p>
+<p>用易于理解的话来解释<code>UIF</code>的作用，<code>UIF</code>可以<code>hook</code>游戏，根据用户自定义<code>键值对映射key-value</code>，每当游戏文本出现<code>key</code>，<code>UIF</code>便会将其替换为<code>value</code>，<strong>而且与编码格式无关！！！</strong></p>
+<p><code>与编码格式无关</code>这一特点价值十分巨大，这使得译者无需考虑各种编码的变化，而是简单的考虑<code>key-value键值对</code>。如此一来，我们放弃之前复杂多变的<code>修改游戏exe和代码脚本</code>,游戏便会以初始状态，以<code>SJS（日文编码）</code>读取文本，让<code>UIF</code>将日文字符替换成中文字符，便达到了让galgame读取中文的目的。</p>
+<p>这样依然有个问题，如何设置<code>键值对</code>，或者说，日文字符和中文字符的对应关系是什么？</p>
+<p>首先我们要知道，有些中文字符，在日文编码范围中也存在，比如<code>模、式、的、与</code>等字符，而有些中文字符<code>显、约</code>，在日文中有非常相像的字符<code>顕、約</code>。</p>
+<p>所以<code>显、约</code>就必须替换，否则<code>SJS</code>编码格式无法读取，<code>模、式、的、与</code>无需替换，<code>SJS</code>编码格式可以读取。</p>
+<p>在理解了替换范围的定义之后，其实仍然不好确定<code>键值对</code>,毕竟<code>SJS</code>无别读取的汉字那么多，很难定义全面。</p>
+<p>幸运的是<code>cx2333</code>大佬再次救场，它给出了<code>SJS</code>无法识别的汉字和相像的日文字符映射关系，定义了<code>SJS替换词典</code>,该词典十分全面，基本涵盖了所有<code>SJS</code>无法读取的汉字。给出<a
+target="_blank" rel="noopener" href="https://github.com/XD2333/GalTransl_DumpInjector/blob/main/hanzi2kanji_table.txt">词典链接</a></p>
+<figure>
+<img data-src="https://raw.githubusercontent.com/pxBang/ImageHostingService/main/202404180211754.png"
+alt="UIF实现流程" />
+<figcaption aria-hidden="true">UIF实现流程</figcaption>
+</figure>
+<p>不妨设词典中中文为cn，日文为jp，映射关系确定后，流程是这样</p>
+<ol type="1">
+<li>翻译后的中文文本，遇到cn，将其替换成jp，如此一来，该中文文本便可以以<code>SJS</code>编码格式保存</li>
+<li>注入、封包等常规流程后，在游戏根目录加入<code>.dll</code>UIF框架和<code>UIFconfig</code>,其中<code>UIFconfig</code>含有<code>替换词典</code>。</li>
+<li>打开游戏，<code>UIF</code>自动hook游戏，将<code>ja</code>替换成<code>cn</code>，于是完成闭环，实现了让galgame读取中文的目的</li>
+</ol>
+<h2 id="总结">总结</h2>
+<p><code>UIF</code>替换的方法通用性强，改变了复杂多变的<code>修改游戏exe和代码脚本</code>特解方向，用一种通解实现让galgame读取中文的目的。</p>
+<p>强烈推荐这种办法！</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -336,7 +450,7 @@ target="_blank" rel="noopener" href="https://pxbang.github.io/2024/04/08/galgame
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-04-13 23:30:04" itemprop="dateModified" datetime="2024-04-13T23:30:04+08:00">2024-04-13</time>
+      <time title="修改时间：2024-04-16 11:48:08" itemprop="dateModified" datetime="2024-04-16T11:48:08+08:00">2024-04-16</time>
     </span>
 
   
@@ -346,14 +460,14 @@ target="_blank" rel="noopener" href="https://pxbang.github.io/2024/04/08/galgame
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>793</span>
+      <span>1.1k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>3 分钟</span>
+      <span>4 分钟</span>
     </span>
 </div>
 
@@ -436,6 +550,15 @@ target="_blank" rel="noopener" href="https://pxbang.github.io/2024/04/08/galgame
 ，推荐表需要学院和学校的鲜章 并且是原件
 （必须贴上个人照片），【如果没有落户意向，不用邮寄推荐表至企业</li>
 <li>填写毕业生登记表，粘贴照片，交给qy</li>
+<li>询问学院工作人员，确认晚于19日的22日能否送审。或者让徐老师和范老师说一下。</li>
+<li>下午去图书馆，把研究生系统上的所有关于毕业、论文的流程打通，确保自己的流程走通，只有徐老师那边的事情。</li>
+</ol>
+<p>4月16日的任务</p>
+<ol type="1">
+<li>学生开始纸质，【学生】下载并打印协议书，去学校盖章，将盖完章的三方及就业推荐表邮寄给企业，同步快递单号，并告知个人收件地址，就业推荐表的主要作用是企业留存+后续落户办理使用
+，推荐表需要学院和学校的鲜章 并且是原件
+（必须贴上个人照片），【如果没有落户意向，不用邮寄推荐表至企业</li>
+<li>下午去图书馆，把研究生系统上的所有关于毕业、论文的流程打通，确保自己的流程走通，只有徐老师那边的事情。</li>
 </ol>
 
       
@@ -1155,104 +1278,6 @@ target="_blank" rel="noopener" href="https://pxbang.github.io/2024/04/06/面向g
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/03/14/%E5%90%90%E6%A7%BDgpt%E9%98%85%E8%AF%BB%E8%AE%BA%E6%96%87/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://raw.githubusercontent.com/pxBang/ImageHostingService/main/202402232302599.jpg">
-      <meta itemprop="name" content="pxBang">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="pxBang的个人博客">
-      <meta itemprop="description" content="学而时习之，生活·学习·解决">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | pxBang的个人博客">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/03/14/%E5%90%90%E6%A7%BDgpt%E9%98%85%E8%AF%BB%E8%AE%BA%E6%96%87/" class="post-title-link" itemprop="url">吐槽gpt阅读论文</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-03-14 18:12:50" itemprop="dateCreated datePublished" datetime="2024-03-14T18:12:50+08:00">2024-03-14</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-04-01 14:37:13" itemprop="dateModified" datetime="2024-04-01T14:37:13+08:00">2024-04-01</time>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>423</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          该文章被加密了, 请输入密码查看.
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2024/03/14/%E5%90%90%E6%A7%BDgpt%E9%98%85%E8%AF%BB%E8%AE%BA%E6%96%87/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
     <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
@@ -1277,14 +1302,14 @@ target="_blank" rel="noopener" href="https://pxbang.github.io/2024/04/06/面向g
       <i class="fa fa-chart-line"></i>
     </span>
       <span>站点总字数：</span>
-    <span title="站点总字数">48k</span>
+    <span title="站点总字数">49k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">2:39</span>
+    <span title="站点阅读时长">2:43</span>
   </span>
 </div>
 <div class="busuanzi-count">
