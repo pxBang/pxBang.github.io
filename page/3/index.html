@@ -19,28 +19,25 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.19.1","exturl":false,"sidebar":{"position":"left","display":"always","padding":10,"offset":12},"copycode":{"enable":true,"style":"flat"},"fold":{"enable":true,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="起因 在写《华科图书馆一方天地吐槽🤢》这篇博客时，文章中需要用到数学公式，而markdown自然支持数学公式，使用$ 公式内容 $格式便可以书写公式，然而hexo架构-next主题中无法正常显示公式。查询官方文档，发现原先的渲染器不支持，需要更换渲染器为pandoc。">
-<meta property="og:type" content="article">
-<meta property="og:title" content="pandoc标记语言转换工具">
-<meta property="og:url" content="http://example.com/2024/03/06/pandoc%E6%A0%87%E8%AE%B0%E8%AF%AD%E8%A8%80%E8%BD%AC%E6%8D%A2%E5%B7%A5%E5%85%B7/index.html">
+    <meta name="description" content="学而时习之，生活·学习·解决">
+<meta property="og:type" content="website">
+<meta property="og:title" content="pxBang的个人博客">
+<meta property="og:url" content="http://example.com/page/3/index.html">
 <meta property="og:site_name" content="pxBang的个人博客">
-<meta property="og:description" content="起因 在写《华科图书馆一方天地吐槽🤢》这篇博客时，文章中需要用到数学公式，而markdown自然支持数学公式，使用$ 公式内容 $格式便可以书写公式，然而hexo架构-next主题中无法正常显示公式。查询官方文档，发现原先的渲染器不支持，需要更换渲染器为pandoc。">
+<meta property="og:description" content="学而时习之，生活·学习·解决">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-03-06T10:22:13.000Z">
-<meta property="article:modified_time" content="2024-03-06T13:22:08.685Z">
 <meta property="article:author" content="pxBang">
-<meta property="article:tag" content="pandoc">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="http://example.com/2024/03/06/pandoc%E6%A0%87%E8%AE%B0%E8%AF%AD%E8%A8%80%E8%BD%AC%E6%8D%A2%E5%B7%A5%E5%85%B7/">
+<link rel="canonical" href="http://example.com/page/3/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2024/03/06/pandoc%E6%A0%87%E8%AE%B0%E8%AF%AD%E8%A8%80%E8%BD%AC%E6%8D%A2%E5%B7%A5%E5%85%B7/","path":"2024/03/06/pandoc标记语言转换工具/","title":"pandoc标记语言转换工具"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":true,"isPost":false,"lang":"zh-CN","comments":"","permalink":"","path":"page/3/index.html","title":""}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>pandoc标记语言转换工具 | pxBang的个人博客</title>
+<title>pxBang的个人博客</title>
   
 
 
@@ -73,7 +70,7 @@
 
     <a href="/" class="brand" rel="start">
       <i class="logo-line"></i>
-      <p class="site-title">pxBang的个人博客</p>
+      <h1 class="site-title">pxBang的个人博客</h1>
       <i class="logo-line"></i>
     </a>
   </div>
@@ -126,7 +123,7 @@
   
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+    <div class="sidebar-inner sidebar-overview-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -139,7 +136,6 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B5%B7%E5%9B%A0"><span class="nav-number">1.</span> <span class="nav-text">起因</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%97%AE%E9%A2%98"><span class="nav-number">2.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%97%AE%E9%A2%98plus"><span class="nav-number">3.</span> <span class="nav-text">问题plus</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#pandoc%E4%BB%8B%E7%BB%8D"><span class="nav-number">4.</span> <span class="nav-text">pandoc介绍</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -181,18 +177,17 @@
 
     </div>
 
-    <div class="main-inner post posts-expand">
+    <div class="main-inner index posts-expand">
 
-
-  
+    
 
 
 <div class="post-block">
   
   
 
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/03/06/pandoc%E6%A0%87%E8%AE%B0%E8%AF%AD%E8%A8%80%E8%BD%AC%E6%8D%A2%E5%B7%A5%E5%85%B7/">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/02/21/%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B%E6%80%BB%E7%BB%93/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://raw.githubusercontent.com/pxBang/ImageHostingService/main/202402232302599.jpg">
@@ -205,13 +200,13 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="pandoc标记语言转换工具 | pxBang的个人博客">
+      <meta itemprop="name" content="undefined | pxBang的个人博客">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          pandoc标记语言转换工具
-        </h1>
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/02/21/%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B%E6%80%BB%E7%BB%93/" class="post-title-link" itemprop="url">搭建个人博客教程总结</a>
+        </h2>
 
         <div class="post-meta-container">
           <div class="post-meta">
@@ -220,26 +215,25 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2024-03-06 18:22:13 / 修改时间：21:22:08" itemprop="dateCreated datePublished" datetime="2024-03-06T18:22:13+08:00">2024-03-06</time>
+      <time title="创建时间：2024-02-21 06:56:19" itemprop="dateCreated datePublished" datetime="2024-02-21T06:56:19+08:00">2024-02-21</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-03-13 14:34:03" itemprop="dateModified" datetime="2024-03-13T14:34:03+08:00">2024-03-13</time>
     </span>
 
   
-    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span id="busuanzi_value_page_pv"></span>
-    </span>
     <span class="post-meta-break"></span>
     <span class="post-meta-item" title="本文字数">
       <span class="post-meta-item-icon">
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>280</span>
+      <span>279</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -256,28 +250,18 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><h2 id="起因">起因</h2>
-<p>在写<a
-target="_blank" rel="noopener" href="https://pxbang.github.io/2024/03/06/华科图书馆一方天地吐槽🤢/#more">《华科图书馆一方天地吐槽🤢》</a>这篇博客时，文章中需要用到数学公式，而markdown自然支持数学公式，使用<code>$ 公式内容 $</code>格式便可以书写公式，然而hexo架构-next主题中无法正常显示公式。查询<a
-target="_blank" rel="noopener" href="https://github.com/theme-next/hexo-theme-next/blob/master/docs/zh-CN/MATH.md">官方文档</a>，发现原先的渲染器不支持，需要更换渲染器为<code>pandoc</code>。</p>
-<span id="more"></span>
-<h2 id="问题">问题</h2>
-<p>我把这件事估计的简单了，我以为在终端里敲几行命令就够了。查阅<a
-target="_blank" rel="noopener" href="https://hexo-next.readthedocs.io/zh-cn/latest/next/advanced/配置MathJax/">next手册</a>，还需要我在电脑上额外安装<a
-target="_blank" rel="noopener" href="https://github.com/jgm/pandoc/releases/tag/3.1.12.2">pandoc</a>。</p>
-<h2 id="问题plus">问题plus</h2>
-<p>安装完后依然报错</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">pandoc exited with code <span class="token number">64</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>在网上查询到<a
-target="_blank" rel="noopener" href="https://finisky.github.io/pandoccode64bug.en/#google_vignette">finisky</a>博客里有该问题的解法，居然是英文的。。。<del>中国人不写英文博客。</del>
-阅读后发现，pandoc对于<code>---</code>分割线标记无法识别，因此博客中的<code>---</code>分割标记删除掉，便解决了该报错.</p>
-<h2 id="pandoc介绍">pandoc介绍</h2>
-<p>既然用到了pandoc，那就有必要对其进行一定的了解，因此给出 <a
-target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/Pandoc">维基百科对于pandoc的解释</a></p>
-<blockquote>
-<p>pandoc:一种标记语言转化工具</p>
-</blockquote>
-
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="前言">前言</h2>
+<p>本人个人博客的搭建，是通过搜索学习前人的学习教程，基本是“东拼西凑”完成的个人博客搭建，不居功，谦让不辞，故本文主旨并不是表达博主的贡献，而是将各方资源整合。
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2024/02/21/%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B%E6%80%BB%E7%BB%93/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
     </div>
 
     
@@ -285,38 +269,8 @@ target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/Pandoc">维�
     
 
     <footer class="post-footer">
-          <div class="reward-container">
-  <div>Buy Me a Coffee !</div>
-  <button>
-    赞赏
-  </button>
-  <div class="post-reward">
-      <div>
-        <img src="https://raw.githubusercontent.com/pxBang/ImageHostingService/main/202402232321704.JPG" alt="pxBang 微信">
-        <span>微信</span>
-      </div>
-
-  </div>
-</div>
-
-          <div class="post-tags">
-              <a href="/tags/pandoc/" rel="tag"># pandoc</a>
-          </div>
-
-        
-
-          <div class="post-nav">
-            <div class="post-nav-item">
-                <a href="/2024/03/06/%E5%8D%8E%E7%A7%91%E5%9B%BE%E4%B9%A6%E9%A6%86%E4%B8%80%E6%96%B9%E5%A4%A9%E5%9C%B0%F0%9F%91%8D/" rel="prev" title="华科图书馆一方天地👍">
-                  <i class="fa fa-angle-left"></i> 华科图书馆一方天地👍
-                </a>
-            </div>
-            <div class="post-nav-item">
-                <a href="/2024/03/13/%E6%AF%95%E4%B8%9A%E8%AE%BA%E6%96%87%E9%9A%8F%E7%AC%94/" rel="next" title="毕业论文随笔">
-                  毕业论文随笔 <i class="fa fa-angle-right"></i>
-                </a>
-            </div>
-          </div>
+        <div class="post-eof"></div>
+      
     </footer>
   </article>
 </div>
@@ -324,9 +278,108 @@ target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/Pandoc">维�
 
 
 
+    
 
 
-    <div class="comments gitalk-container"></div>
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/02/21/%E4%B8%8A%E5%B1%82%E7%9B%AE%E5%BD%95%E7%9A%84git%E6%97%A0%E6%B3%95%E8%B7%9F%E8%B8%AA%E5%AD%90%E7%9B%AE%E5%BD%95%E4%B8%ADclone-%E4%B8%8B%E7%9A%84%E9%A1%B9%E7%9B%AE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://raw.githubusercontent.com/pxBang/ImageHostingService/main/202402232302599.jpg">
+      <meta itemprop="name" content="pxBang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="pxBang的个人博客">
+      <meta itemprop="description" content="学而时习之，生活·学习·解决">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | pxBang的个人博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/02/21/%E4%B8%8A%E5%B1%82%E7%9B%AE%E5%BD%95%E7%9A%84git%E6%97%A0%E6%B3%95%E8%B7%9F%E8%B8%AA%E5%AD%90%E7%9B%AE%E5%BD%95%E4%B8%ADclone-%E4%B8%8B%E7%9A%84%E9%A1%B9%E7%9B%AE/" class="post-title-link" itemprop="url">上层目录的git无法跟踪子目录中clone 下的项目</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-02-21 04:19:22" itemprop="dateCreated datePublished" datetime="2024-02-21T04:19:22+08:00">2024-02-21</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-03-13 14:39:19" itemprop="dateModified" datetime="2024-03-13T14:39:19+08:00">2024-03-13</time>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>151</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>正式提交一次blog。内容呢？思来想去，不如就以搭建项目过程中遇到的git问题及解法为内容吧！
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2024/02/21/%E4%B8%8A%E5%B1%82%E7%9B%AE%E5%BD%95%E7%9A%84git%E6%97%A0%E6%B3%95%E8%B7%9F%E8%B8%AA%E5%AD%90%E7%9B%AE%E5%BD%95%E4%B8%ADclone-%E4%B8%8B%E7%9A%84%E9%A1%B9%E7%9B%AE/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
+  </nav>
+
 </div>
   </main>
 
@@ -426,7 +479,7 @@ target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/Pandoc">维�
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
 
-<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"pxBang","repo":"pxBang.github.io","client_id":"71c2acdbfd8649b45b27","client_secret":"652c5c065f75e1ca0bd7b533339fdc77bb2c4d91","admin_user":"pxBang","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":null,"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.min.js","integrity":"sha256-MVK9MGD/XJaGyIghSVrONSnoXoGh3IFxLw0zfvzpxR4="},"path_md5":"d20e551315d75fba1dd49f38e0c762a1"}</script>
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"pxBang","repo":"pxBang.github.io","client_id":"71c2acdbfd8649b45b27","client_secret":"652c5c065f75e1ca0bd7b533339fdc77bb2c4d91","admin_user":"pxBang","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":null,"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.min.js","integrity":"sha256-MVK9MGD/XJaGyIghSVrONSnoXoGh3IFxLw0zfvzpxR4="},"path_md5":"9d8d3da09189165dcde8f1d3e109ad78"}</script>
 <script src="/js/third-party/comments/gitalk.js"></script>
 
 </body>

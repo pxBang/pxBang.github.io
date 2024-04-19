@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.1.1">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha256-wiz7ZSCn/btzhjKDQBms9Hx4sSeUYsDrTLg7roPstac=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.19.1","exturl":false,"sidebar":{"position":"left","display":"always","padding":10,"offset":12},"copycode":{"enable":true,"style":"flat"},"fold":{"enable":true,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="前言 本篇博客是galgame的全自动免费AI汉化系列的第三篇。本篇内容对于本系列尚未介绍的内容，我会详细介绍，对于系列已经介绍的内容，我会给出链接地址或者直接复制粘贴之前的内容，避免赘述 本文的目的  适配RealLive引擎引擎 面向步骤，给出具体操作手段  本文的关键词  RealLive引擎引擎 全自动 免费 galgame的AI汉化 详细教程">
+<meta property="og:type" content="article">
+<meta property="og:title" content="galgame的全自动免费AI汉化-RealLive引擎">
+<meta property="og:url" content="http://example.com/2024/04/20/galgame%E7%9A%84%E5%85%A8%E8%87%AA%E5%8A%A8%E5%85%8D%E8%B4%B9AI%E6%B1%89%E5%8C%96-RealLive%E5%BC%95%E6%93%8E/index.html">
+<meta property="og:site_name" content="pxBang的个人博客">
+<meta property="og:description" content="前言 本篇博客是galgame的全自动免费AI汉化系列的第三篇。本篇内容对于本系列尚未介绍的内容，我会详细介绍，对于系列已经介绍的内容，我会给出链接地址或者直接复制粘贴之前的内容，避免赘述 本文的目的  适配RealLive引擎引擎 面向步骤，给出具体操作手段  本文的关键词  RealLive引擎引擎 全自动 免费 galgame的AI汉化 详细教程">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://raw.githubusercontent.com/pxBang/ImageHostingService/main/202404200126324.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/pxBang/ImageHostingService/main/202404200132194.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/pxBang/ImageHostingService/main/202404200137666.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/pxBang/ImageHostingService/main/202404200141010.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/pxBang/ImageHostingService/main/202404200143315.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/pxBang/ImageHostingService/main/202404200141010.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/pxBang/ImageHostingService/main/202404200150142.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/pxBang/ImageHostingService/main/202404200216242.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/pxBang/ImageHostingService/main/202404200225201.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/pxBang/ImageHostingService/main/202404200229429.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/pxBang/ImageHostingService/main/202404200226189.png">
+<meta property="article:published_time" content="2024-04-19T17:18:05.000Z">
+<meta property="article:modified_time" content="2024-04-19T18:30:41.047Z">
+<meta property="article:author" content="pxBang">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/pxBang/ImageHostingService/main/202404200126324.png">
+
+
+<link rel="canonical" href="http://example.com/2024/04/20/galgame%E7%9A%84%E5%85%A8%E8%87%AA%E5%8A%A8%E5%85%8D%E8%B4%B9AI%E6%B1%89%E5%8C%96-RealLive%E5%BC%95%E6%93%8E/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2024/04/20/galgame%E7%9A%84%E5%85%A8%E8%87%AA%E5%8A%A8%E5%85%8D%E8%B4%B9AI%E6%B1%89%E5%8C%96-RealLive%E5%BC%95%E6%93%8E/","path":"2024/04/20/galgame的全自动免费AI汉化-RealLive引擎/","title":"galgame的全自动免费AI汉化-RealLive引擎"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>galgame的全自动免费AI汉化-RealLive引擎 | pxBang的个人博客</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">pxBang的个人博客</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%8C%85"><span class="nav-number">2.</span> <span class="nav-text">解包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8F%90%E5%8F%96"><span class="nav-number">3.</span> <span class="nav-text">提取</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ai%E7%BF%BB%E8%AF%91"><span class="nav-number">4.</span> <span class="nav-text">AI翻译</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#sakura-13b-galgame"><span class="nav-number">4.1.</span> <span class="nav-text">Sakura-13B-Galgame</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ainiee"><span class="nav-number">4.2.</span> <span class="nav-text">AiNiee</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cntoja%E6%9B%BF%E6%8D%A2"><span class="nav-number">4.3.</span> <span class="nav-text">cnTOja替换</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B3%A8%E5%85%A5"><span class="nav-number">5.</span> <span class="nav-text">注入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B0%81%E5%8C%85"><span class="nav-number">6.</span> <span class="nav-text">封包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%A9%E5%BC%95%E6%93%8E%E8%AF%86%E5%88%AB%E4%B8%AD%E6%96%87"><span class="nav-number">7.</span> <span class="nav-text">让引擎识别中文</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%89%93%E5%8C%85%E4%B8%BAai%E7%BF%BB%E8%AF%91%E8%A1%A5%E4%B8%81"><span class="nav-number">8.</span> <span class="nav-text">打包为AI翻译补丁</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%AF%E7%BB%B4%E6%8A%A4%E6%80%A7"><span class="nav-number">9.</span> <span class="nav-text">可维护性</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="pxBang"
+      src="https://raw.githubusercontent.com/pxBang/ImageHostingService/main/202402232302599.jpg">
+  <p class="site-author-name" itemprop="name">pxBang</p>
+  <div class="site-description" itemprop="description">学而时习之，生活·学习·解决</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">22</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/pxBang" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;pxBang" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/04/20/galgame%E7%9A%84%E5%85%A8%E8%87%AA%E5%8A%A8%E5%85%8D%E8%B4%B9AI%E6%B1%89%E5%8C%96-RealLive%E5%BC%95%E6%93%8E/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://raw.githubusercontent.com/pxBang/ImageHostingService/main/202402232302599.jpg">
+      <meta itemprop="name" content="pxBang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="pxBang的个人博客">
+      <meta itemprop="description" content="学而时习之，生活·学习·解决">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="galgame的全自动免费AI汉化-RealLive引擎 | pxBang的个人博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          galgame的全自动免费AI汉化-RealLive引擎
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2024-04-20 01:18:05 / 修改时间：02:30:41" itemprop="dateCreated datePublished" datetime="2024-04-20T01:18:05+08:00">2024-04-20</time>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>1.2k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>4 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h2 id="前言">前言</h2>
+<p>本篇博客是galgame的全自动免费AI汉化系列的第三篇。本篇内容对于本系列尚未介绍的内容，我会详细介绍，对于系列已经介绍的内容，我会给出链接地址或者直接复制粘贴之前的内容，避免赘述</p>
+<p>本文的目的</p>
+<blockquote>
+<p>适配<code>RealLive引擎</code>引擎</p>
+<p>面向步骤，给出具体操作手段</p>
+</blockquote>
+<p>本文的关键词</p>
+<ol type="1">
+<li><code>RealLive引擎</code>引擎</li>
+<li>全自动</li>
+<li>免费</li>
+<li>galgame的AI汉化</li>
+<li>详细教程</li>
+</ol>
+<span id="more"></span>
+<p>在观看本篇文章前，强烈建议先看一遍<a
+target="_blank" rel="noopener" href="https://pxbang.github.io/2024/04/06/面向galgame的AI汉化过程指南/">面向galgame的AI汉化过程指南</a>，对整个翻译过程有个印象</p>
+<p>翻译对象：<code>らぶ撮りハレーション</code></p>
+<h2 id="解包">解包</h2>
+<p>在下载玩游戏本体后，你的根目录是这样的</p>
+<figure>
+<img data-src="https://raw.githubusercontent.com/pxBang/ImageHostingService/main/202404200126324.png"
+alt="游戏本体根目录" />
+<figcaption aria-hidden="true">游戏本体根目录</figcaption>
+</figure>
+<p>那个<code>Senn.txt</code>就是文本文件，十分讨厌，因为它无法用<code>Garbro</code>解包</p>
+<p>给出解包工具地址<a
+target="_blank" rel="noopener" href="https://github.com/satan53x/SExtractor/tree/main/tools/RealLive">arc_conv解包</a></p>
+<p>使用<code>arc_conv解包.bat</code>，将<code>Senn.txt</code>拖到<code>arc_conv解包.bat</code>上，会解包出来一个文件夹</p>
+<figure>
+<img data-src="https://raw.githubusercontent.com/pxBang/ImageHostingService/main/202404200132194.png"
+alt="解包导出的文件夹目录" />
+<figcaption aria-hidden="true">解包导出的文件夹目录</figcaption>
+</figure>
+<p>这些txt文件十分令人讨厌，因为它们还要解密,给出<a
+target="_blank" rel="noopener" href="https://github.com/satan53x/SExtractor/tree/main/tools/RealLive">解密工具链接</a></p>
+<p>没错，和解包工具的链接一样，其中的<code>seen_fix.py</code>便是解密工具</p>
+<p>很恶心的是每个游戏的密码不一样，这里给出本游戏<code>らぶ撮りハレーション</code>的密码</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># Lovedori Halation</span>
+<span class="token number">7</span><span class="token punctuation">:</span> <span class="token builtin">bytearray</span><span class="token punctuation">.</span>fromhex<span class="token punctuation">(</span><span class="token string">'74 3C 2F FC 6E CD B4 BF 4B D4 2A 25 A3 84 70 04'</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>设置源文件目录和密码之后，解密得到一个新的文件夹，文件夹里包含有解密后的文件夹</p>
+<figure>
+<img data-src="https://raw.githubusercontent.com/pxBang/ImageHostingService/main/202404200137666.png"
+alt="解密导出的文件夹目录" />
+<figcaption aria-hidden="true">解密导出的文件夹目录</figcaption>
+</figure>
+<p>非常难受，这些txt文件你也无法编辑。</p>
+<h2 id="提取">提取</h2>
+<p>这里直接给出<a
+target="_blank" rel="noopener" href="https://github.com/satan53x/SExtractor/tree/main">提取工具链接</a></p>
+<p>运行后给出工具的设置参数</p>
+<figure>
+<img data-src="https://raw.githubusercontent.com/pxBang/ImageHostingService/main/202404200141010.png"
+alt="设置参数" />
+<figcaption aria-hidden="true">设置参数</figcaption>
+</figure>
+<p>本游戏请严格按照设置，注意文件夹路径为解密导出后的文件夹</p>
+<figure>
+<img data-src="https://raw.githubusercontent.com/pxBang/ImageHostingService/main/202404200143315.png"
+alt="提取后的4个文件夹" />
+<figcaption aria-hidden="true">提取后的4个文件夹</figcaption>
+</figure>
+<p>提取后有4个文件夹,<code>orig</code>为日文文本,<code>trans</code>是之后你放翻译文本的文件夹，<code>new</code>是之后你注入后的脚本文件夹路径</p>
+<h2 id="ai翻译">AI翻译</h2>
+<p>AI翻译仍然使用AiNiee+Sakura-13B-Galgame。</p>
+<h3 id="sakura-13b-galgame">Sakura-13B-Galgame</h3>
+<p><a
+target="_blank" rel="noopener" href="https://github.com/SakuraLLM/Sakura-13B-Galgame">github上的仓库</a></p>
+<p><a
+target="_blank" rel="noopener" href="https://github.com/SakuraLLM/Sakura-13B-Galgame/wiki">仓库wiki</a>上的使用说明讲的十分详细，请仔细阅读。</p>
+<h3 id="ainiee">AiNiee</h3>
+<p><code>AiNiee</code>的<a
+target="_blank" rel="noopener" href="https://github.com/NEKOparapa/AiNiee">github链接</a></p>
+<p>请仔细阅读<code>使用说明</code>，讲的十分详细。</p>
+<h3 id="cntoja替换">cnTOja替换</h3>
+<p>为了达成<code>UIF</code>替换的目的，该部分内容若有不懂，请阅读<a
+target="_blank" rel="noopener" href="https://pxbang.github.io/2024/04/18/解决galgame读取中文-UIF-词典/#more">解决galgame读取中文-UIF+词典</a></p>
+<p>这里使用替换工具，该工具是我自己编写的，若要使用请阅读使用说明。我鼓励同学自己写一个，这类工具十分简单，就是个遍历替换的操作</p>
+<p><a
+target="_blank" rel="noopener" href="https://github.com/pxBang/extract_inject_replace/tree/main/extract_inject_replace2">替换工具链接</a></p>
+<p>使用<code>replace.py</code></p>
+<h2 id="注入">注入</h2>
+<p>注入仍然使用<a
+target="_blank" rel="noopener" href="https://github.com/satan53x/SExtractor/tree/main">SExtractor</a></p>
+<p>适用和提取同样的设置参数</p>
+<figure>
+<img data-src="https://raw.githubusercontent.com/pxBang/ImageHostingService/main/202404200141010.png"
+alt="设置参数" />
+<figcaption aria-hidden="true">设置参数</figcaption>
+</figure>
+<p>记住将翻译好的文本文件放入<code>trans</code>文件夹中，然后点击<code>提取/写入</code></p>
+<figure>
+<img data-src="https://raw.githubusercontent.com/pxBang/ImageHostingService/main/202404200150142.png"
+alt="new文件夹" />
+<figcaption aria-hidden="true">new文件夹</figcaption>
+</figure>
+<p>注入后在new文件夹可以看到这些txt文件，然后你需要将其加密回去，加密工具和解密工具一样</p>
+<p>给出<a
+target="_blank" rel="noopener" href="https://github.com/satan53x/SExtractor/tree/main/tools/RealLive">seen_fix.py链接</a></p>
+<p>没错，和解包工具的链接一样，其中的<code>seen_fix.py</code>便是解密工具</p>
+<p>设置源文件目录设置那个注入得到的<code>new</code>文件夹</p>
+<p>于是在这个<code>new</code>文件夹中得到了一个新的<code>new</code>文件夹，内层<code>new</code>文件夹中便是加密后的脚本</p>
+<h2 id="封包">封包</h2>
+<p>给出封包工具地址<a
+target="_blank" rel="noopener" href="https://github.com/satan53x/SExtractor/tree/main/tools/RealLive">arc_conv封包</a></p>
+<p>使用<code>arc_conv封包.bat</code>，将包含有加密后的脚本文件夹拖到<code>arc_conv封包.bat</code>上，会封包出出来一个新的<code>Seen.new.txt</code>文件，这就是你需要的<code>Seen.txt</code>文件</p>
+<h2 id="让引擎识别中文">让引擎识别中文</h2>
+<p>这个引擎很恶心，<a
+target="_blank" rel="noopener" href="https://github.com/AtomCrafty/UniversalInjectorFramework/issues/7">UIF的作者说无法SJS替换</a></p>
+<p>所以阅读<a
+target="_blank" rel="noopener" href="https://github.com/satan53x/SExtractor/blob/main/document/1_JIS%E6%9B%BF%E6%8D%A2%E5%AE%9E%E4%BE%8B_Alicesoft.MD">JIS实例替换教程</a>，其实该教程理解比较困难</p>
+<p>给出我当时阅读完教程后的解决流程</p>
+<ol type="1">
+<li>下载<a
+target="_blank" rel="noopener" href="https://github.com/satan53x/SExtractor/tree/main/tools/Font">字体文件</a>中的<code>WenQuanYi_CNJP.ttf</code>和<code>WenQuanYi_msgothic.otf</code>并安装</li>
+<li>我使用2dfan上的翻译补丁跑了一点，得到了<img data-src="https://raw.githubusercontent.com/pxBang/ImageHostingService/main/202404200216242.png"
+alt="REALLIVE.sav" />文件，它就帮我调用了字体文件</li>
+<li>至此实现了和UIF替换一样的功能</li>
+</ol>
+<h2 id="打包为ai翻译补丁">打包为AI翻译补丁</h2>
+<figure>
+<img data-src="https://raw.githubusercontent.com/pxBang/ImageHostingService/main/202404200225201.png"
+alt="AI翻译补丁" />
+<figcaption aria-hidden="true">AI翻译补丁</figcaption>
+</figure>
+<p>由于我不知道如何调用安装好的字体，使用<code>SAVEDATA</code>文件夹来调用。</p>
+<p>给出我的聊天记录</p>
+<figure>
+<img data-src="https://raw.githubusercontent.com/pxBang/ImageHostingService/main/202404200229429.png"
+alt="聊天记录" />
+<figcaption aria-hidden="true">聊天记录</figcaption>
+</figure>
+<p>也可在补丁中加入字体文件，方便大家安装</p>
+<figure>
+<img data-src="https://raw.githubusercontent.com/pxBang/ImageHostingService/main/202404200226189.png"
+alt="字体文件" />
+<figcaption aria-hidden="true">字体文件</figcaption>
+</figure>
+<h2 id="可维护性">可维护性</h2>
+<p>保存游戏本体和翻译后的文本文件即可</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>Buy Me a Coffee !</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="https://raw.githubusercontent.com/pxBang/ImageHostingService/main/202402232321704.JPG" alt="pxBang 微信">
+        <span>微信</span>
+      </div>
+
+  </div>
+</div>
+
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2024/04/18/%E5%AF%BC%E5%B8%88%E4%BF%AE%E6%94%B9%E6%84%8F%E8%A7%81%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" rel="prev" title="导师修改意见及解决方案">
+                  <i class="fa fa-angle-left"></i> 导师修改意见及解决方案
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2024/04/20/galgame%E7%9A%84%E5%85%A8%E8%87%AA%E5%8A%A8%E5%85%8D%E8%B4%B9AI%E6%B1%89%E5%8C%96-VALKYRIA%E5%BC%95%E6%93%8E/" rel="next" title="galgame的全自动免费AI汉化-VALKYRIA引擎">
+                  galgame的全自动免费AI汉化-VALKYRIA引擎 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments gitalk-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">pxBang</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">55k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">3:03</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
+
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"pxBang","repo":"pxBang.github.io","client_id":"71c2acdbfd8649b45b27","client_secret":"652c5c065f75e1ca0bd7b533339fdc77bb2c4d91","admin_user":"pxBang","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":null,"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.min.js","integrity":"sha256-MVK9MGD/XJaGyIghSVrONSnoXoGh3IFxLw0zfvzpxR4="},"path_md5":"ce82bddce4971cbcf6a588e09e855c42"}</script>
+<script src="/js/third-party/comments/gitalk.js"></script>
+
+</body>
+</html>
