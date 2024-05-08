@@ -19,15 +19,15 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.19.1","exturl":false,"sidebar":{"position":"left","display":"always","padding":10,"offset":12},"copycode":{"enable":true,"style":"flat"},"fold":{"enable":true,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="背景 花了一周时间学习了如何翻译galgame各种引擎的游戏。 目前进度：  Yu-Ris  完成  KikrKikr2  完成  Esude  未完成 最后一步，不知道如何让游戏读取中文。目前的解决方向是使用uif框架进行sjs替换，但还未完成  VALKYRIA  未完成 最后一步，不知道让游戏如何读取中文。目前的解决方向是用uif框架进行sjs替换，但还未完成  KikrKikrz  未开始">
+    <meta name="description" content="该文章被加密了, 请输入密码查看.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="一周galgame引擎学习后的当务之急事务处理">
 <meta property="og:url" content="http://example.com/2024/04/11/%E4%B8%80%E5%91%A8galgame%E5%BC%95%E6%93%8E%E5%AD%A6%E4%B9%A0%E5%90%8E%E7%9A%84%E5%BD%93%E5%8A%A1%E4%B9%8B%E6%80%A5%E4%BA%8B%E5%8A%A1%E5%A4%84%E7%90%86/index.html">
 <meta property="og:site_name" content="pxBang的个人博客">
-<meta property="og:description" content="背景 花了一周时间学习了如何翻译galgame各种引擎的游戏。 目前进度：  Yu-Ris  完成  KikrKikr2  完成  Esude  未完成 最后一步，不知道如何让游戏读取中文。目前的解决方向是使用uif框架进行sjs替换，但还未完成  VALKYRIA  未完成 最后一步，不知道让游戏如何读取中文。目前的解决方向是用uif框架进行sjs替换，但还未完成  KikrKikrz  未开始">
+<meta property="og:description" content="该文章被加密了, 请输入密码查看.">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-04-11T07:59:13.000Z">
-<meta property="article:modified_time" content="2024-04-18T11:41:58.800Z">
+<meta property="article:modified_time" content="2024-05-08T08:11:09.316Z">
 <meta property="article:author" content="pxBang">
 <meta name="twitter:card" content="summary">
 
@@ -125,7 +125,7 @@
   
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+    <div class="sidebar-inner sidebar-overview-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -138,7 +138,6 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%83%8C%E6%99%AF"><span class="nav-number">1.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BD%93%E5%8A%A1%E4%B9%8B%E6%80%A5"><span class="nav-number">2.</span> <span class="nav-text">当务之急</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%BA%E6%96%87"><span class="nav-number">3.</span> <span class="nav-text">论文</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AF%95%E4%B8%9A"><span class="nav-number">4.</span> <span class="nav-text">毕业</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B7%A5%E4%BD%9C"><span class="nav-number">5.</span> <span class="nav-text">工作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">6.</span> <span class="nav-text">总结</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -227,7 +226,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-04-18 19:41:58" itemprop="dateModified" datetime="2024-04-18T19:41:58+08:00">2024-04-18</time>
+      <time title="修改时间：2024-05-08 16:11:09" itemprop="dateModified" datetime="2024-05-08T16:11:09+08:00">2024-05-08</time>
     </span>
 
   
@@ -261,116 +260,18 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><h2 id="背景">背景</h2>
-<p>花了一周时间学习了如何翻译galgame各种引擎的游戏。</p>
-<p>目前进度：</p>
-<ol type="1">
-<li>Yu-Ris
-<ul>
-<li>完成</li>
-</ul></li>
-<li>KikrKikr2
-<ul>
-<li>完成</li>
-</ul></li>
-<li>Esude
-<ul>
-<li>未完成</li>
-<li>最后一步，不知道如何让游戏读取中文。目前的解决方向是使用uif框架进行sjs替换，但还未完成</li>
-</ul></li>
-<li>VALKYRIA
-<ul>
-<li>未完成</li>
-<li>最后一步，不知道让游戏如何读取中文。目前的解决方向是用uif框架进行sjs替换，但还未完成</li>
-</ul></li>
-<li>KikrKikrz
-<ul>
-<li>未开始</li>
-<li>猜测使用dira佬的视频可以解决问题</li>
-</ul></li>
-</ol>
-<h2 id="当务之急">当务之急</h2>
-<p>回归正题，我的当务之急是什么？经过了一周的专注学习，对外界事物的联系过少，处于断连状态，因此有必要对<code>当务之急</code>进行梳理，方便我处理这一系列问题</p>
-<h2 id="论文">论文</h2>
-<p>论文的目前主要任务是：</p>
-<ol type="1">
-<li>在万方上进行查重</li>
-<li>在图书馆进行查重</li>
-</ol>
-<p>徐老师周日会批改我的论文，因此这两项任务需要在周日前完成</p>
-<h2 id="毕业">毕业</h2>
-<p>毕业需要处理的事情</p>
-<p>填写毕业生登记表</p>
-<p>4月16日截止，即下周二。最好在本周就根据模版，填写完成。</p>
-<blockquote>
-<p>查看模版后发现，这类登记表填过很多次，你能填。注意不要填错，可以用铅笔填一遍，确认无误后，用黑笔描一遍</p>
-</blockquote>
-<h2 id="工作">工作</h2>
-<p>解约函，前天到梧桐雨快递点了，今天我需要去拿</p>
-<p>解约函拿到后，我需要在学校进行解约，并询问群里理想的hr们，我后续处理的流程。</p>
-<p>目前是拿到解约函，在学校进行解约。</p>
-<h2 id="总结">总结</h2>
-<p>今天的任务</p>
-<ol type="1">
-<li>拿到解约函，咨询如何在学校解约-finish</li>
-<li>在万方上进行查重-百分之4.32-finish</li>
-</ol>
-<p>明日的任务</p>
-<ol type="1">
-<li>填写解约申请表，让老师审批通过，通过后，让理想立即发起三方</li>
-<li>在知网上进行查重-百分之5.6-finish</li>
-<li>填写毕业生登记表</li>
-</ol>
-<p>4月13日的任务</p>
-<ol type="1">
-<li>学生开始纸质，【学生】下载并打印协议书，去学校盖章，将盖完章的三方及就业推荐表邮寄给企业，同步快递单号，并告知个人收件地址，就业推荐表的主要作用是企业留存+后续落户办理使用
-，推荐表需要学院和学校的鲜章 并且是原件
-（必须贴上个人照片），【如果没有落户意向，不用邮寄推荐表至企业</li>
-</ol>
-<p>4月14日的任务</p>
-<ol type="1">
-<li>学生开始纸质，【学生】下载并打印协议书，去学校盖章，将盖完章的三方及就业推荐表邮寄给企业，同步快递单号，并告知个人收件地址，就业推荐表的主要作用是企业留存+后续落户办理使用
-，推荐表需要学院和学校的鲜章 并且是原件
-（必须贴上个人照片），【如果没有落户意向，不用邮寄推荐表至企业</li>
-<li>填写毕业生登记表，粘贴照片，交给qy</li>
-<li>询问学院工作人员，确认晚于19日的22日能否送审。或者让徐老师和范老师说一下。</li>
-<li>下午去图书馆，把研究生系统上的所有关于毕业、论文的流程打通，确保自己的流程走通，只有徐老师那边的事情。</li>
-</ol>
-<p>4月16日的任务</p>
-<ol type="1">
-<li>学生开始纸质，【学生】下载并打印协议书，去学校盖章，将盖完章的三方及就业推荐表邮寄给企业，同步快递单号，并告知个人收件地址，就业推荐表的主要作用是企业留存+后续落户办理使用
-，推荐表需要学院和学校的鲜章 并且是原件
-（必须贴上个人照片），【如果没有落户意向，不用邮寄推荐表至企业</li>
-<li>下午去图书馆，把研究生系统上的所有关于毕业、论文的流程打通，确保自己的流程走通，只有徐老师那边的事情。</li>
-</ol>
-<p>4月18日的任务</p>
-<ol type="1">
-<li>把研究生系统上的所有关于毕业、论文的流程打通，确保自己的流程走通，只有徐老师那边的事情。</li>
-<li>下午3:30在东十二f101开展大轮训主题报告</li>
-<li>晚上8点于东二楼N205召开支部党员大会</li>
-</ol>
-<p>对于第1点的步骤分解</p>
-<ol type="1">
-<li>填写《研究生（论文中期进展）报告》</li>
-<li>填写《学术会议情况记载单》</li>
-<li>打印学术论文复印件或接收函复印件，所有纸质版均双面打印</li>
-</ol>
-<p>对于徐老师穿小鞋问题的解决办法</p>
-<ol type="1">
-<li>自己去各种官网、b站搜索盲审注意事项</li>
-<li>严格按照盲审注意事项进行问题的定位与排查</li>
-</ol>
-<blockquote>
-<p>老师给你穿小鞋，不看论文，那就自己看。过盲审最重要</p>
-</blockquote>
-<p>今晚任务：</p>
-<ol type="1">
-<li>填写《研究生（论文中期进展）报告》，后面两个留着明天写，反正论文都还没改完呢，不着急</li>
-<li>按照徐老师修改意见进行修改</li>
-</ol>
-<p>今天其实发现了一个有意思的设想，其实所有人的建议都抵不过你自己的努力与看法，但是其他人的建议可以让你少走一些弯路，走向正确的方向。</p>
-<p>所以其他人的建议对你来说的价值，不是让你知道做什么，而是哪些你不该做！</p>
-
+    <div class="post-body" itemprop="articleBody"><div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="抱歉, 密码错误, 请再试试." data-whm="抱歉, 这个文章不能被校验, 不过您还是能看看解密后的内容.">
+  <script id="hbeData" type="hbeData" data-hmacdigest="92dcecf01e2e0b2b174c432fac985f0de0f98dca6bd69a0c04a1ad71a6b3b253">79fc5b15236ecfb731be967b14070873b1c791036995d6a0f6456414b25e6b2d4209d492f895501165c89d6b54358757cb078087907af2db2c1d88b983d94da3464163aee24eb5bbddb2e68e15eebfec79546024df87b22c407c8958c28e220ce23a26791ccf27b52cb0b3c9351818f7d23782084b8c307741ad90a0c61d419a418a41be596401e6b17892997ba65e3f69233201fcb0d69caa7f96f5fc380b15afa75a612dd6da2183f6a9ede3c93b29e7acc5ab2777f12ab548f1f4908de0c17187372fb1d077e664c15b8a1c4bd8cd79e06914fa48bba3daca2ee503197aa21a85694ebba635a512cc63d9ebb395797e7201e7739e8eef65007dcaec352b922f4c78995d15e60367c7ad83e545d3567df82108c521b8647b0ff7a008ae0edf64eec98229099a3d8ca9bddfd249629bfe43db07fdeddeb23a46e7ca1837f42a8ac4379c670104b012b43f923fd43127f972c054f6108b00ed0aa0a4de61d31e998c01ce2a11603d46e85b4530e358334640a0b017834102cbccd547855d755c6d786c7e988cfe0662ef75dcc74a7b236a9da13f25b0de801a0cf59cc2bbe7e13f788b5d6ec65a4a92de3b6aa68409ed0ec1b3ddae3cb0d78f0ae3bae20afcb343d2d64e8f2587a832940f4eedecb27ac689f3a38adedacb12b19de696428e4d1990a8d3c7a4ff2768edc8b7b559f2b3edbfa074f1d88138c0971ba52090806b27094caddcbe934d8570d793b8c87ce82ee3bec0eeb73341e648721c3a4bd5809be52127d71910041de45071f115fc0439bbf6ba030004eb3d7e56d5479c7e83ba16479dcce212083dde86f6654c1a8e3d5842e637884eae79d216139c3a5c3cae37a0567406093a06024b4b3aa20c1d99923951a09c29f189f686d71c23d4066c1cfdb12d4bbaba037b0a3d8415919cf92efbb5587db7c6de5606465c883c53f891c27c15fc8e8c1421caabed1bf9ce537ff299df9bd8f7f5a77a4d0b321a58c7d2a9509d61e33fd0ff3b7ecd93f5edf1555dcd3ffe4cef90c3effe825d1e238372f4a68ee5b24fb8008920744640b34a5e95e0dee0456389b01574d6a7c55fbe346a3b97087db3923a50f5d7b94541ee629ee17c222473fb35e5842da63f71cc8619a1180c6f7c1b0082e0e14d9b368d23c316abe84e4c86efa747ddce59272b21232714c37003b6e5ab86f4617ef2be4e6b5f2cc9a7490164b1487a1fcbb1853c54609aa67ab397e8c38490bb94dbbac0b3ec4f145a07d1f266b0ba6180118f078011e170b7bd703d0c88e0ba263e4ee5c4d760ecee585608b06f8f056941ed3d1073fd1eb1e0fba3889daf8630597b06a7b22f2ada5998065bd37a8e444715657e251bbcf5300a97b2658e4dfca907c976bc2a8dadc4be427d1bc1c4ff8064c29da38d3d03f58e9d371a1edd2c946f55c91de197c8c09539e1444ccafd6966eee690e01a6d5be95bfb5645c243d18bd72dbe078148d5a923fd52cc94d31461005f5b1d24ef80c1d8f092b18c042ce6f87d2780b12b723d7b3b67ccaf19574376114931414439047657af8b30e8c52688c221c46ee3a8bef45e3e6b43ffa01f9a0f78b777e40d5581fab9fd0d27303eee38dd63b163b891ca6c1e2083b230ec7ddfc648a747afaeaf880ccceca6ddcdd768cc90892e7fcab17f34517ee4ff45491558148bb9878ebfebba711ff32346e700f5d25417ce7787961dd0c48bd811a8ac86ed052c944a172f3b49efcc172cbc522adcaec4a347eb2906da41980c4f8e87ab62bbb7909c5e17029aea165c916b246c3bf268a0c77d4a37782d3744d67b9c947bf344623e33cb224abb0a41d9440e76d7cc9669489272cc1ea839a776b4e2df5c414c2581dd3e32310ab126397ff0ddbe6bfc52e1b52aed6faa31a7fe36740d10444af4a72163dadc8524bdc89be1a2d0bef6a0d325dc7d6ca6d26d0b26027e36296095764d9177ece6d208afc7d5b9146c7bbcaf37bac707c9229d263ee1ac4a36beda0ad15c7a5542798245d7b6196ab108a9fc85a96f2e8c3f6630af4c1ebf8490684b095968432de3fce5d041f61c795921a2c70881ee4eee1cfa29f08ea508294c2b0aed92ae257f7ef0e6ac9193268627dd78371028a7546faaf4b2d5157f0350d0bd85638ca7dafe79c25c9cee01e4d2354c6710c48b8b21eff353c271d8b7b59cd8655ab0f5543deb4fdd8ee236048678f84450af5e5a544a777b4dae071fbbdc19afd3b060a19da89884a7f7df3bf00ecf7aa795944ec015b42eacc30542e7ec778e8743dab453222bee1fb9d7d3e6fc43a0f91de7903cc0214b0ebd2d27167889d7221915fb7b27cb5163869c118752f0a7b3d869ecfec7046715b118fc6626118e5e105b034fb3807b3d776ca5daed07dcd4262da56cc13479ed5a0ba86e2b55c854506e1993147d3d41b6fef802465145ac1fa5941f2334ed0459d6e23cab8ed5085ffd0072e731f8376e7da36c5f050ca07441cc6bbe816d64ca0f6e28eb3897229341dd984c0f0f712b4e1db08e307492f320c47892ba4f5946b5e49c00d728b1cecd17e7b6dda8858e4dde34051de4b29eb8ae62ea888af17b653452e971ae9e8568209330b20bd36f68c9a22f0ac54b4d51691ea4432fe4927bc37e89e8c40b9b88491bcb0ea16a6c0de74f1ca84aa73de6aa3451287cbf3f09d24e014c4fe7feadc08ed4b84a0883e7b5dd273c13aafc8628a716857cd942e70c85a78c5999e33557648efc8800545c5a08956b979708efd3a879b9ab5e5c00a59a98032deaa024cf1e18d4773b0cafc05ed7d98e0fbb9718f0e17b88495a43fc60618a7ac1c5808c1a550cff7794be651d7c282d06b9fb656594712db53b592b8e384117f1a2afc1ae907f29a23f13e7b353b1bb51295e46202dc0f8fe711776fe2a8d08ec4bbb96699037524505e5a1511f64d34795f07ff4cc677e12a44bb7737524d9325617c15ac2d80bf3a7f345d7a703c4897916896606eefc1a6c19075a337ad35a7ec1b6688bd1a035d435e2d758a8a23c36733462b39d0c548deac1724900140e0a831ef3ed2f06a8d1f7b6e166960ca92f53c761b40e51f472fe5fc1fd66d78b6b0d485771163356f7e99196b759aa33b377eb6573ce19d9d7c3da2d5b1ebba9faf4944d80f470c954b3cbea9e4a780ac1292bea3cb11fb137db732dd7c6dd65699a9f98d85c7a18b4a38dd08d3214c15916e47a7adbfdf96b3f17fa0ab3a7fcf3e1794091a5c341038cb094732835d2a9929f182347caffa90e8b76e11a491633befe1577e196250535174ef743e60826ccf171ee4b739bf950e7eee01f4eb71809eb754b417ba2c82c9596ed7ce34c124525e2e4f679636c0ac553d816d0c64acbbd62526449666e732c3dadc4024ff8b2cdcc14c463f5c4541545703ca88aff9c110d4d0a7cfe36a00d6982ef10eac3a5ec6d9c8b1cf8f74e21b240a82ea1306a5e8330ade9c0df1967f05aba351018019bcdf83df444d60a9e4c929fe4e90b03aba61ed66e622879ae2bfdfea5412007fcaed1ad80edb3c79ccff7736591923e3c329bbdd4326c04993f6aaec545b6bd6702367e305c9aa9950ced9d4c0f04d76177803eb7c80df9df3f9dcffa289e5eb054d345df9625a15db1041b5e9fb93a6e8a72409cefbcb0afb7318abf1885486fd35f6971500f91eb9ef3aa77a1b3bb11a94e3d5f193f4361dc14bdff40e99825dc6dabb61aa7b8a57d7f4f1ed5c737ea3b2e9089bf5b293bbc6019b61330871a5f621d68977616aac88de9c62ebe2978aab3ecd8d13153dd2c90c5f1589de6cec46efe4fbacc76fd70e6662a5815284e037b8e680c8b2d814ac211207e84ffa8aff2187c077a5065e23ec5e4403603137a8e3f3da7bd9a9108dba9c45433e68eb5ccfb33a31a8072b4f42e309499f5b4b8e4995e0e6831c6a2f1b868ec52a4171d3d11cf611b4c27e5568923f29e14c1c52fd6a9526007b160e58b9044fd2ad112e75c8f2d9bf162ba4249077a66a76ae1efe016b5294f8fb62b0f3a1df883fa7ff2c47d9583df86ff1ace3f3ba077044043e216e4c95518d34c08fcb0338828e30d022d47f8867011b8f18a79b38a7b6a146aea95d0f4c8c5c50fdc9633218fd1aa0b1ddc1f03f6935e112582757e8f56fab1b609e874c434c3cff7e3b9f39b769f363cf04bdd896e1b6b38c42c46aaf878da8b9e00046af694ee3f0c5ffb87bf02d0bcee5a66109cff64fb1348c2c301e5e084c5908951abd9f4d6254fb519cd46ae404e2a55994d35ba50d3f3f11db0b999bd81c506d107873430db5ed6e620139500d1d23136d079b666eea83c147f9f3015ba362809a06bca4fd0292e17290c62413e9352f07bcbe5740c3e2f7510453b22242911663a94eea4436303bd60eb9decf342046962966b6c2a898942f310d841d77abcd1a74902375725e3dae64f6eced4fa6fe1f2aa295034fa3a5748d1c94e29daa09889ffaeed249cdf6791ee21d7fd77c7d73f1aaad895b1a6e733f0dc737752454a5de2bfd7d3a39804b9b403f2111610dbdd37bedce4f8a13416c582b43d97b5724ac5eac5f192f4a6ac64e2ba29878cbd6790c5e4b862f75d1927802f654953e4c90f73b9a5568b227dac722948241d97e42d9b95668dd873733a8d4dd2d3e545eea72207d5ae9ce31a9d20e010a9c477e69cc7ba02ea84f1cce280345c4707d10a08d1027c55dde4778c9c04e86ab41763a70588c936247545d2100c5b8fae9cd9c87ac043e61e492133e7ad34aa5bdf6c5234b2cabeeef17fb6f5dde9259b8095bbf797294c83569cae59ab06eabbd7a1c7b9d5e719d6002287807b3918987bbd84ee1db21c6f02d968edcd68eb32bc4ddc2336364f5d210f4b54daa6ae5b54589196b3a93a884d9b900640099c3ea0eac7637fc81fade2bdcf20f6e287c1d2128ef2054718658d9c94304d941af3be94807468d6e60a53dfde9cfa2fdfb0f152a845a7cef0e4a6c756c85ce2af9a6df3bc1ad93a86306acfe6eb0ae8f70e2df0ef829d71bc0a6601e3ddbfd8923c9250b8f79100501bd00297468daa754c837ff726c194b857af84a5c90604596eeb4dbac44613369e96bb7e15ea867275ccbafb6426164eefc548d0ec5f151702f752f74b5e7e5b8f275077ddaa5d286354f69987efb42c35abe46d4348b03ef93c23e804e8f19cbd13cfdc0c950cce90776be424573206f1dd5b1430cecc601e1d663178cbb18f27c7b78ce22e2a6157c403825a395583139a4e34b14ed98ba788004d030ef7a325d12b9388ce530e1cdcecd6c24f929e541ce937ed3850b5d8fcf808d201e33dcf9cf51f41d6a5abbb64731514a58de70026ab30642b9ea7a515d836290bc98e0444ad04a4ba1877e3464705df534534517d03c1b3e73ab65d4cc29beac91199998cedcd45b21cfa7b45dc3841829e1c83c1c9bb21c4eda1a20e4aa4e103211596c2b3e3c53d94ddcbfdfaa49ab817d28fe79b66b7ebef8c1d13fb2c5462aff567d168dbb397ac78e9762b67801d0b3d64ad6a6448c55e5c29e750d37b37659e226a9d7909860d164508a19ed15ce4c37a13f17c5db0af2dc011f98e1963d4e3c611b1677f286387c890db74e39f1338f7f742f214c5d740437e6f7c4b0d13e5b721e8d174e0c37e3aab87948098aae56151e9b8026989503ba836a222bd04d3762e48d143f22882431ee602ef5d7c93bbd33fc4a2755e36da4fe6164a4a2b0abd56fddad21d3532415b28262a217f859b511d35c761b68eb7fb42100602e9dc32b3238801bbb62f567e6199ee9270d4957d5ab67a91eea58fd6bafafef9ebf520cea0e914b235010c75002b3739a25dbeb05e20f2d7e8a74eea0b375eaf5940529a8969cc0ad69707234b6f899f4129fd76f5ee8c60d34866d9a3ff0f09bf27993a589cfb5d70f6b09cca5fab32b3792d06a7b185ed01925be09b93e16adf64f63f5bf77f4fe8dce0117ff2cbfc54d59499f2226ed3d6491916b849096bb6d41c6b2d935b553204c2c49a96dffb94fedcc0f2f7195722ea48cd5539befb19422a146353a44a6b37873c15727abfc060402cf3f76f9b73a8e5a506cac61803bc24cad1251ccebeca90f3a5e898db148ab452b1add7365f5dea9e53e103a2e9c916de571f431b5e0d1117cc6c1969cb982140fc107992c3bc0e1fc74ac1aa0603f29e688874c5e91ced978ca5085421e746171d8fa2a244997033e6a38a230fbd9042b7ad65cef6940a0922e0f8d1f2cb89287a1a1fa4132e7694a64d0feaa77737245d6501d1a692e0f608f21839fc54a8b71b1190476cfc1bd2f4c112912dc13471024ea03b638135815b28dae7f2a0301744a1bb76ecd379ed7b33f0feb52a3e269d6ec778c91e15470a81585b54cc891f4a50416148561afd0f574e7c4d5e7fd1459011bec9b779151570fe5a0aaad0220a808c04cd0a94ef93aa6adc539318f2c0bab0279734fe08a9c69df07cb75427eec7206e8776ff05b2cb7b8631f7e9c878652b8eab9832c99fd6c626ddae62e524b26c4c2c10dc963f2d53364c5de353659a41259936de2042cdda8b358409278833a7aa7f821db1ea35eef275fdba5ccd2e4a0b223a32a70b832406bcad2c64534d230a162a6791627e772b672f0c15070b6c14523fd059bd8a4c0879dc1d15b4614b83bb224f69f930c031e13685385f099ccac32dc5aa249d3ddb764975b86e03c9a69f62fb63c39546f258df0b605fdd4dab4e5f4d613016bbe94f190817e6204331364d3cb22169d57a920c01803eb6768dab9ad57c5a227b08f84c5e7ad791e7462085ed7dd9a107aa59ae66df770e4edccf93eab90bbdb196d1f0729814d25e1b07023cc0e1d3d32386d42145c17ce6a883619715ec09480f5ff6e8cf79e90df3c9dee18df743b5d35f4b79649e47a4ed0b809a0a333ecf78cd973d40b2f3ff48d098b4215f32eb353ef587b39039e29a8dc612812b93ee8e16db66853d755a568831cd34f9592aa4176f8899ffc4dfe3b3c674e6b1bb18388a96137c4b00de568e322ec8824dd3aa4e117367ae35fac3f2752c454712bd0209d423461e546747ff2628c6087948609faff21196edf2f444b4664d71b0df68c1cf06fe38ba301969bed5467a74503d4b58bdff958712765b36c91c0da159af444958894bb9bddcaf8c680901d9337bfb72c02834089693a87c47f6e134061d2ec2f94a2baea31bc59c4028182d23fb432ee7fb3ac1ff82f84fba9ed0338a20d4524fa063ee7c60a87cbaf86bf4ae3eb9e64ca5a09a5c9aeb14948e21b98ee44f76aed6d5560161bebda8177b679de958ed234c89b9e3e6395e90812a8e25e16550f9208cfb369f8f32ff0286689df2b91d8f25cecb433be7016ab24d8a3186e760cdd765bcfa33ad70bb967bd4c6c84160cd2ece97ccc62492520359d988505a19ad304694cef5bf5f4efd201f896f41b5715d8f8bde62d3573315a78edfab6715b8665b6cc09764eb685369704cd31605ec40cb596d2fbbbc74870e3783cd4e7717cb1c9d85675b1a8550f55fdcc94c56bdad8487c2fca9b85dbebb2eda2e9d63ba385ac6fde3b257d96cb986a4cd0262b72588dabb11018c6d894ad8f908fedf8bcf4e890762c38f2820b792c8e133c309692089d3aa51287fe7680fcf31a14d95ce0eb2de474cec5eac4202382c537eb4595b71dcdbc2ee76c3ed06a423620ada6c8ec6da583952f72cd212aa17f764598a7ee4213b7d857636363a967b17f6adc4df6389d84c46d81e3fcb33fafa390352493c5970533d63ad130f20a2655b13d476c8bd71cd1323608b21b2da48bc02806d8894bb40f517cb53caf84afd329e5b81eaea19b522350df4a8d5655a3059c329c068b75c3180072bf71581adc0bf9fade82ed0656d2743adff9cb3fdac0d3b3295594df16620ee10c2a5fd2d781840eb8afc3f292db0b6db172b112b329ad6de1d48e2299b01fe45037fc1742a921ab8cc915d3be00daff8fef8b92bc44efb51</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-blink">
+      <input class="hbe hbe-input-field hbe-input-field-blink" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-blink" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-blink" data-content="您好, 这里需要密码.">您好, 这里需要密码.</span>
+      </label>
+    </div>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">
     </div>
 
     

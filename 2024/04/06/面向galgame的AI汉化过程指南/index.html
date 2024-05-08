@@ -19,19 +19,17 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.19.1","exturl":false,"sidebar":{"position":"left","display":"always","padding":10,"offset":12},"copycode":{"enable":true,"style":"flat"},"fold":{"enable":true,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="前言 本文是面向galgame的AI汉化过程指南，并没有对任一工具的源码编写贡献，谦让不辞。 本文的目标是  面向galgame的AI汉化过程，选择合适工具，完成galgame的汉化工作  因此，本文是一篇详细的工具使用教程，属于科普向文章。">
+    <meta name="description" content="该文章被加密了, 请输入密码查看.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="面向galgame的AI汉化过程指南">
 <meta property="og:url" content="http://example.com/2024/04/06/%E9%9D%A2%E5%90%91galgame%E7%9A%84AI%E6%B1%89%E5%8C%96%E8%BF%87%E7%A8%8B%E6%8C%87%E5%8D%97/index.html">
 <meta property="og:site_name" content="pxBang的个人博客">
-<meta property="og:description" content="前言 本文是面向galgame的AI汉化过程指南，并没有对任一工具的源码编写贡献，谦让不辞。 本文的目标是  面向galgame的AI汉化过程，选择合适工具，完成galgame的汉化工作  因此，本文是一篇详细的工具使用教程，属于科普向文章。">
+<meta property="og:description" content="该文章被加密了, 请输入密码查看.">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://raw.githubusercontent.com/pxBang/ImageHostingService/main/202404070308196.jpg">
 <meta property="article:published_time" content="2024-04-06T15:16:02.000Z">
-<meta property="article:modified_time" content="2024-04-06T19:12:55.921Z">
+<meta property="article:modified_time" content="2024-05-08T08:11:46.964Z">
 <meta property="article:author" content="pxBang">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/pxBang/ImageHostingService/main/202404070308196.jpg">
 
 
 <link rel="canonical" href="http://example.com/2024/04/06/%E9%9D%A2%E5%90%91galgame%E7%9A%84AI%E6%B1%89%E5%8C%96%E8%BF%87%E7%A8%8B%E6%8C%87%E5%8D%97/">
@@ -127,7 +125,7 @@
   
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+    <div class="sidebar-inner sidebar-overview-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -140,7 +138,6 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#galgame%E6%B1%89%E5%8C%96%E8%BF%87%E7%A8%8B"><span class="nav-number">2.</span> <span class="nav-text">galgame汉化过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%8C%85"><span class="nav-number">3.</span> <span class="nav-text">解包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%8E%E6%96%87%E6%9C%AC%E6%96%87%E4%BB%B6%E6%8F%90%E5%8F%96"><span class="nav-number">4.</span> <span class="nav-text">从文本文件提取</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ai%E7%BF%BB%E8%AF%91"><span class="nav-number">5.</span> <span class="nav-text">AI翻译</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B"><span class="nav-number">5.1.</span> <span class="nav-text">大语言模型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#gpt"><span class="nav-number">5.1.1.</span> <span class="nav-text">GPT</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#sakura-13b-galgame"><span class="nav-number">5.1.2.</span> <span class="nav-text">Sakura-13B-Galgame</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#llm%E8%87%AA%E5%8A%A8%E5%8C%96%E7%BF%BB%E8%AF%91%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">5.2.</span> <span class="nav-text">LLM自动化翻译解决方案</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#galtransl"><span class="nav-number">5.2.1.</span> <span class="nav-text">GalTransl</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ainiee"><span class="nav-number">5.2.2.</span> <span class="nav-text">AiNiee</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B3%A8%E5%9B%9E%E5%88%B0%E6%96%87%E6%9C%AC%E6%96%87%E4%BB%B6"><span class="nav-number">6.</span> <span class="nav-text">注回到文本文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B0%81%E5%8C%85"><span class="nav-number">7.</span> <span class="nav-text">封包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9D%A2%E5%90%91galgame%E7%9A%84ai%E6%B1%89%E5%8C%96%E8%BF%87%E7%A8%8B"><span class="nav-number">8.</span> <span class="nav-text">面向galgame的AI汉化过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">9.</span> <span class="nav-text">总结</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -229,7 +226,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-04-07 03:12:55" itemprop="dateModified" datetime="2024-04-07T03:12:55+08:00">2024-04-07</time>
+      <time title="修改时间：2024-05-08 16:11:46" itemprop="dateModified" datetime="2024-05-08T16:11:46+08:00">2024-05-08</time>
     </span>
 
   
@@ -263,147 +260,18 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><h2 id="前言">前言</h2>
-<p>本文是面向<code>galgame</code>的AI汉化过程指南，并没有对任一工具的源码编写贡献，谦让不辞。</p>
-<p>本文的目标是</p>
-<blockquote>
-<p>面向galgame的AI汉化过程，选择合适工具，完成galgame的汉化工作</p>
-</blockquote>
-<p>因此，本文是一篇<strong>详细的工具使用教程</strong>，属于<strong>科普向文章</strong>。</p>
-<span id="more"></span>
-<h2 id="galgame汉化过程">galgame汉化过程</h2>
-<p>这里并不对galgame本身过多介绍，不属于本文内容，若要了解galgame，请自行寻找科普</p>
-<p>游戏本体获取，该步骤不属于本文内容，不会介绍</p>
-<p>galgame汉化过程主要分为以下几步：</p>
-<ol type="1">
-<li>解包
-<ul>
-<li>将游戏本体解包为图片、语音、文本等文件</li>
-</ul></li>
-<li>从文本文件提取
-<ul>
-<li>将文本文件中需要汉化的对话内容提取出来，输出为标记格式文本</li>
-</ul></li>
-<li>AI翻译
-<ul>
-<li>使用大语言模型进行日文到中文的翻译</li>
-</ul></li>
-<li>注回到文本文件
-<ul>
-<li>将翻译好的中文文本注入回文本文件</li>
-<li>该步为第3步的逆向工程</li>
-</ul></li>
-<li>封包
-<ul>
-<li>将文本文件连同图片、语音文件封包回游戏本体</li>
-<li>第2步的逆向工程</li>
-</ul></li>
-</ol>
-<h2 id="解包">解包</h2>
-<p>解包目前使用<code>GARbro</code>工具，这里给出<a
-target="_blank" rel="noopener" href="https://github.com/morkt/GARbro">github 链接</a></p>
-<p>前人栽树😊</p>
-<h2 id="从文本文件提取">从文本文件提取</h2>
-<p>目前文本提取的推荐使用<code>Translator++</code>免费软件，支持rpg、ADV等类型游戏的文本提取功能，给出<a
-target="_blank" rel="noopener" href="https://dreamsavior.net/download/">官方网站下载链接</a></p>
-<p>前人栽树😊</p>
-<h2 id="ai翻译">AI翻译</h2>
-<p>AI翻译过程包括两部分</p>
-<ol type="1">
-<li>大语言模型（LLM）</li>
-<li>LLM自动化翻译解决方案</li>
-</ol>
-<h3 id="大语言模型">大语言模型</h3>
-<ol type="1">
-<li>GPT（云端调用）</li>
-<li>Sakura-13B-Galgame（本地部署）</li>
-<li>claude（云端调用，我没用过，不介绍）</li>
-<li>gemeni（云端调用，我没用过，不介绍）</li>
-<li>等等</li>
-</ol>
-<h4 id="gpt">GPT</h4>
-<p>GPT是我第一个使用的LLM模型，打开了我对于AI的兴趣之门。从可信度上来讲，目前它属于LLM第一梯队。</p>
-<p>要调用gpt语言模型来实现AI翻译，使用API
-KEY来调用其API接口，进而使用该语言模型。这里给出<a
-target="_blank" rel="noopener" href="https://openai.com/blog/openai-api">openai api官网</a></p>
-<p>如何获取openai api key不属于本文内容，请自行寻找。</p>
-<h4 id="sakura-13b-galgame">Sakura-13B-Galgame</h4>
-<p><code>Sakura-13B-Galgame</code>是开源的聚焦于轻小说翻译领域的大语言模型，它实现了大模型的本地部署，非常具有吸引力，这里给出<a
-target="_blank" rel="noopener" href="https://github.com/SakuraLLM/Sakura-13B-Galgame">github链接</a></p>
-<p>前人栽树😊</p>
-<h3 id="llm自动化翻译解决方案">LLM自动化翻译解决方案</h3>
-<p>LLM自动化翻译解决方案属于LLM应用层，主要功能为实现翻译的自动化，降低了LLM的Promot使用难度，集成并简化了各种参数设置,</p>
-<ol type="1">
-<li>GalTransl</li>
-<li>AiNiee</li>
-</ol>
-<h4 id="galtransl">GalTransl</h4>
-<p><code>GalTransl</code>是大语言模型的自动化翻译解决方案，它是一个命令行工具</p>
-<p><code>GalTransl</code>是我在第一次尝试汉化galgame时使用的一款基于大型语言模型的自动翻译工具。它成功地解决了我在galgame汉化过程中遇到的关键问题，自那以后，我便开始学习有关galgame汉化的各种知识。可以说，
-<code>GalTransl</code>为我打开了galgame翻译之路的大门，是我这一旅程中至关重要的启航钥匙。</p>
-<p>给出<a target="_blank" rel="noopener" href="https://github.com/morkt/GARbro">github链接</a></p>
-<p>前人栽树😊</p>
-<h4 id="ainiee">AiNiee</h4>
-<p><code>AiNiee</code>同样是大语言模型的自动化翻译解决方案，相比于<code>GalTransl</code>，它对于其他软件的适配性更好，例如适配了<code>Translator++</code>的输出文件,且具有GUI界面,操作更直观。</p>
-<p>根据本人经验，<code>AiNiee</code>的自动化程度更高，更"傻瓜"。如果是第一次使用，推荐使用<code>AiNiee</code>（对不起cx233大佬😂，虽然<code>GalTransl</code>是我的启航钥匙，但是<code>AiNiee</code>确实更"傻瓜"）</p>
-<p>这里给出<a
-target="_blank" rel="noopener" href="https://github.com/NEKOparapa/AiNiee">github链接</a></p>
-<p>前人栽树😊</p>
-<h2 id="注回到文本文件">注回到文本文件</h2>
-<p>使用<code>Translator++</code>注回文本文件</p>
-<h2 id="封包">封包</h2>
-<p>使用<code>GARbro</code>封包</p>
-<p>或者采用免封包方法</p>
-<h2 id="面向galgame的ai汉化过程">面向galgame的AI汉化过程</h2>
-<p>面向galgame的AI汉化过程，我将详细查看哪些教程完成对应汉化过程。</p>
-<p><code>Dir-A</code>大佬对galgame汉化流程有着深刻的见解，可以说他的教学视频带领我完整地走过了galgame的AI汉化的旅程。通过学习<code>Dir-A</code>大佬的视频，我对galgame汉化的各个环节有了更深入的理解。</p>
-<p>这里给出<code>Dir-A</code>大佬的<a
-target="_blank" rel="noopener" href="https://space.bilibili.com/8144708?spm_id_from=333.337.0.0">b站教程</a>，该教程以下简称为<code>Dir-A教程</code>。</p>
-<p><code>AiNiee</code>的<a
-target="_blank" rel="noopener" href="https://github.com/morkt/GARbro">github链接</a>的readme有使用教程，以下简称<code>AiNiee教程</code></p>
-<p><code>Sakura-13B-Galgame</code>的<a
-target="_blank" rel="noopener" href="https://github.com/SakuraLLM/Sakura-13B-Galgame">github链接</a>的readme有使用教程，以下简称<code>Sakura教程</code></p>
-<ol type="1">
-<li>解包
-<ul>
-<li>Dir-A教程</li>
-</ul></li>
-<li>从文本文件提取
-<ul>
-<li>AiNiee教程</li>
-</ul></li>
-<li>AI翻译
-<ul>
-<li>Sakura教程</li>
-<li>AiNiee教程</li>
-</ul></li>
-<li>注回到文本文件
-<ul>
-<li>Dir-A教程</li>
-</ul></li>
-<li>封包
-<ul>
-<li>Dir-A教程</li>
-</ul></li>
-</ol>
-<h2 id="总结">总结</h2>
-<p>至此，便完成了<code>galgame</code>的AI汉化过程的科普介绍，或许你仍会遇到各种各样的问题，你可以</p>
-<ol type="1">
-<li>灵活运用各种开源资源</li>
-<li>学习<code>galgame</code>汉化过程相关知识</li>
-<li>在一些优质群里询问大佬们的建议</li>
-<li>自己进行代码的编写。</li>
-</ol>
-<p>也许问题仍然无法解决，不用担心</p>
-<blockquote>
-<p>世上无难事，只要肯放弃</p>
-</blockquote>
-<figure>
-<img data-src="https://raw.githubusercontent.com/pxBang/ImageHostingService/main/202404070308196.jpg"
-alt="樱岛麻衣" />
-<figcaption aria-hidden="true">樱岛麻衣</figcaption>
-</figure>
-
+    <div class="post-body" itemprop="articleBody"><div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="抱歉, 密码错误, 请再试试." data-whm="抱歉, 这个文章不能被校验, 不过您还是能看看解密后的内容.">
+  <script id="hbeData" type="hbeData" data-hmacdigest="cb15facbe9ab3d8d099015c88b59a987a3b8fd976decd70fc4210482ec3eb7f8">79fc5b15236ecfb731be967b14070873b1c791036995d6a0f6456414b25e6b2da27333ef377769c8fd2016baad8d695ff9578fca820b695857314076f66f2a7b5e593ba170fd3476fcab524f9de6916683c04209d559c7b389ee8ae586ae3a683fb85531dc1babc385cd99bb6e90e0faeb7ecc5df0fd9715b2be8a56b27c968fe7f568635659dbc77678f8659c129d13f1e4939296f72b6733a4352914685d2cbb00fb8d88c48f82c0bee27cd5d237c7d072220f5a56fa918251369a151ca34fd753b3e397c51dbdd4bc8015dfd91d4ae17ec1d326b099c43bd827cca7975c38085a342c6f247393cdc4c198a8c6508cfef7fe306cb2bc47825f590195deecb50a17ed5cac74ec40634d2aee5e0da7ff3a8193fae3cce31a60356d3b16b70f4c9755cc1f6342f8e7e979b61b7198a1b74259d82d9ef2aa01337cd4b2b011535eed1627a749ebafdca0f211cbf8f4fcaf5a1b51a02b44daf4c2bd48e501919cbb91b3fb012c8b91ee2e7a207df9754ccd0c23cd334427a30340b92b8cb96598a089b6e1ff5fa98262744304c6c9d491f5c84caa826c3ffb0b8ab9fd1824a64d431f7fcbb34ad0b88f936997571e769c203b74b0739e66a1ea6fe9584d8f0c72fd15aeddefd5e61b39f08eb0acb17093460fc4d671e38492736acca9b059dd102dbd0d3d3fc90b89f157c50b20732cad96a9a466823ee60ead09b10e37e2cce1ba428af83e3f8defa97515f4dcd3a9179a844053e38b0888bf3fe59dd033d9892eac003c317cfb5b1ad4338f46e53bd7fb926d878d31e48374fb8b9ec0847763fe4f8eabde52aca778e7ef7c0bfff8272727cc263a81f710570d52b289eda9295fcc5de75067618f72f245523bbb39e07803162bfefeef9f15af48b5030d8aad20ee3639f76fb65cd4c84465afb3ee3e922ecd0c8913894055402e06960cce957288c25bf6e7e5e58f577e9ab578e6e191ece80e2bf77a53acbae0b1e10ff6aa76b71c61e21333dd2a5286a280895e063e5c28366592588a09972c37e4db84a35f0d6eda6dd22e6bcf0b45bda4f30a798a250be5efc7db3d8072a8fb781845e1e21ac45e816a99873026509315793ff3d1193fea99f97665cc8c240ed3ba4979fe06818b807a89dbe9b7aec0b733e4136cd7098d6e28b148e6e2a4d60c4e9877d490a3155de9ebdb8657ad214f3bc0c51044708ed622f6c97f5363e1a7adc70b8b6221de7853f1c425e547864049e99a74efcde437b54b594416027d409ae22e8c395f11c0e088beab5b317153ebaf159164a44cdbb04cb722b794f70d0318904b53666bae5c5ece63fb62eec1de296b1bebe3e4b2a5fdf514a9e0f5e381a27e0263e9cd1696bd123f81be5d6919df2e2c5943e457871ab30dcd9585e3c6f7897c39a9ece9af6d8c63679b331f358b3f39f6f82400213369f31c89060fff8d906db36fac83bd9e196397a0cf9ee284b86b8d828f38d097ea93a45f35951d89a015895cef2b5fd3adf8c3266fd1eaca60f7e273cb711aa7d66d6c928cc7f8571d85c70600cac6e25db201aeb76b6ca8ae3faace7a06362e9fa1171c2879265373dc515a21e5b27a978c19dffd8c3e061358537d6db7c076926511ab01a36cb520c42490fb488deba86adcdaa83fd2f6dc3b09cfa74d03c5b7450b1d45d8ad6e7ae6c0bfb4d70b008a516a6b1a6cb88edaf5beba4f42fd2cab969f6e81bab4474437c426b8b9c11c77c118771ec0cd39a3fa7efc7462e1ad9b10828c83468478eb593f18019128ef161743421cf9b6913f88e53f4731c185a2063d6817ed67d42bb4a427e164aa4ea841f606dea9234d585dc0b6f51e87fed8c842b8f3c84445995a8361cdc897b1401663e3f191d636be27429dcfca311cdf740b9bfb60750dd45beb75b2cdc21bee42d412ad9def6c7830a5ceab1a02c125fcae87cce100dbfc65878818cd32812540ba680c1b500b1544f5087594baf83ce26fb5b1e6b253bff2f365c6ec672d44f37983732806e0264e60e700316530ecf1213545ad549ae160a809e987ef0b1bd79a425d3dba09c6cc830277e310711ead25eee26a63f0c539a766c171ead6f96cce0c37b6ed44825f522cbda4b1d22d9db30aca8060015197c5e51f1549d32ecd4fd7cb260eac73acaddf627f8456d7fcf747909903597b4693e4f5860db73afb8dea160de35062938267ea55e471a5e0336332dec7cc36e2444ca9ef4c9e86e289fd7c918d6b11feb3a042a0e945379f5c1ee96578e6b0d6d87cbedc6da17d842588ad3e1fb98992b3f191e150150d9a589a21f6ff3f3e5a58989c0c4c03fcf22738bab74588109e335ccb895667f42ef239e6c4bbf428753d48fd5e74c394c28f019f870d3fed4083a1442da577da279777bd7519369b85ccd9727ee9549c205fafec74371c9a32ad85617b7dcdd38bfe50a4738438513568d234df48c5553bb3edb2f227d42f67d4668235dd0cd0c9e841f9ce9cf5ac06d6884c04fccec8ec4cd28d6561145348f91ec6d6e8847c574fa27cfecef7d3bd28bda0dba1984eb347898937bdac417e2b31b6027b38c2517095cc6017c0586eb9493d6797161a8857d49808cccca80cbab15b6e3671fee83503c7ab1f8b66d43675e07f986ad33b65ddceb43fe2c3d60ff8d8ec7eef50d0e234cff82d968e3fa3eded4175e6730bc2aadcdcba48128a2ca4303b508a9c72871f6f5496ea8ef0a59ceacc9c18d8d0ecee7693ee054ce9cc90808840e6388f804f79390d6088ede224836d32a329dde7943a767a5a10cc54e5e641080b240cde1752602c53b434b7cdac4ef1020d605a6d576f7cf7092b638fe02bb4df92d64b3b759bbebf3a1cdb5e3b08594876818980f2529bd2c65dabbff5cce6689792690c982a65cf8783b2e4080bf4e5613031f1995eeda9bc1fbc4dc3d17e5250587f095ea60347b641017aaf4d18dc53f3ede87cd80a2427aaa36edf677f67a80c4a344533860328877fc2b88e54a1d3e5c90813a2b21e913e06e5f206059d391330f5faa5974876298abf46aeba2065c54e2edb629b3f5fc11423dfcdf548fd56a1bf63443a67894972f365915e8c0465cfc21a25576e6cfb5c32f3966535b5dba1ff132c55481f0475fb67821d43f1b4743d306c4e1f4f3e975d18d74a9f4975bad2864cac20853f22de36ddb1dd892251e59071b6b654bb0623b4362c740187950a815b459e7682e4e38ec993ab35b339fc3e8261f222371dbf37e1c78951ea3ff8a2eab8a0a7f749d6b9eb6589bd203c5204c11e407fc118c3e793181bc38c6450cd57098edcd659948812b9cb4dc0ab3f3e32e3b64d1d3e8c80632217a02c111ddc3b701f948bb31437cdbb4b9260413347d7aa6d11092af32b476b24708d458d02a73effc3f300967a3f47a61b84d421a3b89fd7f9710b1297269eac143d22afb4725aefe704b98758299455c27aff57cf8d81dad128e7d4a58aad9f60defb7427811bfff59a3dbc3edeb21e897b61b44def48d114800862f95c35f4ef5655343e0b17ec9b48951f600c89f3a306bdacfe7a145484eac5c5b73b602f01578afa2d8be4d76eecc70fdfd24c15ad1eeb697bc67ed394693db5dff0c320ad1e88604ef389935fd83be412a2bdc385973e2a85143df99d26573f434f37d5b53e18120dd5941905ca9004ff0f7e86f336f323822fd85fea595b3dd977161f4d44d7b255e681d5eb3b452e133977dbc09ebe478a0e1cb136a04bf94fd5f6d076b3fcc0de827d159543abab30fb851ac7b1abc39e3f78b0de3f61196ff7a836bcd887e7183c3fa3ccfdae8325e8702faa40a1897e8fc50693e2e9b704007466030cd8d0bcc643145db2834e27dcba4ef66d412a40d57bc425382a80192e58008edbfd38fe62d582e9bf2f943cea52bcc0f73677319ca59339d6b6d7692783ab109831e9db300e46d4a7d30a58326c14a2fa219b8ff06dc00e7311199eaaaf6c52a8c2ae199c1f0d9261ef4e096eb3b838b5bce7a443a013f54aac2309774f8d3cd0eb758e91af79e0fb16deb79a5f753be44c64b8e98f4ab8b0b6d39fe72decd564a60d3ab6ad9072c1dc61490323770efc54d50c83f85f06b833a5bfba4ec96bbb67b42a8f1ceed7318b6b7272c69cc619c228e6d20d48a26fb3dbc6f81d50374590ef7f09790a14440b56973582b99de8197f9880fff86a9ea0f371a300d251bf161cc383879622b91dc8edd6ddd86a069fa048683a4e08ff7e1b8d5c38774bbe3b3213d7e1f24266ae33ba006964f22cf48708cf11d00fb9bc0378ceccca5e68c850101c09b2c590a2853ac3c15504eb6830633a587d3ef5581d43293e7ca4284614cf7de3ef1af780dcb2977923feb4c6faca7a54d39858630bdf9dcf8572bd7e890ca5dc1dcce67902df9428c23bb4223047c96e0fa071e74c3b61bae5e1899acfb816c43464410269c5c9b6653b559052784a30d9dc21f64cc08cc4e3395968f9a3fc5bcde31260ae550b9cfbf3ee2b07016407bc37f51894d4958f4a60025591caaed903ffceda87649690f25a8ad3771a2d66025832c5135362d8f3060e8a8de1282257d4a3ba05aa0688a5e9dae95ec32a01178b209108b9c725805c63b27d6fe0f0b08020e58cc2e01ddbefa6df0e9051505375bb56fa3c56ece136ff18ec7654f14b3382b45a26d925b596f81f2ed82b6d8e9ecaadeeb16905ac1098a148d3a71c7f145515560da34d004887ffe665a27e359a218b289f4c280bee103dafa091ea8b63377100e73377169841b0a9284d5b07e5da2e6c52c5f0d515f42e8f22e164cf63468f7486c7eea9e8048f8ab3b4e6759ca1886af2c0c6b0371e00ee61e2dcf8b36b8e8dc9983857f2398da66f633da340fe06d4eeb526e1f10f181ccd936ba6a4cdb21f93e2a4382917dd86f578dc58cd3c8374da52d82f14e32466e612e3f538e67578d736f8100bdbc983e3aaefa0917b161d6e79692110ddb635c0aceeaee865cdfd3ae770c0775a6775ce87f2bec35029bb60627ad5a49ea4d1ae1d62bf329fe1a56c96a629018299371e11a0d147070e07d59138d98ae06443feddca65e4b6913726e6ff0b7a6be13a624d25762be6707fd97e50ced0e8fd2a01cc7edfa47fe6e80b351299e0cf9517cd8c4aa000ccb359f48ad1696745d07c3f6786a6a50c869098153b281f87fbbb6fe1ee92a51bcf0a1665ffb1e0fac7a54b1c5aad8cd3a0e90fde9fdafafcfc4cf8f92d739da0e49e2b57773c1a6a58dd8eb376b6b8293e2006cb857b2b5a49564beff6ded4c471d974a1f2e34f53d8572198c9a3e5f5911a31c49d6a7db300dd7ef0df5b3ae38e1ef5139cddb823c45ec4e30675810d75bf7ca6ddaea7b85aa1b52074fb3b5d115eb4e5fe0bf24c120e1e2e991e1e099c8b595f41a6ec6a51b3c8e13cc73fb63888ef361514661ad406dde678f18ccc11681e6c592001b583eb83fd04d6d358746dd08484e365e848333143f9270451fce92bf9469d1b3fc67644100dfbbf1d87a86e89657d9293f6c60a8022619ef6bebe03f5e66549378f9b8e93f3a8314e04e629a9ec9a186721481039eded10bde7dcecf1886da04da2a262e06d55e0c2673958096007ca23a7cb4758d000fa346d96df921a87b7c4c17af6ca992c27a8fd934f81a56e66102ca40afc73891c7796365d6da3bab1e0ac5f1df5d5b778f7732812b4d5296bcd60a489a7de6d8b15de0224fc416491ae9f2e431ec01fe8557113d2b4e6671c742bb47f6d0ac8ec9c9ccd4b67e31835bcac2c195851e1834395f3321e6cbd796ce6cef0782fec0e32997adb351fc7a7290a5e000baf244b8e691df24dac8fc5aad949622bcc4d6a6fa96ab9dc0e9fcb8eac9040ebd24b0fb800c81bc7f1fdad23eeb2c757056e7b7a6dd68af7068cf63a3dbca0223feba04cdb43be1bf334cc353e999fb8fc8191db63c0f8e7510adfe562bd13e9d2e0429c39109d56b45ab8c11e21443d0c1c9d0e72a3b0d843e716b4c3bd4340381758fb78471650f1fe0f2854e38a0205b43d05cd4cb223841c67f3816c3f0349e6e2777bcea05fdbf59227f82b24da4260ac83182532d1ed923c3dc793a36b60f7de99bd5f33918b867862b50e9cb89b4a49fbab30fcc0bbfb5410db8ec2aec6e65a103f4c29c6d0c41301a1c8f6a3b10e624b7e9ccb759c33bddb9b6b7ec7af21d95883dd19fe029d84ca84e2ead577b02378d1708bff7cb53d37facb88f6b954f08559db643d24739697d79e810f680b2316746195d446c2d601d8841634c4880b1e5e6a3dcc3d079155e5c4a557b8618e26a544acba0d8eaae0e3f4b0a13decd7841d1f258b31c9f57032a2cc711ab3ffe614fa35762515d30de22c6a98e08d0eaa26538c134336ea36e058855cd8df817b97af953ffc2b955a777a338bd1bff859fc8574da617677c4f0e44578a3491e793474f7781c3c3f033903f3c8afdb1e74e5b3cef2c3d7bbf07c15af45946e28f064783e3cd082470a32e2ae630fe8946cfb8035296b21d5f86beb2629831cfcb999ce2b5a4b717d91033e11b3caa23a7b9f75d6156cb894a8684afb396b8a009cae845ab893d3e7767a4ebba26f6665611b85591a4063354b4225ca574e62a591e2a50099147bac834a2ece68613b26e5e93bd4e34ccdc7f324ea444752ea706d93ccb898dc2a2dced172793b7c05b72684f3991f0e31eed8cdd08a238ebe7c40968494ddca4a23bd97c315b098c48f51d3ab879bfbf2f714574b9bceaafe98173a954473a795164bab467f2253d6697c36c65e40148685e68eb885e82d7a3f751ece26233f2721f31f56d8d888de42ccdc1dbcb29723116270d4946f09d1dd0d2d5256289e6a463d3a96245e82b675254b66bc5bfa75c51bde8584f09a6a7a6c84c2f0a7e37d2542b4db369b87a65d6df1d16a4f25949b4f20eb7f059abc7f8b1bcdb7fe9d4e4e0784d88e17f41755ee62d768b573ae7e69ab452a27e012c9103624483c19366c6ac4374f2c2bb0d3f61aecfb46641736618507f178afbc7bc2d22dae1281de33b7e8c236e1ea5a56d97028fb304af84cebf2afc7e698c55618589431067a3c35a8688a3d8242b91ab96d992a05c735abcef5681ec086985364f4631a3a667f715720b8125e322dd2454fce6a88408e8a84b721b35ce9ca83def8d4fae9951aa46331573717feb52f3d6275629aa1ba2d070c10784956fdeb151f256bf26455014a8498fac5ce7cf8109446f594b1311259dc3dd69c7c38077026c5cd2cb734ef843a0b3b41fa19b6399951967a81a743942627cda9cfbd32d9ae1c7f3caaeb35eb2ecf7bfa32be1a1c8c8aa9d5a4eca5c2695c1d8b52e405692bac989c6aed38c2e0f8678e78b7e86ea9b8e9367ab7d7d62579616056dca379c2434f8e40aba4ea439e4e50a768dc0c602db769c8ae55d9bc8d0f9f9f950a367b7f6ad8cf7fbf10cc33606b6bea56a3615d63224ba72876a8ee6c88a6cf29c6b86fa627ca719072c93b8b15579deeb6a3f22c7c5c840dee3861725199fede7c8430e46a1cf7c96b504bd2be30acd3dd86a7ff0a018a5fbde1286cde26b7c1998532234122ee8878eb5483611ad0d269ee9eaf7e17159afbf6f04e1038ab5546655fbc58507c3e60ce714bb396736305a385e53e8eb99746d2058666fa96cca6f9a48e8736f5fc60967ba7b66c57110c36936d9a7c0c4080e8bf0d004c83fc13571c497c8595308e23d3fb4bb0f4a282d862781da23c14bfea91c9d0a24bc47d04a54820a28d844e36038b9ca6a5458b79f0f66c7761b3325f33a8d78123cb400e53ee55afd39f10d314a03f4b6b3e6de433c98f1267d0600e113bf85d3a093bf0030df45a908cc79eddfcf098fad3f34730e6d0dbc8c9bd277ac2f65ee6e123c8c6b13794296923058d54ccd024694c1a8bb2f756042129ce259aa43bb58b0b62a3f7a61398c195dfe76803f7442c38720e5ae01d0e8562f718a4b8f4280b9aa6985c9bb8cc1c8e35ca7c4bec117158883790612039e7d711a20092ac72e599c345fe595e881e3bebdba0a4dd666a037fbafe19b5f33cf14a5959533c67a3d6e7ad04e68699d062625f7e2f6a6179f82dd916bf75ccf1e377dfece3c9bd5d612f9c98b450134799de62e0618213c0cfbe8cc49960d2b941bb66bf28389f95bf5dab6f7a20de8926fab29ec52f0fb8fef77f966bc25714ac43d8e6a9232533ff69fd4e4e203285918ae2b422f3c8d9ee2d8afd8f2b156753941d1ed50681a03150bf1886e6eac7bd72b228d17e4cd8b59559b5728826e2bce205e8c7a81cad4f1f1fe11d96c3146fe973f4cb93ddae229c3d048446ae363686d7c7b1dd38141daa8c6d416053222de2b95407879f4ea996872e3c471fe2a0f12669b9f060defc43e925d4e91dda215feeb09fb6585ac8936a0eecb89449e546846354958d6262b5829f7a8bc8c8d818f63d90bc3abf35733bbb6967b44dc9877b126ef1f924a9f9bfad0067b25a4f935bec4140234cf7d2f3e17df76479b9e4b20e587a1a9b20a453d3568013a6cdc3e303332a21ee8ff9a4334341aef87b0c7f3ba938135429433a9b9ff685938c20c154c70c33f2e41a60991a7b3a978303a5dd58230c4602d1aaa02231b4a15331e193cea413f2a6075c56cb689d8449cefa0eac0b0b65fc356d4f3308490a0bfbc73e3b6c1bc688952d2227a4c4532ba442dcce4d4fb49cc0c877df61bcf6fee1a11a15c4859ceed9791c277dbc788cc352ec3e755413273021ff2d45350edcb15127cc7a7d51d094381a86b1f8bd47abe649a828c915fd7d1791006679d8588a053f9b9423fa140e6730d186e67533528cfb74f5ae9475810866140a0057cb6e6837dcc12a007505655b3631149e02669698895a0698201c858e0b0c4e50a91146ec20ae7c0e49486d7a0628ce6bb0456e195657bcbaefd1035b5a057e7b0fd21372eb2f507ed654b5db775b96ce1ac1078439aeeece2555719fe022b749bd16b7aca26c4e8a07c5ff90e5aaafd8d7cb7abf66df4271fb9dbdb157cfc35dbdfd90f605d8ce9cc02020aea79188b168fb9bbf3a149bcd51b680927f317a4a0db0aa70b8c409648f3bb9ddc456ebca2647e0bc367c78ad64b7269dd7eab7209bf5f6a1df223b8a30ea0c47a1c0f691fa46f502825d82d98696b2d6d66d28bc3d37ef8cd09779df779c299cff1367d08af0aa5ee751e27d1685c7f5f1f495a3df90b361e8d08f893ce6efde2e898830a82f0ad1c554dad50fd6b7cec793c7b4c74ddadd689371403b4c6f73900aa138e7847d5ed2ce95769a5452f3e65e1cbc9b1845b7e0b30e24833ba52982be4edb1671d713cc6d0f3b0e3719f7505d4a5afd770a2955fb5d24b74f7d41bbc187a2cb3baeb74782dc64c8eb55131b3e244fb9f1718991f242c686a65d45b358dec06de513fb7b06bf03fc69736034ea9bd18656d0fb05112fc62e5100cbd63903788cf651b92a3277d6ca3764e3dbd152820639b48f48e69c9d17282fd63979c632bd128033867fef80129c986342939ab74e285a1dd9f347df0d31d25d54949357597a5e031d831ff1cc16bba1a5a3192c2cb0ca812a9fba3b4fb561702266fabf2cd91583b2756e549e36e15f2883f40ec05fb28aa0919e42308044233d5dd544d94a927af5848b4057487fe8126e1e0d91220f562f9506a65aae84490bbab3b3b430573e3538a3ee6f2e79130502d17e7af775066241da8fb6c2ce9350ccda1323c510ee3613f48247</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-blink">
+      <input class="hbe hbe-input-field hbe-input-field-blink" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-blink" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-blink" data-content="您好, 这里需要密码.">您好, 这里需要密码.</span>
+      </label>
+    </div>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">
     </div>
 
     
