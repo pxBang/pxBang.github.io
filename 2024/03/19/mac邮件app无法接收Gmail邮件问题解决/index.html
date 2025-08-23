@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.1.1">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha256-wiz7ZSCn/btzhjKDQBms9Hx4sSeUYsDrTLg7roPstac=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.19.1","exturl":false,"sidebar":{"position":"left","display":"always","padding":10,"offset":12},"copycode":{"enable":true,"style":"flat"},"fold":{"enable":true,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="代理的灵活使用">
+<meta property="og:type" content="article">
+<meta property="og:title" content="mac邮件app无法接收Gmail邮件问题解决">
+<meta property="og:url" content="http://example.com/2024/03/19/mac%E9%82%AE%E4%BB%B6app%E6%97%A0%E6%B3%95%E6%8E%A5%E6%94%B6Gmail%E9%82%AE%E4%BB%B6%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/index.html">
+<meta property="og:site_name" content="pxBang的个人博客">
+<meta property="og:description" content="代理的灵活使用">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://raw.githubusercontent.com/pxBang/ImageHostingService/main/202403192007275.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/pxBang/ImageHostingService/main/202403192011899.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/pxBang/ImageHostingService/main/202403191948715.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/pxBang/ImageHostingService/main/202403191948633.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/pxBang/ImageHostingService/main/202403191950570.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/pxBang/ImageHostingService/main/202403191950457.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/pxBang/ImageHostingService/main/202403192022414.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/pxBang/ImageHostingService/main/202403191955296.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/pxBang/ImageHostingService/main/202403192041581.png">
+<meta property="article:published_time" content="2024-03-19T11:59:57.000Z">
+<meta property="article:modified_time" content="2025-08-23T16:43:58.770Z">
+<meta property="article:author" content="pxBang">
+<meta property="article:tag" content="mac">
+<meta property="article:tag" content="gmail">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/pxBang/ImageHostingService/main/202403192007275.png">
+
+
+<link rel="canonical" href="http://example.com/2024/03/19/mac%E9%82%AE%E4%BB%B6app%E6%97%A0%E6%B3%95%E6%8E%A5%E6%94%B6Gmail%E9%82%AE%E4%BB%B6%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2024/03/19/mac%E9%82%AE%E4%BB%B6app%E6%97%A0%E6%B3%95%E6%8E%A5%E6%94%B6Gmail%E9%82%AE%E4%BB%B6%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/","path":"2024/03/19/mac邮件app无法接收Gmail邮件问题解决/","title":"mac邮件app无法接收Gmail邮件问题解决"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>mac邮件app无法接收Gmail邮件问题解决 | pxBang的个人博客</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">pxBang的个人博客</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B5%B7%E5%9B%A0"><span class="nav-number">1.</span> <span class="nav-text">起因</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%97%AE%E9%A2%98"><span class="nav-number">2.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BF%85%E8%A6%81%E7%9F%A5%E8%AF%86"><span class="nav-number">3.</span> <span class="nav-text">必要知识</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B5%8B%E8%AF%95"><span class="nav-number">4.</span> <span class="nav-text">测试</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#shadowrocket%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%90%AF%E9%85%8D%E7%BD%AE%E6%A8%A1%E5%BC%8F"><span class="nav-number">4.1.</span> <span class="nav-text">shadowrocket软件开启配置模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B3%E9%97%ADshadowrocket"><span class="nav-number">4.2.</span> <span class="nav-text">关闭shadowrocket</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E9%97%AE%E9%A2%98"><span class="nav-number">5.</span> <span class="nav-text">解决问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%88%E6%9E%9C%E6%B5%8B%E8%AF%95"><span class="nav-number">6.</span> <span class="nav-text">效果测试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B0%8F%E7%BB%93"><span class="nav-number">7.</span> <span class="nav-text">小结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9B%B4%E6%96%B0"><span class="nav-number">8.</span> <span class="nav-text">更新</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="pxBang"
+      src="https://raw.githubusercontent.com/pxBang/ImageHostingService/main/202402232302599.jpg">
+  <p class="site-author-name" itemprop="name">pxBang</p>
+  <div class="site-description" itemprop="description">学而时习之，生活·学习·解决</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">40</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/pxBang" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;pxBang" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/03/19/mac%E9%82%AE%E4%BB%B6app%E6%97%A0%E6%B3%95%E6%8E%A5%E6%94%B6Gmail%E9%82%AE%E4%BB%B6%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://raw.githubusercontent.com/pxBang/ImageHostingService/main/202402232302599.jpg">
+      <meta itemprop="name" content="pxBang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="pxBang的个人博客">
+      <meta itemprop="description" content="学而时习之，生活·学习·解决">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="mac邮件app无法接收Gmail邮件问题解决 | pxBang的个人博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          mac邮件app无法接收Gmail邮件问题解决
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-03-19 19:59:57" itemprop="dateCreated datePublished" datetime="2024-03-19T19:59:57+08:00">2024-03-19</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-08-24 00:43:58" itemprop="dateModified" datetime="2025-08-24T00:43:58+08:00">2025-08-24</time>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>690</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>2 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>代理的灵活使用</p>
+<span id="more"></span>
+<h2 id="起因">起因</h2>
+<p>创建了gmail邮箱，希望添加到mac自带的邮件app中。发现无法接收gmail邮件，于是在网上找攻略，不断寻找后，有人说代理可能会影响mac自带邮件app中gmail邮件接收。于是自己进行问题的定位</p>
+<h2 id="问题">问题</h2>
+<p>虽然有人说代理影响邮件app的gmail接收，但如何测试呢？发现邮件有连接诊断功能，见下图</p>
+<figure>
+<img data-src="https://raw.githubusercontent.com/pxBang/ImageHostingService/main/202403192007275.png"
+alt="连接诊断" />
+<figcaption aria-hidden="true">连接诊断</figcaption>
+</figure>
+<p>该功能可测试各邮件服务器的收发功能，于是开始测试</p>
+<h2 id="必要知识">必要知识</h2>
+<p>有必要理解<a
+target="_blank" rel="noopener" href="https://chat.openai.com/share/440c44e3-8e5d-4a76-84b5-f08dea0d30e0">IMAP和SMTP</a>（该链接需要翻墙）</p>
+<h2 id="测试">测试</h2>
+<h3 id="shadowrocket软件开启配置模式">shadowrocket软件开启配置模式</h3>
+<figure>
+<img data-src="https://raw.githubusercontent.com/pxBang/ImageHostingService/main/202403192011899.png"
+alt="开启shadowrocket配置模式" />
+<figcaption aria-hidden="true">开启shadowrocket配置模式</figcaption>
+</figure>
+<p>在连接了很久之后，依然连接失败。</p>
+<figure>
+<img data-src="https://raw.githubusercontent.com/pxBang/ImageHostingService/main/202403191948715.png"
+alt="连接了很久" />
+<figcaption aria-hidden="true">连接了很久</figcaption>
+</figure>
+<figure>
+<img data-src="https://raw.githubusercontent.com/pxBang/ImageHostingService/main/202403191948633.png"
+alt="连接失败" />
+<figcaption aria-hidden="true">连接失败</figcaption>
+</figure>
+<p>于是查看在当前配置规则下，<code>smtp.gmail.com</code>与<code>imap.gmail.com</code>两个服务器的代理情况，</p>
+<figure>
+<img data-src="https://raw.githubusercontent.com/pxBang/ImageHostingService/main/202403191950570.png"
+alt="smtp.gmail.com规则测试" />
+<figcaption aria-hidden="true">smtp.gmail.com规则测试</figcaption>
+</figure>
+<figure>
+<img data-src="https://raw.githubusercontent.com/pxBang/ImageHostingService/main/202403191950457.png"
+alt="imap.gmail.com规则测试" />
+<figcaption aria-hidden="true">imap.gmail.com规则测试</figcaption>
+</figure>
+<p>检查发现这两个域名均为代理模式，所以猜测</p>
+<blockquote>
+<p>代理导致IMAP服务器连接失败</p>
+</blockquote>
+<h3 id="关闭shadowrocket">关闭shadowrocket</h3>
+<p>关闭shadowrocket，即关闭代理后，再次进行服务器诊断</p>
+<figure>
+<img data-src="https://raw.githubusercontent.com/pxBang/ImageHostingService/main/202403192022414.png"
+alt="关闭shadowrocket模式" />
+<figcaption aria-hidden="true">关闭shadowrocket模式</figcaption>
+</figure>
+<figure>
+<img data-src="https://raw.githubusercontent.com/pxBang/ImageHostingService/main/202403191955296.png"
+alt="再次服务器连接诊断" />
+<figcaption aria-hidden="true">再次服务器连接诊断</figcaption>
+</figure>
+<p>发现连接成功！所以确定</p>
+<blockquote>
+<p>代理导致IMAP服务器连接失败!!!✅</p>
+</blockquote>
+<h2 id="解决问题">解决问题</h2>
+<blockquote>
+<p>我的需求是在开启配置模式下，依然能够连接<code>IMAP</code>服务器！</p>
+<p>解决办法是编辑模块文件，更改<code>imap.gmail.com</code>为直连规则！！！✅</p>
+</blockquote>
+<p>更改配置规则的办法不再赘述，这里给出规则</p>
+<pre class="line-numbers language-txt" data-language="txt"><code class="language-txt">DOMAIN-SUFFIX,imap.gmail.com,DIRECT<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="效果测试">效果测试</h2>
+<figure>
+<img data-src="https://raw.githubusercontent.com/pxBang/ImageHostingService/main/202403192041581.png"
+alt="🎉问题得到解决！" />
+<figcaption aria-hidden="true">🎉问题得到解决！</figcaption>
+</figure>
+<h2 id="小结">小结</h2>
+<p><code>mac</code>的<code>邮件</code>添加的<code>gmail</code>账户的<code>imap</code>服务器走代理模式，反而无法连接。我认为这一定是个bug，应该是mac邮件app和gmail在中国大陆的适配性还不够好。</p>
+<p>是的，我觉得就是bug。但别人也不做中国大陆的生意，在他们看来不是bug🤢</p>
+<h2 id="更新">更新</h2>
+<p>第二天我开启shadowrocket的配置模式，打开邮件连接测试，<code>gmail</code>的<code>IMAP</code>依然失败，再关闭shadowrocket配置模式之后，便联通了，之后打开shadowrocket的配置模式，<code>gmail</code>的<code>IMAP</code>一直保持畅通。</p>
+<p>这说明依然有bug，但是从之前的只要打开shadowrocket就连不上<code>gmail</code>的<code>IMAP</code>，所以每次收取邮件都得手动关闭sharowrcoket。到现在只需关闭开启一次，便可一直保持<code>gmail</code>的<code>IMAP</code>畅通，确实降低了手动操作次数。</p>
+<p>感觉像是缓存没有刷新的样子🤔，不知道什么原因。反正已经满足我的使用要求了，这种时不时出现的小bug不影响正常使用了，就这样吧！</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>Buy Me a Coffee !</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="https://raw.githubusercontent.com/pxBang/ImageHostingService/main/202402232321704.JPG" alt="pxBang 微信">
+        <span>微信</span>
+      </div>
+
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/mac/" rel="tag"># mac</a>
+              <a href="/tags/gmail/" rel="tag"># gmail</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2024/03/19/%E4%B8%AA%E4%BA%BA%E9%82%AE%E7%AE%B1%E7%B1%BB%E5%9E%8B%E5%8F%8A%E7%94%A8%E6%B3%95/" rel="prev" title="个人邮箱类型及用法">
+                  <i class="fa fa-angle-left"></i> 个人邮箱类型及用法
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2024/03/23/tg%E8%AF%84%E8%AE%BA%E5%8C%BA%E8%BE%A9%E8%AE%BA%E6%9C%89%E6%84%9F/" rel="next" title="tg评论区辩论有感">
+                  tg评论区辩论有感 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments gitalk-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">pxBang</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">81k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">4:30</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
+
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"pxBang","repo":"pxBang.github.io","client_id":"71c2acdbfd8649b45b27","client_secret":"652c5c065f75e1ca0bd7b533339fdc77bb2c4d91","admin_user":"pxBang","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":null,"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.min.js","integrity":"sha256-MVK9MGD/XJaGyIghSVrONSnoXoGh3IFxLw0zfvzpxR4="},"path_md5":"67d62f7ce3318938ec24737c96592543"}</script>
+<script src="/js/third-party/comments/gitalk.js"></script>
+
+</body>
+</html>
