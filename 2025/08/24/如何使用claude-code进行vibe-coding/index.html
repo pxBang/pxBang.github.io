@@ -19,15 +19,15 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.19.1","exturl":false,"sidebar":{"position":"left","display":"always","padding":10,"offset":12},"copycode":{"enable":true,"style":"flat"},"fold":{"enable":true,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="前言 本篇博客旨在分享如何使用Claude Code进行vibe coding的整体思路及关键步骤。 plan mode + CLAUDE.md 项目初期，不要急于开始编写代码。除非你对所需的代码细节了如指掌，否则应该首先使用Claude Code的plan mode生成一份CLAUDE.md文档。这份文档应包含以下内容：  项目代码结构（适用于非零起步的项目） 开发需求，需要详细到流程图级别（建">
+    <meta name="description" content="前言 本篇博客旨在分享如何使用Claude Code进行vibe coding的整体思路及关键步骤。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="如何使用claude code进行vibe coding">
 <meta property="og:url" content="http://example.com/2025/08/24/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8claude-code%E8%BF%9B%E8%A1%8Cvibe-coding/index.html">
 <meta property="og:site_name" content="pxBang的个人博客">
-<meta property="og:description" content="前言 本篇博客旨在分享如何使用Claude Code进行vibe coding的整体思路及关键步骤。 plan mode + CLAUDE.md 项目初期，不要急于开始编写代码。除非你对所需的代码细节了如指掌，否则应该首先使用Claude Code的plan mode生成一份CLAUDE.md文档。这份文档应包含以下内容：  项目代码结构（适用于非零起步的项目） 开发需求，需要详细到流程图级别（建">
+<meta property="og:description" content="前言 本篇博客旨在分享如何使用Claude Code进行vibe coding的整体思路及关键步骤。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-08-23T16:50:23.000Z">
-<meta property="article:modified_time" content="2025-08-23T17:04:52.423Z">
+<meta property="article:modified_time" content="2025-08-23T17:26:54.326Z">
 <meta property="article:author" content="pxBang">
 <meta name="twitter:card" content="summary">
 
@@ -138,7 +138,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#plan-mode-claude.md"><span class="nav-number">2.</span> <span class="nav-text">plan mode + CLAUDE.md</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%80%E5%A7%8Bvibe-coding"><span class="nav-number">3.</span> <span class="nav-text">开始vibe coding</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#plan-mode-claude.md"><span class="nav-number">2.</span> <span class="nav-text">plan mode + CLAUDE.md</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%80%E5%A7%8Bvibe-coding"><span class="nav-number">3.</span> <span class="nav-text">开始vibe coding</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#something-important"><span class="nav-number">4.</span> <span class="nav-text">something important</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -221,7 +221,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2025-08-24 00:50:23 / 修改时间：01:04:52" itemprop="dateCreated datePublished" datetime="2025-08-24T00:50:23+08:00">2025-08-24</time>
+      <time title="创建时间：2025-08-24 00:50:23 / 修改时间：01:26:54" itemprop="dateCreated datePublished" datetime="2025-08-24T00:50:23+08:00">2025-08-24</time>
     </span>
 
   
@@ -238,7 +238,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>179</span>
+      <span>224</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -258,6 +258,7 @@
     <div class="post-body" itemprop="articleBody"><h2 id="前言">前言</h2>
 <p>本篇博客旨在分享如何使用Claude Code进行vibe
 coding的整体思路及关键步骤。</p>
+<span id="more"></span>
 <h2 id="plan-mode-claude.md">plan mode + CLAUDE.md</h2>
 <p>项目初期，不要急于开始编写代码。除非你对所需的代码细节了如指掌，否则应该首先使用Claude
 Code的plan mode生成一份CLAUDE.md文档。这份文档应包含以下内容：</p>
@@ -268,6 +269,9 @@ Code的plan mode生成一份CLAUDE.md文档。这份文档应包含以下内容�
 </ol>
 <h2 id="开始vibe-coding">开始vibe coding</h2>
 <p>基于上一步生成的CLAUDE.md文档进行vibe coding...</p>
+<h2 id="something-important">something important</h2>
+<p>一定要密切关注当前Claude
+Code的更新动态，这样才能更好地利用它的最新功能，因为它的迭代速度非常快。</p>
 
     </div>
 
